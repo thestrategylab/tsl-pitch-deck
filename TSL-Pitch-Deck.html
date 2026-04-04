@@ -427,16 +427,17 @@ html, body {
   border-top:3px solid var(--cyan);
   border-radius:14px; padding:28px 30px;
   display:flex; flex-direction:column;
+  justify-content:flex-start;
 }
 .twall-qmark {
-  font-family:var(--font-display);
-  font-size:48px; color:var(--cyan);
-  line-height:1; margin-bottom:8px;
+  font-size:32px; color:var(--cyan);
+  line-height:1; margin-bottom:12px;
+  font-weight:900; font-family:Georgia,serif;
+  height:32px; display:flex; align-items:center;
 }
 .twall-text {
-  font-size:15.5px; color:rgba(255,255,255,0.82);
-  line-height:1.8; flex:1;
-  display:flex; align-items:center;
+  font-size:15px; color:rgba(255,255,255,0.82);
+  line-height:1.78; flex:1;
 }
 .twall-sep {
   height:1px; background:rgba(255,255,255,0.1);
@@ -1332,12 +1333,10 @@ html, body {
   <div class="glow" style="width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.12;"></div>
   <div class="inner" style="align-items:center;justify-content:center;">
     <div class="contact-wrap">
-      <div class="contact-eyebrow">The Strategy Lab</div>
-      <div style="display:inline-flex;margin-bottom:24px;">
-        <div style="background:#fff;border:2px solid var(--cyan);border-radius:12px;padding:12px 24px;box-shadow:0 0 32px rgba(77,209,244,0.2);">
-          <img src="LOGOs/TSL_Logo.png" alt="The Strategy Lab" style="height:80px;width:auto;display:block;"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-          <div style="display:none;font-family:var(--font);font-weight:700;font-size:18px;color:var(--brown-main);line-height:1.25;text-align:left;">The<br>Strategy<br>Lab</div>
+      <div style="display:inline-flex;margin-bottom:20px;">
+        <div style="background:#fff;border:2px solid var(--cyan);border-radius:14px;padding:16px 28px;box-shadow:0 0 40px rgba(77,209,244,0.2);text-align:center;">
+          <div style="font-size:10px;color:#999;letter-spacing:2px;font-weight:600;margin-bottom:6px;">1.618</div>
+          <div style="font-family:var(--font);font-weight:800;font-size:22px;color:var(--brown-main);line-height:1.2;letter-spacing:-0.5px;">The<br>Strategy Lab</div>
         </div>
       </div>
       <h2 class="contact-h">Let's Bond?</h2>
