@@ -336,6 +336,13 @@ html, body {
   object-fit:contain; display:block;
   opacity:0.9;
 }
+.logo-text-only { justify-content:center; }
+.brand-name-large {
+  font-size:13px; font-weight:700;
+  color:var(--brown-main); letter-spacing:0.5px;
+  text-align:center; line-height:1.3;
+  font-family:var(--font);
+}
 .logo-cell .brand-name {
   font-size:10px; font-weight:700;
   color:var(--brown-main);
@@ -409,6 +416,28 @@ html, body {
 .sr-cards { display:flex; gap:22px; flex:1; min-height:0; }
 .sr-card { flex:1; }
 
+/* ── Case Study: New narrative layout ──────────────────────── */
+.cs-narrative { display:flex; gap:18px; flex:1; min-height:0; }
+.cs-narrative-col { flex:1; display:flex; flex-direction:column; gap:14px; }
+.cs-row-label {
+  font-size:10px; font-weight:700; letter-spacing:2.5px;
+  text-transform:uppercase; color:var(--cyan); margin-bottom:4px;
+}
+.cs-finding {
+  background:rgba(255,255,255,0.04);
+  border-left:3px solid rgba(77,209,244,0.3);
+  border-radius:0 8px 8px 0;
+  padding:12px 16px;
+  font-size:14px; color:rgba(255,255,255,0.78); line-height:1.55;
+}
+.cs-achievement {
+  background:rgba(77,209,244,0.1);
+  border-left:3px solid var(--cyan);
+  border-radius:0 8px 8px 0;
+  padding:12px 16px;
+  font-size:14px; color:rgba(255,255,255,0.9); line-height:1.55; font-weight:500;
+}
+
 /* ── S10: Testimonial (single, kept for Payal solo slide) ──── */
 .testimonial-wrap { max-width:860px; margin:0 auto; width:100%; }
 .testi-name { font-weight:700; font-size:20px; color:var(--white); text-align:center; margin:20px 0 28px; }
@@ -479,13 +508,19 @@ html, body {
 .workflow { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:40px; flex-wrap:nowrap; }
 .wf-step {
   flex:1; min-height:124px; max-width:190px;
-  background:var(--cyan); border-radius:12px;
+  background:transparent;
+  border:2px dashed rgba(255,255,255,0.25);
+  border-radius:12px;
   display:flex; align-items:center; justify-content:center;
   text-align:center; padding:16px;
-  color:var(--brown-deep); font-weight:700; font-size:15px; line-height:1.4;
+  color:rgba(255,255,255,0.7); font-weight:600; font-size:15px; line-height:1.4;
 }
-.wf-step.last { background:transparent; border:2px dashed var(--cyan); color:var(--cyan); }
-.wf-arrow { color:rgba(255,255,255,0.35); font-size:22px; flex-shrink:0; }
+.wf-step.last {
+  background:var(--cyan); border:2px solid var(--cyan);
+  color:var(--brown-deep); font-weight:800;
+  box-shadow:0 0 24px rgba(77,209,244,0.4);
+}
+.wf-arrow { color:rgba(255,255,255,0.25); font-size:22px; flex-shrink:0; }
 
 /* ── S16: Formula Click ────────────────────────────────────── */
 .fc-h { font-family:var(--font-display); font-size:62px; color:var(--white); text-align:center; margin-bottom:16px; }
@@ -536,7 +571,7 @@ html, body {
 .contact-icon svg { width:19px; height:19px; color:var(--cyan); }
 .contact-detail { text-align:left; }
 .contact-label { font-size:11px; font-weight:700; color:var(--cyan); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:3px; }
-.contact-text { font-size:16px; color:var(--white); font-weight:500; }
+.contact-text { font-size:14px; color:var(--white); font-weight:500; word-break:break-all; }
 .contact-tagline { margin-top:44px; font-size:14px; color:rgba(255,255,255,0.2); letter-spacing:4px; text-transform:uppercase; font-weight:300; }
 
 /* ── Desktop: viewport-scale deck ────────────────────────────
@@ -756,29 +791,23 @@ html, body {
   <svg class="doodle" style="bottom:90px;right:110px;width:65px;" viewBox="0 0 65 65" fill="none" stroke="var(--cyan)" stroke-width="1"><circle cx="32" cy="32" r="26"/><ellipse cx="32" cy="32" rx="13" ry="26"/><line x1="6" y1="32" x2="58" y2="32"/><path d="M10 18 Q32 14 54 18" fill="none"/><path d="M10 46 Q32 50 54 46" fill="none"/></svg>
   <div class="inner" style="align-items:center;justify-content:center;">
     <div class="s4-wrap">
-      <!-- Left: Photo + name -->
+      <!-- Left: Large hero photo -->
       <div style="flex-shrink:0;text-align:center;">
-        <div class="s4-photo-ring">
-          <img src="Dhruv Images/Dhruv_2.jpeg" alt="Dhruv Tewari" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="s4-name-badge">
-          <h3>Dhruv Tewari</h3>
-          <p>Founder &amp; CEO</p>
+        <div class="s4-photo-ring" style="width:280px;height:320px;border-radius:20px;overflow:hidden;border:3px solid var(--cyan);box-shadow:0 0 60px rgba(77,209,244,0.2);">
+          <img src="Dhruv Images/Dhruv_2.jpeg" alt="Dhruv Tewari" style="width:100%;height:100%;object-fit:cover;object-position:top;">
         </div>
       </div>
-      <!-- Right: Text + quote + credentials -->
+      <!-- Right: Name + headline + chips -->
       <div class="s4-right">
-        <p class="s4-sub">We're not just "another marketing agency".</p>
-        <p class="s4-head">We've got the <strong>Formula for Success.</strong></p>
-        <div class="founder-quote-block">
-          <div class="qt">"We run strategy like scientists —<br>every campaign hypothesis-driven,<br>every decision data-backed."</div>
-          <div class="qa">— Dhruv Tewari, Founder &amp; CEO</div>
-        </div>
+        <p class="s4-sub">Meet the founder.</p>
+        <h2 style="font-family:var(--font-display);font-size:52px;color:var(--white);line-height:1.1;margin-bottom:8px;">Dhruv Tewari</h2>
+        <p style="font-size:14px;font-weight:700;letter-spacing:3px;color:var(--cyan);text-transform:uppercase;margin-bottom:28px;">Founder &amp; CEO, The Strategy Lab</p>
+        <p class="s4-head" style="margin-bottom:28px;">Built TSL to give brands access to <strong>senior-level strategy</strong> that actually moves the needle.</p>
         <div class="cred-chips">
-          <span class="cred-chip">10–20 Yrs Experience Each</span>
-          <span class="cred-chip">D2C &amp; Luxury Specialists</span>
+          <span class="cred-chip">D2C &amp; Luxury Specialist</span>
           <span class="cred-chip">Senior Strategists Only</span>
-          <span class="cred-chip">Global Agency Backgrounds</span>
+          <span class="cred-chip">Global Agency Background</span>
+          <span class="cred-chip">13+ Brands Scaled</span>
         </div>
       </div>
     </div>
@@ -871,14 +900,14 @@ html, body {
       <div class="logo-cell"><img src="LOGOs/LTL_Logo.jpeg" alt="Little Tags Luxury"><span class="brand-name">Little Tags Luxury</span></div>
       <div class="logo-cell"><img src="LOGOs/PayalJain_logo.avif" alt="Payal Jain" style="max-height:28px;"><span class="brand-name">Payal Jain</span></div>
       <div class="logo-cell"><img src="LOGOs/Payal_Pratap_Logo.jpeg" alt="Payal Pratap"><span class="brand-name">Payal Pratap</span></div>
-      <div class="logo-cell"><img src="LOGOs/mandira-wirk-logo.jpeg" alt="Mandira Wirk" style="mix-blend-mode:multiply;filter:contrast(1.1);"><span class="brand-name">Mandira Wirk</span></div>
+      <div class="logo-cell logo-text-only"><span class="brand-name-large">Mandira Wirk</span></div>
       <div class="logo-cell"><img src="LOGOs/Rajesh_Pratap_Logo.jpeg" alt="Rajesh Pratap Singh"><span class="brand-name">Rajesh Pratap Singh</span></div>
       <div class="logo-cell"><img src="LOGOs/Tabeer_India_Logo_1.jpg" alt="Tabeer India"><span class="brand-name">Tabeer India</span></div>
-      <div class="logo-cell"><img src="LOGOs/Bumble_Bee_logo.jpg" alt="The Bumblebee Clothing" style="max-height:80px;transform:scale(1.6);"><span class="brand-name">The Bumblebee</span></div>
-      <div class="logo-cell"><img src="LOGOs/OTOS_Logo.jpeg" alt="One Teacher One Scientist" style="mix-blend-mode:multiply;filter:contrast(1.1);"><span class="brand-name">OTOS</span></div>
-      <div class="logo-cell"><img src="LOGOs/Kewalson_Logo.jpeg" alt="Kewalson" style="mix-blend-mode:multiply;filter:contrast(1.1);"><span class="brand-name">Kewalson</span></div>
+      <div class="logo-cell logo-text-only"><span class="brand-name-large">The Bumblebee</span></div>
+      <div class="logo-cell"><img src="LOGOs/OTOS_Logo.jpeg" alt="One Teacher One Scientist" style="mix-blend-mode:multiply;background:#fff;border-radius:6px;padding:4px;"><span class="brand-name">OTOS</span></div>
+      <div class="logo-cell logo-text-only"><span class="brand-name-large">Kewalson</span></div>
       <div class="logo-cell"><img src="LOGOs/Influennz_Clinic_logo.png" alt="Influennz Clinic"><span class="brand-name">Influennz Clinic</span></div>
-      <div class="logo-cell"><img src="LOGOs/BeTheChangeLogo.svg" alt="Be The Change" style="max-height:80px;transform:scale(1.6);"><span class="brand-name">Be The Change</span></div>
+      <div class="logo-cell logo-text-only"><span class="brand-name-large">Be The Change</span></div>
       <div class="logo-cell"><img src="LOGOs/Upshop_Logo.jpg" alt="Upshop"><span class="brand-name">Upshop</span></div>
     </div>
   </div>
@@ -912,8 +941,8 @@ html, body {
       </div>
       <!-- FIX: Replaced "40+ Yrs Combined Exp." with individual experience range -->
       <div class="why-stat-box">
-        <div class="stat">10–20</div>
-        <div class="stat-label">Yrs Exp. Per Strategist</div>
+        <div class="stat">100%</div>
+        <div class="stat-label">Senior Strategists</div>
       </div>
     </div>
     <div class="why-grid">
@@ -923,7 +952,7 @@ html, body {
         </div>
         <div class="why-point-text">
           <h5>Senior Team, Every Account</h5>
-          <p>No juniors. Every account is handled directly by senior strategists with 10–20 years of real-world experience at top global agencies.</p>
+          <p>No juniors. Every account is handled directly by senior strategists with deep real-world experience at top global agencies.</p>
         </div>
       </div>
       <div class="why-point">
@@ -1003,15 +1032,15 @@ html, body {
      SLIDE 9 — Shades of India: Strategy + Results
      [FIX 1: Bigger stats, better visual weight]
      ════════════════════════════════════════════════════════════ -->
-<div class="slide bg-light" data-slide="9">
+<div class="slide bg-gradient" data-slide="9">
   <div class="inner" style="justify-content:flex-start;padding-top:40px;padding-bottom:32px;">
     <div class="label-block" style="margin-bottom:16px;align-items:center;">
       <div class="label-bar"></div>
       <div style="flex:1;">
-        <div class="label-sup dim">Case Study 01</div>
-        <div class="label-title dark">Shades of India: Results</div>
+        <div class="label-sup">Case Study 01</div>
+        <div class="label-title">Shades of India: Results</div>
       </div>
-      <img src="LOGOs/Shades_Of_India_Logo.jpeg" alt="Shades of India" style="height:48px;width:auto;object-fit:contain;background:white;border-radius:8px;padding:4px 10px;box-shadow:0 1px 4px rgba(0,0,0,0.1);">
+      <img src="LOGOs/Shades_Of_India_Logo.jpeg" alt="Shades of India" style="height:48px;width:auto;object-fit:contain;background:rgba(255,255,255,0.9);border-radius:8px;padding:4px 10px;box-shadow:0 1px 8px rgba(0,0,0,0.3);">
     </div>
     <div class="cs-results-inner">
       <!-- Hero stats -->
@@ -1021,32 +1050,24 @@ html, body {
         <div class="sh-col"><div class="sh-n">2+ Yrs</div><div class="sh-l">Ongoing Partnership</div></div>
         <div class="sh-col"><div class="sh-n">₹60–70L</div><div class="sh-l">Total Ad Spend Managed</div></div>
       </div>
-      <div class="sr-cards">
-        <div class="sr-card card-light">
-          <h4>Key Findings</h4>
-          <ul>
-            <li>Good traffic, but no funnel structure to convert it at scale</li>
-            <li>Previous agency had maxed out bottom-funnel with no fresh acquisition strategy</li>
-            <li>10x ROAS was proven at small spend (₹2.6L) but nobody had tried to scale it</li>
-          </ul>
+      <div class="cs-narrative">
+        <div class="cs-narrative-col">
+          <div class="cs-row-label">What we found</div>
+          <div class="cs-finding">Good traffic, but zero funnel structure to convert it at scale</div>
+          <div class="cs-finding">Previous agency maxed out bottom-funnel with no fresh acquisition</div>
+          <div class="cs-finding">10x ROAS proven at ₹2.6L spend — nobody had tried to scale it</div>
+          <div class="cs-row-label" style="margin-top:8px;">What we did</div>
+          <div class="cs-finding">Full-funnel creative layering: brand films, USPs, dynamic retargeting</div>
+          <div class="cs-finding">Doubled ad spend over 3 months while continuously optimising</div>
+          <div class="cs-finding">Rebuilt campaigns from ground up + unlocked Instagram as a channel</div>
         </div>
-        <div class="sr-card card-light">
-          <h4>Our Strategy</h4>
-          <ul>
-            <li>Doubled ad spend over 3 months while continuously optimising for efficiency</li>
-            <li>Full-funnel creative layering: brand films, product USPs, dynamic retargeting</li>
-            <li>Complete campaign restructuring + audience &amp; geo refinement from ground up</li>
-            <li>Instagram placement campaigns to unlock a channel that wasn't being used</li>
-          </ul>
-        </div>
-        <div class="sr-card card-light">
-          <h4>Achievements</h4>
-          <ul>
-            <li>Sustained 9x+ ROAS at 2x the original ad spend</li>
-            <li>₹2.5 Cr in Year 1, ₹1.7 Cr in Year 2. Over ₹4 Cr total.</li>
-            <li>BAU ROAS improved from 1.8x to 3.5x</li>
-            <li>3x Instagram revenue. Stronger traffic quality across the board.</li>
-          </ul>
+        <div class="cs-narrative-col">
+          <div class="cs-row-label">What happened</div>
+          <div class="cs-achievement">Sustained 9x+ ROAS at 2x the original ad spend</div>
+          <div class="cs-achievement">₹2.5 Cr Year 1 + ₹1.7 Cr Year 2 = over ₹4 Cr total revenue</div>
+          <div class="cs-achievement">BAU ROAS improved from 1.8x to 3.5x</div>
+          <div class="cs-achievement">3x Instagram revenue. Stronger traffic quality across the board.</div>
+          <div class="cs-achievement" style="margin-top:auto;background:rgba(77,209,244,0.18);border-color:var(--cyan);font-weight:700;">Still running. 2+ year ongoing partnership.</div>
         </div>
       </div>
     </div>
@@ -1097,15 +1118,15 @@ html, body {
      SLIDE 12 — Little Tags Luxury: Strategy + Results
      [FIX 1: Bigger stats, better visual weight]
      ════════════════════════════════════════════════════════════ -->
-<div class="slide bg-light" data-slide="12">
+<div class="slide bg-gradient" data-slide="12">
   <div class="inner" style="justify-content:flex-start;padding-top:40px;padding-bottom:32px;">
     <div class="label-block" style="margin-bottom:16px;align-items:center;">
       <div class="label-bar"></div>
       <div style="flex:1;">
-        <div class="label-sup dim">Case Study 02</div>
-        <div class="label-title dark">Little Tags Luxury: Results</div>
+        <div class="label-sup">Case Study 02</div>
+        <div class="label-title">Little Tags Luxury: Results</div>
       </div>
-      <img src="LOGOs/LTL_Logo.jpeg" alt="Little Tags Luxury" style="height:48px;width:auto;object-fit:cover;border-radius:8px;">
+      <img src="LOGOs/LTL_Logo.jpeg" alt="Little Tags Luxury" style="height:48px;width:auto;object-fit:contain;background:rgba(255,255,255,0.9);border-radius:8px;padding:4px 10px;box-shadow:0 1px 8px rgba(0,0,0,0.3);">
     </div>
     <div class="cs-results-inner">
       <div class="stats-hero">
@@ -1114,31 +1135,24 @@ html, body {
         <div class="sh-col"><div class="sh-n">₹70L</div><div class="sh-l">Revenue Per Month</div></div>
         <div class="sh-col"><div class="sh-n">₹50–60L</div><div class="sh-l">Total Ad Spend Managed</div></div>
       </div>
-      <div class="sr-cards">
-        <div class="sr-card card-light">
-          <h4>Key Findings</h4>
-          <ul>
-            <li>Wrong audiences being targeted — luxury buyer segments hadn't been built</li>
-            <li>Existing campaigns underperforming with ROAS well below brand's true potential</li>
-            <li>No full-funnel structure to handle high spend (₹10–15L/month) profitably</li>
-          </ul>
+      <div class="cs-narrative">
+        <div class="cs-narrative-col">
+          <div class="cs-row-label">What we found</div>
+          <div class="cs-finding">Wrong audiences targeted — luxury buyer segments hadn't been built</div>
+          <div class="cs-finding">Campaigns underperforming with ROAS below the brand's true potential</div>
+          <div class="cs-finding">No full-funnel structure to handle ₹10–15L/month spend profitably</div>
+          <div class="cs-row-label" style="margin-top:8px;">What we did</div>
+          <div class="cs-finding">Built separate acquisition + retargeting funnels for luxury segments</div>
+          <div class="cs-finding">Aspirational creative matched to high-intent audiences on Meta &amp; Google</div>
+          <div class="cs-finding">Continuous optimisation to maintain efficiency at aggressive spend levels</div>
         </div>
-        <div class="sr-card card-light">
-          <h4>Our Strategy</h4>
-          <ul>
-            <li>Deployed ₹10–15L/month in precision-targeted Meta &amp; Google campaigns</li>
-            <li>Built separate acquisition and retargeting funnels for luxury buyer segments</li>
-            <li>Creative-led approach: aspirational visuals matched to high-intent audiences</li>
-          </ul>
-        </div>
-        <div class="sr-card card-light">
-          <h4>Achievements</h4>
-          <ul>
-            <li>~₹70L/month in revenue, sustained across all 4 months</li>
-            <li>₹3–4 Cr total revenue on ₹50–60L ad spend</li>
-            <li>~5x ROAS maintained despite aggressive budget scaling</li>
-            <li>Repeatable, scalable paid acquisition playbook established</li>
-          </ul>
+        <div class="cs-narrative-col">
+          <div class="cs-row-label">What happened</div>
+          <div class="cs-achievement">~₹70L/month in revenue, sustained across all 4 months</div>
+          <div class="cs-achievement">₹3–4 Cr total revenue on ₹50–60L total ad spend</div>
+          <div class="cs-achievement">~5x ROAS maintained despite aggressive budget scaling</div>
+          <div class="cs-achievement">Repeatable, scalable paid acquisition playbook established</div>
+          <div class="cs-achievement" style="margin-top:auto;background:rgba(77,209,244,0.18);border-color:var(--cyan);font-weight:700;">₹3–4 Cr in just 4 months. Proof that the system works fast.</div>
         </div>
       </div>
     </div>
@@ -1234,7 +1248,7 @@ html, body {
           <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="18" height="14" rx="2"/><line x1="8" y1="20" x2="14" y2="20"/><line x1="11" y1="18" x2="11" y2="20"/></svg>
         </div>
         <h4>Web Development</h4>
-        <p>High-converting, high-performance websites built by engineers with 10–20+ years of experience. Designed to grow with your brand.</p>
+        <p>High-converting, high-performance websites built by senior engineers. Designed to grow with your brand from day one.</p>
       </div>
       <!-- Row 2: 2 cards centered -->
       <div class="svc-card svc-card-b">
