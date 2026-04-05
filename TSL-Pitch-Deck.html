@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Lilita+One&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   TSL PITCH DECK v3 — DARK PREMIUM EDITION
+   TSL PITCH DECK v4 — DARK PREMIUM EDITION
    Brand: TSL Brown #54453E | TSL Cyan #4DD1F4
    ============================================================ */
 
@@ -51,7 +51,7 @@ html, body {
   position:absolute; inset:0;
   display:flex; align-items:center; justify-content:center;
   opacity:0; pointer-events:none;
-  transition:opacity 0.45s ease;
+  transition:opacity 0.5s cubic-bezier(0.4,0,0.2,1);
   overflow:hidden;
 }
 .slide.active { opacity:1; pointer-events:auto; }
@@ -70,7 +70,7 @@ html, body {
   width:100%; height:100%;
   max-width:1440px; max-height:810px;
   position:relative;
-  padding:52px 80px;
+  padding:60px 88px;
   display:flex; flex-direction:column;
   justify-content:center;
 }
@@ -125,6 +125,7 @@ html, body {
   font-family:var(--font-display);
   font-size:44px; line-height:1.1;
   color:var(--white);
+  letter-spacing:-0.5px;
 }
 .label-title.dark { color:var(--brown-main); }
 
@@ -218,24 +219,91 @@ html, body {
    ============================================================ */
 
 /* ── S1: Caution Opener ────────────────────────────────────── */
-.s1-wrap { display:flex; align-items:center; gap:52px; max-width:860px; }
-.s1-h { font-weight:700; font-size:40px; color:var(--white); margin-bottom:14px; }
+.s1-layout {
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  width:100%;
+  height:100%;
+  position:relative;
+}
+.s1-cyan-bar {
+  position:absolute;
+  left:0; top:20%;
+  width:8px;
+  height:60%;
+  background:var(--cyan);
+  border-radius:0 4px 4px 0;
+  box-shadow:0 0 20px rgba(77,209,244,0.5);
+}
+.s1-content {
+  padding-left:40px;
+}
+.s1-h {
+  font-family:var(--font-display);
+  font-weight:400;
+  font-size:72px;
+  color:var(--white);
+  line-height:1.05;
+  margin-bottom:0;
+}
+.s1-divider {
+  width:40%;
+  height:1px;
+  background:var(--cyan);
+  opacity:0.5;
+  margin:22px 0;
+}
 .s1-p { font-size:24px; color:rgba(255,255,255,0.85); line-height:1.55; }
 
 /* ── S2: Philosophy ────────────────────────────────────────── */
-.s2-body { max-width:900px; margin:0 auto; text-align:center; }
-.s2-top { font-size:24px; color:rgba(255,255,255,0.75); line-height:1.65; margin-bottom:28px; }
-.s2-mid { font-size:32px; font-weight:700; color:var(--white); margin-bottom:48px; line-height:1.35; }
-.s2-bot { font-family:var(--font-display); font-size:44px; color:var(--cyan); letter-spacing:1px; }
+.s2-outer {
+  width:100%;
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+.s2-body {
+  width:55%;
+  text-align:left;
+}
+.s2-decorative-quote {
+  position:absolute;
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  font-family:var(--font-display);
+  font-size:280px;
+  color:rgba(77,209,244,0.06);
+  line-height:1;
+  pointer-events:none;
+  user-select:none;
+  width:45%;
+  text-align:center;
+}
+.s2-top { font-size:22px; font-style:italic; color:rgba(255,255,255,0.6); line-height:1.65; margin-bottom:28px; }
+.s2-mid { font-family:var(--font-display); font-size:36px; font-weight:800; color:var(--white); margin-bottom:48px; line-height:1.35; }
+.s2-bot { font-family:var(--font-display); font-size:52px; color:var(--cyan); letter-spacing:1px; }
 
 /* ── S3: Hero Logo ─────────────────────────────────────────── */
-.s3-scene {
-  width:100%; max-width:1000px; height:360px;
-  position:relative; margin-bottom:24px;
+.s3-center {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  position:relative;
+}
+.s3-eyebrow {
+  font-family:var(--font);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:6px;
+  color:var(--cyan);
+  text-transform:uppercase;
+  margin-bottom:20px;
 }
 .s3-tile {
-  position:absolute; top:50%; left:50%;
-  transform:translate(-50%,-50%);
   background:var(--white); border-radius:16px;
   border:3px solid var(--cyan);
   padding:20px 36px; z-index:2;
@@ -243,17 +311,35 @@ html, body {
   display:flex; align-items:center; justify-content:center;
 }
 .s3-tile img { display:block; width:220px; height:auto; }
-.s3-tagline { font-size:26px; color:var(--gray); letter-spacing:4px; font-weight:300; text-align:center; }
+.s3-tagline { font-size:22px; color:rgba(255,255,255,0.4); letter-spacing:5px; font-weight:300; text-align:center; margin-top:20px; }
+.s3-chips {
+  display:flex;
+  gap:16px;
+  margin-top:24px;
+  align-items:center;
+  justify-content:center;
+}
+.s3-chip {
+  border:1px solid var(--cyan);
+  border-radius:20px;
+  padding:8px 18px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--cyan);
+  background:rgba(77,209,244,0.06);
+  letter-spacing:0.5px;
+}
 
 /* ── S4: Founder ───────────────────────────────────────────── */
 .s4-wrap { display:flex; align-items:center; gap:64px; width:100%; }
-.s4-photo-ring {
-  width:300px; height:300px; border-radius:50%;
-  border:4px solid var(--cyan);
-  box-shadow:0 0 0 8px rgba(77,209,244,0.12), 0 0 60px rgba(77,209,244,0.2);
+.s4-photo-card {
+  width:300px; height:380px;
+  border-radius:20px;
+  border:3px solid var(--cyan);
+  box-shadow:0 0 60px rgba(77,209,244,0.2);
   flex-shrink:0; overflow:hidden;
 }
-.s4-photo-ring img { width:100%; height:100%; object-fit:cover; }
+.s4-photo-card img { width:100%; height:100%; object-fit:cover; object-position:top; }
 .s4-name-badge { margin-top:16px; text-align:center; }
 .s4-name-badge h3 { font-family:var(--font-display); font-size:26px; color:var(--cyan); }
 .s4-name-badge p { font-size:13px; color:rgba(255,255,255,0.55); font-weight:600; margin-top:3px; letter-spacing:1.5px; text-transform:uppercase; }
@@ -281,6 +367,32 @@ html, body {
   font-size:13px; font-weight:600; color:var(--cyan);
   letter-spacing:0.5px;
 }
+/* Stat row for founder */
+.s4-stat-row {
+  display:flex;
+  gap:12px;
+  margin-top:16px;
+}
+.s4-stat-box {
+  flex:1;
+  border:1px solid rgba(77,209,244,0.35);
+  border-radius:10px;
+  padding:12px 14px;
+  background:rgba(77,209,244,0.05);
+  text-align:center;
+}
+.s4-stat-box .s4-sn {
+  font-size:15px;
+  font-weight:800;
+  color:var(--cyan);
+  margin-bottom:4px;
+}
+.s4-stat-box .s4-sl {
+  font-size:11px;
+  color:rgba(255,255,255,0.45);
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+}
 
 /* ── S5: Formula Redesign ──────────────────────────────────── */
 .formula-label { font-size:13px; font-weight:700; letter-spacing:3px; color:var(--cyan); text-transform:uppercase; text-align:center; margin-bottom:40px; }
@@ -300,10 +412,37 @@ html, body {
 .formula-plus { font-size:48px; font-weight:200; color:var(--cyan); flex-shrink:0; opacity:0.7; line-height:1; }
 .formula-result-row { text-align:center; }
 .formula-eq-sign { font-size:36px; font-weight:300; color:rgba(255,255,255,0.4); letter-spacing:2px; }
-.formula-result { font-size:88px; font-weight:900; color:var(--cyan); letter-spacing:10px; text-shadow:0 0 80px rgba(77,209,244,0.45), 0 0 160px rgba(77,209,244,0.2); line-height:1; display:inline-block; }
-.formula-result-label { font-size:14px; color:rgba(255,255,255,0.4); letter-spacing:4px; text-transform:uppercase; margin-top:8px; }
+.formula-result {
+  font-size:72px;
+  font-weight:900;
+  color:var(--cyan);
+  letter-spacing:8px;
+  text-shadow:0 0 80px rgba(77,209,244,0.45), 0 0 160px rgba(77,209,244,0.2);
+  line-height:1;
+  display:inline-block;
+}
+.formula-result-sub {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:10px;
+  gap:4px;
+}
+.formula-result-sub span {
+  font-size:20px;
+  color:rgba(255,255,255,0.5);
+  font-weight:300;
+  line-height:1.3;
+}
 
 /* ── S6: Logo Wall ─────────────────────────────────────────── */
+.logo-wall-label {
+  font-size:14px;
+  color:rgba(255,255,255,0.4);
+  text-align:center;
+  font-style:italic;
+  margin-bottom:16px;
+}
 .logo-wall {
   display:flex;
   flex-wrap:wrap;
@@ -312,17 +451,15 @@ html, body {
   justify-content:center;
 }
 .logo-cell {
-  width:220px;
-  height:96px;
+  width:200px;
+  height:100px;
   background:#fff;
   border:1px solid rgba(255,255,255,0.1);
   border-radius:12px;
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:12px 16px;
-  gap:7px;
+  padding:16px 20px;
   overflow:hidden;
   transition:transform 0.2s, box-shadow 0.2s;
   cursor:default;
@@ -332,9 +469,9 @@ html, body {
   box-shadow:0 6px 20px rgba(77,209,244,0.25);
 }
 .logo-cell img {
-  max-width:100%; max-height:44px;
+  max-width:90%; max-height:56px;
   object-fit:contain; display:block;
-  opacity:0.9;
+  opacity:0.92;
 }
 .logo-text-only { justify-content:center; }
 .brand-name-large {
@@ -345,6 +482,7 @@ html, body {
 }
 .logo-cell .brand-name {
   font-size:10px; font-weight:700;
+  font-style:italic;
   color:var(--brown-main);
   text-align:center; line-height:1.2;
   letter-spacing:0.6px; text-transform:uppercase;
@@ -353,12 +491,20 @@ html, body {
 /* ── S7: Why TSL ───────────────────────────────────────────── */
 .why-stat-row { display:flex; gap:16px; margin-bottom:22px; }
 .why-stat-box { flex:1; background:var(--card-bg); border:1px solid var(--card-border); border-radius:10px; padding:20px; text-align:center; }
+.why-stat-box.highlight { background:var(--cyan); border-color:var(--cyan); }
+.why-stat-box.highlight .stat { color:var(--brown-deep); }
+.why-stat-box.highlight .stat-label { color:rgba(28,22,18,0.7); }
 .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
 .why-point { display:flex; align-items:flex-start; gap:14px; }
-.why-point-icon { width:38px; height:38px; border-radius:50%; background:var(--cyan-dim); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.why-point-icon { width:38px; height:38px; border-radius:8px; background:var(--cyan-dim); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .why-point-icon svg { width:19px; height:19px; color:var(--cyan); }
 .why-point-text h5 { font-weight:700; font-size:17px; color:var(--white); margin-bottom:5px; }
 .why-point-text p { font-size:15px; color:rgba(255,255,255,0.6); line-height:1.55; }
+.why-inner-bottom-line {
+  margin-top:20px;
+  height:1px;
+  background:rgba(77,209,244,0.2);
+}
 
 /* ── Case Study: New 2-panel layout ──────────────────────────  */
 .cs-layout {
@@ -395,9 +541,16 @@ html, body {
 .cs-brand-logo-wrap.fill-cover img { width:100%; height:100%; object-fit:cover; }
 .cs-brand-name { font-family:var(--font-display); font-size:26px; color:var(--white); margin-bottom:8px; }
 .cs-brand-tag { font-size:12px; color:var(--cyan); letter-spacing:2px; text-transform:uppercase; }
-.cs-challenge-h { font-size:14px; font-weight:700; color:var(--cyan); letter-spacing:2px; text-transform:uppercase; margin-bottom:18px; }
-.cs-right-panel ul { list-style:none; display:flex; flex-direction:column; gap:14px; }
-.cs-right-panel ul li { font-size:17px; color:rgba(255,255,255,0.82); line-height:1.55; padding-left:20px; position:relative; }
+.cs-challenge-h {
+  font-size:11px;
+  font-weight:700;
+  color:var(--cyan);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.cs-right-panel ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.cs-right-panel ul li { font-size:15px; color:rgba(255,255,255,0.82); line-height:1.55; padding-left:20px; position:relative; }
 .cs-right-panel ul li::before { content:''; position:absolute; left:0; top:10px; width:6px; height:6px; border-radius:50%; background:var(--cyan); }
 
 /* ── Case Study: Results panel ─────────────────────────────── */
@@ -411,7 +564,7 @@ html, body {
 }
 .sh-col { padding:22px 16px; text-align:center; border-right:1px solid rgba(255,255,255,0.08); }
 .sh-col:last-child { border-right:none; }
-.sh-n { font-size:3rem; font-weight:800; color:var(--cyan); line-height:1; }
+.sh-n { font-size:3.2rem; font-weight:800; color:var(--cyan); line-height:1; }
 .sh-l { font-size:12px; color:rgba(255,255,255,0.5); margin-top:7px; letter-spacing:1px; text-transform:uppercase; }
 .sr-cards { display:flex; gap:22px; flex:1; min-height:0; }
 .sr-card { flex:1; }
@@ -422,6 +575,13 @@ html, body {
 .cs-row-label {
   font-size:10px; font-weight:700; letter-spacing:2.5px;
   text-transform:uppercase; color:var(--cyan); margin-bottom:4px;
+  display:flex; align-items:center; gap:0;
+}
+.cs-row-label::before {
+  content:'●';
+  margin-right:6px;
+  font-size:8px;
+  color:var(--cyan);
 }
 .cs-finding {
   background:rgba(255,255,255,0.04);
@@ -453,16 +613,19 @@ html, body {
   flex:1;
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.1);
-  border-top:3px solid var(--cyan);
-  border-radius:14px; padding:28px 30px;
+  border-left:4px solid var(--cyan);
+  border-top:none;
+  border-radius:0 14px 14px 0;
+  padding:28px 30px;
   display:flex; flex-direction:column;
   justify-content:flex-start;
 }
 .twall-qmark {
-  font-size:32px; color:var(--cyan);
-  line-height:1; margin-bottom:12px;
+  font-size:48px; color:var(--cyan);
+  line-height:1; margin-bottom:4px;
   font-weight:900; font-family:Georgia,serif;
-  height:32px; display:flex; align-items:center;
+  opacity:0.6;
+  height:48px; display:flex; align-items:center;
 }
 .twall-text {
   font-size:15px; color:rgba(255,255,255,0.82);
@@ -477,14 +640,41 @@ html, body {
   color:var(--cyan); margin-bottom:3px;
 }
 .twall-role {
-  font-size:12px; color:rgba(255,255,255,0.4);
+  font-size:13px; color:rgba(255,255,255,0.4);
   letter-spacing:0.5px; text-transform:uppercase;
 }
 
 /* ── S13: How Do We? Transition ────────────────────────────── */
-.how-wrap { text-align:center; }
-.how-h { font-family:var(--font-display); font-size:70px; color:var(--white); margin-bottom:16px; }
+.how-wrap {
+  display:flex;
+  align-items:center;
+  width:100%;
+  gap:0;
+}
+.how-left {
+  width:50%;
+  text-align:left;
+}
+.how-right {
+  width:50%;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding-left:48px;
+  border-left:1px solid rgba(255,255,255,0.1);
+}
+.how-h { font-family:var(--font-display); font-size:70px; color:var(--white); margin-bottom:16px; line-height:1.05; }
 .how-sub { font-size:24px; color:rgba(255,255,255,0.55); font-weight:300; }
+.how-service-item {
+  font-size:16px;
+  color:rgba(255,255,255,0.5);
+  line-height:1.4;
+}
+.how-service-item::before {
+  content:'→ ';
+  color:var(--cyan);
+  font-weight:700;
+}
 
 /* ── S14: Services ─────────────────────────────────────────── */
 .svc-grid-5 {
@@ -497,12 +687,13 @@ html, body {
 .svc-card-b { grid-column:span 3; } /* 2 in bottom row */
 .svc-card {
   background:var(--card-bg); border:1px solid var(--card-border);
+  border-left:4px solid rgba(77,209,244,0.4);
   border-radius:14px; padding:28px;
 }
 .svc-icon { width:46px; height:46px; background:var(--cyan-dim); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
 .svc-icon svg { width:22px; height:22px; color:var(--cyan); }
-.svc-card h4 { font-weight:700; font-size:19px; color:var(--white); margin-bottom:10px; }
-.svc-card p { font-size:15px; color:rgba(255,255,255,0.6); line-height:1.65; }
+.svc-card h4 { font-weight:700; font-size:20px; color:var(--white); margin-bottom:10px; }
+.svc-card p { font-size:15px; color:rgba(255,255,255,0.72); line-height:1.65; }
 
 /* ── S15: Methodology ──────────────────────────────────────── */
 .workflow { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:40px; flex-wrap:nowrap; }
@@ -511,7 +702,7 @@ html, body {
   background:transparent;
   border:2px dashed rgba(255,255,255,0.25);
   border-radius:12px;
-  display:flex; align-items:center; justify-content:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
   text-align:center; padding:16px;
   color:rgba(255,255,255,0.7); font-weight:600; font-size:15px; line-height:1.4;
 }
@@ -520,11 +711,43 @@ html, body {
   color:var(--brown-deep); font-weight:800;
   box-shadow:0 0 24px rgba(77,209,244,0.4);
 }
+.wf-num {
+  display:block;
+  font-size:10px;
+  letter-spacing:2px;
+  color:rgba(255,255,255,0.35);
+  margin-bottom:6px;
+  font-weight:700;
+}
+.wf-step.last .wf-num {
+  color:rgba(30,22,18,0.6);
+}
 .wf-arrow { color:rgba(255,255,255,0.25); font-size:22px; flex-shrink:0; }
 
 /* ── S16: Formula Click ────────────────────────────────────── */
 .fc-h { font-family:var(--font-display); font-size:62px; color:var(--white); text-align:center; margin-bottom:16px; }
 .fc-sub { font-size:22px; color:rgba(255,255,255,0.5); text-align:center; font-weight:300; }
+.fw-dot-row {
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+  margin-top:36px;
+}
+.fw-dot {
+  width:36px; height:36px;
+  border-radius:50%;
+  border:1.5px solid var(--cyan);
+  display:flex; align-items:center; justify-content:center;
+  font-size:10px;
+  color:var(--cyan);
+  font-weight:700;
+  flex-shrink:0;
+}
+.fw-dot-line {
+  width:24px; height:1px;
+  background:rgba(77,209,244,0.3);
+}
 
 /* ── S17: Framework ────────────────────────────────────────── */
 .fw-intro { font-size:26px; color:var(--white); margin-bottom:8px; font-weight:400; }
@@ -541,19 +764,45 @@ html, body {
   display:flex; align-items:center; justify-content:center;
   text-align:center; height:110px; line-height:1.3;
 }
+.fw-box.alt {
+  background:transparent;
+  border:2px solid var(--cyan);
+  color:var(--white);
+}
 .fw-box.full { grid-column:1 / -1; max-width:300px; margin:0 auto; width:100%; }
 
 /* ── S18: CTA ──────────────────────────────────────────────── */
 .cta-wrap { text-align:center; max-width:780px; }
-.cta-h { font-size:30px; color:rgba(255,255,255,0.65); font-weight:300; line-height:1.55; margin-bottom:28px; }
-.cta-big { font-size:36px; color:var(--white); font-weight:700; line-height:1.4; }
+.cta-h { font-size:34px; color:rgba(255,255,255,0.65); font-weight:300; line-height:1.55; margin-bottom:28px; }
+.cta-big { font-size:42px; color:var(--white); font-weight:700; line-height:1.4; }
 .cta-big em { color:var(--cyan); font-style:normal; }
 .cta-line { width:60px; height:3px; background:var(--cyan); border-radius:2px; margin:28px auto 0; box-shadow:0 0 12px var(--cyan); }
+.cta-proof-row {
+  margin-top:20px;
+  font-size:13px;
+  color:rgba(255,255,255,0.4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.cta-proof-sep {
+  color:rgba(255,255,255,0.2);
+}
 
 /* ── S19: Contact ──────────────────────────────────────────── */
-.contact-wrap { text-align:center; width:100%; max-width:820px; margin:0 auto; }
+.contact-wrap {
+  text-align:center;
+  width:100%;
+  max-width:900px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 .contact-eyebrow { font-size:13px; font-weight:700; letter-spacing:3px; color:var(--cyan); text-transform:uppercase; margin-bottom:20px; }
-.contact-h { font-family:var(--font-display); font-size:80px; color:var(--white); line-height:1; margin-bottom:12px; }
+.contact-h { font-family:var(--font-display); font-size:68px; color:var(--white); line-height:1; margin-bottom:12px; }
 .contact-sub { font-size:20px; color:rgba(255,255,255,0.5); font-weight:300; margin-bottom:36px; }
 .contact-grid { display:flex; justify-content:center; gap:16px; flex-wrap:nowrap; width:100%; max-width:860px; }
 .contact-card {
@@ -572,7 +821,7 @@ html, body {
 .contact-detail { text-align:left; }
 .contact-label { font-size:11px; font-weight:700; color:var(--cyan); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:3px; }
 .contact-text { font-size:14px; color:var(--white); font-weight:500; word-break:break-all; }
-.contact-tagline { margin-top:44px; font-size:14px; color:rgba(255,255,255,0.2); letter-spacing:4px; text-transform:uppercase; font-weight:300; }
+.contact-tagline { margin-top:auto; font-size:14px; color:rgba(255,255,255,0.25); letter-spacing:5px; text-transform:uppercase; font-weight:300; padding-top:36px; }
 
 /* ── Desktop: viewport-scale deck ────────────────────────────
    JS sizes + positions .deck as a fixed 1440×810 scaled box.
@@ -601,6 +850,7 @@ html, body {
     min-height:0 !important;
     display:block !important;
     border-bottom:1px solid rgba(255,255,255,0.06);
+    scroll-margin-top:52px;
   }
   .inner {
     width:100% !important;
@@ -620,19 +870,21 @@ html, body {
   .progress { display:none; }
 
   /* ── Content reflows ── */
-  .s1-wrap { flex-direction:column; gap:20px; align-items:center; text-align:center; }
-  .s1-h { font-size:26px; }
+  .s1-h { font-size:38px; }
   .s1-p { font-size:17px; }
   .s2-top { font-size:18px; }
   .s2-mid { font-size:22px; }
   .s2-bot { font-size:30px; }
-  .s3-scene { height:220px; }
+  .s2-decorative-quote { display:none; }
+  .s2-body { width:100%; }
   .s3-tagline { font-size:18px; letter-spacing:2px; }
+  .s3-chips { flex-wrap:wrap; gap:10px; }
   .s4-wrap { flex-direction:column; gap:20px; align-items:center; }
-  .s4-photo-ring { width:180px; height:180px; }
+  .s4-photo-card { width:220px; height:280px; }
   .s4-right { text-align:center; }
   .s4-head { font-size:22px; }
   .cred-chips { justify-content:center; }
+  .s4-stat-row { flex-direction:column; gap:8px; }
   .formula-label { font-size:11px; }
   .formula-row { flex-wrap:wrap; justify-content:center; gap:10px; }
   .formula-box { max-width:calc(50% - 5px); padding:18px 12px; }
@@ -650,11 +902,13 @@ html, body {
   .cs-layout { flex-direction:column; }
   .cs-left-panel { width:100%; border-right:none; border-bottom:3px solid var(--cyan); padding:20px; min-height:auto; flex-direction:row; gap:16px; align-items:center; text-align:left; }
   .cs-brand-logo-wrap { margin:0; width:80px; height:60px; flex-shrink:0; }
+  .cs-narrative { flex-direction:column; }
   .stats-hero { grid-template-columns:repeat(2,1fr); }
   .sh-col:nth-child(2) { border-right:none; }
   .sh-n { font-size:1.8rem; }
   .sr-cards { flex-direction:column; gap:14px; }
   .twall-cards { flex-direction:column; gap:16px; }
+  .twall-card { border-left:4px solid var(--cyan); border-top:none; border-radius:0 14px 14px 0; }
   .svc-grid-5 { grid-template-columns:1fr; }
   .svc-card-a, .svc-card-b { grid-column:span 1; }
   .workflow { flex-wrap:wrap; justify-content:center; gap:8px; }
@@ -663,10 +917,14 @@ html, body {
   .fw-grid { max-width:100%; grid-template-columns:1fr 1fr; gap:12px; }
   .fw-box { height:90px; font-size:15px; }
   .fw-box.full { max-width:100%; }
+  .how-wrap { flex-direction:column; }
+  .how-left { width:100%; }
+  .how-right { width:100%; padding-left:0; border-left:none; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; margin-top:20px; }
   .how-h { font-size:42px; }
   .how-sub { font-size:18px; }
   .fc-h { font-size:36px; }
   .fc-sub { font-size:17px; }
+  .fw-dot-row { flex-wrap:wrap; }
   .fw-intro { font-size:20px; text-align:center; }
   .cta-h { font-size:22px; }
   .cta-big { font-size:26px; }
@@ -697,39 +955,32 @@ html, body {
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 1 — Proceed With Caution
      ════════════════════════════════════════════════════════════ -->
-<div class="slide active" data-slide="1" style="background:#1A1008;">
-  <div class="glow" style="width:500px;height:500px;top:-100px;right:-100px;"></div>
-  <div class="inner" style="align-items:center;justify-content:center;">
-    <div class="s1-wrap">
-      <div style="flex-shrink:0;">
-        <svg width="120" height="120" viewBox="0 0 110 110" fill="none">
-          <path d="M55 8L105 95H5L55 8Z" stroke="var(--cyan)" stroke-width="4" stroke-linejoin="round"/>
-          <line x1="55" y1="42" x2="55" y2="68" stroke="var(--cyan)" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="55" cy="80" r="4" fill="var(--cyan)"/>
-        </svg>
-      </div>
-      <div>
-        <p class="s1-h">Proceed with caution</p>
+<div class="slide active" data-slide="1" style="background:radial-gradient(ellipse at 100% 0%, rgba(77,209,244,0.08) 0%, #1A1008 55%);">
+  <div class="inner" style="align-items:flex-start;justify-content:center;">
+    <div class="s1-layout">
+      <div class="s1-cyan-bar"></div>
+      <div class="s1-content">
+        <h1 class="s1-h">Proceed With Caution.</h1>
+        <div class="s1-divider"></div>
         <p class="s1-p">You're about to enter a lab responsible for<br><strong style="color:var(--cyan);">explosive growth</strong> and <strong style="color:var(--cyan);">dangerously innovative ideas.</strong></p>
       </div>
     </div>
   </div>
-  <svg class="doodle" style="bottom:40px;right:60px;width:90px;opacity:0.1;" viewBox="0 0 90 90" fill="none" stroke="var(--cyan)" stroke-width="1">
-    <path d="M10 0 Q45 20 10 45 Q45 65 10 90"/><path d="M40 0 Q5 20 40 45 Q5 65 40 90"/>
-    <line x1="14" y1="22" x2="36" y2="22"/><line x1="14" y1="67" x2="36" y2="67"/>
-  </svg>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 2 — Philosophy
      ════════════════════════════════════════════════════════════ -->
-<div class="slide bg-gradient" data-slide="2">
+<div class="slide bg-gradient" data-slide="2" style="border-top:3px solid var(--cyan);">
   <div class="glow" style="width:600px;height:600px;top:-200px;left:-200px;opacity:0.08;"></div>
   <div class="inner" style="align-items:center;justify-content:center;">
-    <div class="s2-body">
-      <p class="s2-top">We believe that brands deserve more than just<br>'social media management' or 'ad campaigns.'</p>
-      <p class="s2-mid">They need strategy. Realistic, smart, and actually flexible.</p>
-      <p class="s2-bot">SO, WE BUILT A LAB FOR IT.</p>
+    <div class="s2-outer">
+      <div class="s2-body">
+        <p class="s2-top">We believe that brands deserve more than just<br>'social media management' or 'ad campaigns.'</p>
+        <p class="s2-mid">They need strategy. Realistic, smart, and actually flexible.</p>
+        <p class="s2-bot">SO, WE BUILT A LAB FOR IT.</p>
+      </div>
+      <div class="s2-decorative-quote">"</div>
     </div>
   </div>
   <svg class="doodle" style="top:80px;left:60px;width:55px;" viewBox="0 0 55 55" fill="none" stroke="var(--cyan)" stroke-width="1.2">
@@ -745,30 +996,13 @@ html, body {
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     SLIDE 3 — Hero Logo  [FIX 2: Real logo image]
+     SLIDE 3 — Hero Logo
      ════════════════════════════════════════════════════════════ -->
 <div class="slide" data-slide="3" style="background:linear-gradient(180deg,#1E1612 0%,#2C2219 60%,#1E1612 100%);">
   <div class="glow" style="width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.15;"></div>
   <div class="inner" style="align-items:center;justify-content:center;">
-    <div class="s3-scene">
-      <!-- Lab SVG illustration -->
-      <svg viewBox="0 0 1000 360" width="100%" height="100%" fill="none" style="position:absolute;inset:0;" stroke="rgba(77,209,244,0.35)" stroke-width="1.5">
-        <line x1="0" y1="195" x2="1000" y2="195" stroke="rgba(77,209,244,0.12)" stroke-width="1"/>
-        <line x1="0" y1="255" x2="1000" y2="255" stroke="rgba(77,209,244,0.12)" stroke-width="1"/>
-        <g transform="translate(55,158)" stroke="rgba(77,209,244,0.4)" stroke-width="1.5" fill="none">
-          <circle cx="22" cy="22" r="15"/><circle cx="22" cy="22" r="7"/>
-          <line x1="22" y1="3" x2="22" y2="9"/><line x1="22" y1="35" x2="22" y2="41"/>
-          <line x1="3" y1="22" x2="9" y2="22"/><line x1="35" y1="22" x2="41" y2="22"/>
-          <line x1="7" y1="7" x2="11" y2="11"/><line x1="33" y1="33" x2="37" y2="37"/>
-          <line x1="37" y1="7" x2="33" y2="11"/><line x1="11" y1="33" x2="7" y2="37"/>
-        </g>
-        <g transform="translate(180,96)"><path d="M10 0h22M14 0v42l-13 57h46l-13-57V0" stroke="rgba(77,209,244,0.45)"/><rect x="6" y="70" width="32" height="18" rx="3" fill="rgba(77,209,244,0.15)" stroke="none"/></g>
-        <g transform="translate(270,75)"><path d="M12 0h28M18 0v55l-16 70h56l-16-70V0" stroke="rgba(77,209,244,0.45)"/><rect x="8" y="88" width="38" height="24" rx="3" fill="rgba(77,209,244,0.18)" stroke="none"/><circle cx="20" cy="100" r="3" fill="rgba(77,209,244,0.4)" stroke="none"/><circle cx="34" cy="96" r="2" fill="rgba(77,209,244,0.3)" stroke="none"/></g>
-        <g transform="translate(395,128)" stroke="rgba(77,209,244,0.45)"><rect x="0" y="0" width="44" height="8" rx="2"/><rect x="5" y="8" width="7" height="56" rx="3"/><rect x="18" y="8" width="7" height="56" rx="3"/><rect x="31" y="8" width="7" height="56" rx="3"/><rect x="5" y="38" width="7" height="26" rx="3" fill="rgba(77,209,244,0.2)" stroke="none"/><rect x="18" y="30" width="7" height="34" rx="3" fill="rgba(77,209,244,0.25)" stroke="none"/><rect x="31" y="44" width="7" height="20" rx="3" fill="rgba(77,209,244,0.15)" stroke="none"/></g>
-        <g transform="translate(640,80)"><rect x="0" y="0" width="115" height="82" rx="5" stroke="rgba(77,209,244,0.4)"/><rect x="14" y="52" width="12" height="20" fill="rgba(77,209,244,0.2)" stroke="none"/><rect x="32" y="38" width="12" height="34" fill="rgba(77,209,244,0.3)" stroke="none"/><rect x="50" y="26" width="12" height="46" fill="rgba(77,209,244,0.4)" stroke="none"/><rect x="68" y="14" width="12" height="58" fill="rgba(77,209,244,0.5)" stroke="none"/><polyline points="20,50 38,36 56,24 74,12" stroke="rgba(77,209,244,0.7)" stroke-width="1.5" fill="none"/></g>
-        <g transform="translate(825,118)" stroke="rgba(77,209,244,0.35)"><path d="M5 42h42l6 68H0z"/><line x1="14" y1="0" x2="14" y2="42"/><line x1="26" y1="5" x2="26" y2="42"/><line x1="38" y1="10" x2="38" y2="42"/></g>
-      </svg>
-      <!-- Real TSL logo image in tile -->
+    <div class="s3-center">
+      <p class="s3-eyebrow">THE STRATEGY LAB</p>
       <div class="s3-tile">
         <img src="LOGOs/TSL_Logo.png" alt="The Strategy Lab" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
         <!-- Fallback if image not found -->
@@ -777,13 +1011,18 @@ html, body {
           <div style="font-family:var(--font);font-weight:700;font-size:32px;color:var(--brown-main);line-height:1.2;">The<br>Strategy<br>Lab</div>
         </div>
       </div>
+      <p class="s3-tagline">Experiment. Evolve. Expand.</p>
+      <div class="s3-chips">
+        <span class="s3-chip">13+ Brands</span>
+        <span class="s3-chip">₹7Cr+ Revenue</span>
+        <span class="s3-chip">9x Peak ROAS</span>
+      </div>
     </div>
-    <p class="s3-tagline">Experiment. Evolve. Expand.</p>
   </div>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     SLIDE 4 — Founder  [FIX 3: Quote + credentials to fill space]
+     SLIDE 4 — Founder
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="4">
   <div class="glow" style="width:400px;height:400px;top:50%;left:18%;transform:translateY(-50%);opacity:0.2;"></div>
@@ -793,8 +1032,8 @@ html, body {
     <div class="s4-wrap">
       <!-- Left: Large hero photo -->
       <div style="flex-shrink:0;text-align:center;">
-        <div class="s4-photo-ring" style="width:280px;height:320px;border-radius:20px;overflow:hidden;border:3px solid var(--cyan);box-shadow:0 0 60px rgba(77,209,244,0.2);">
-          <img src="Dhruv Images/Dhruv_2.jpeg" alt="Dhruv Tewari" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+        <div class="s4-photo-card">
+          <img src="Dhruv Images/Dhruv_2.jpeg" alt="Dhruv Tewari">
         </div>
       </div>
       <!-- Right: Name + headline + chips -->
@@ -802,12 +1041,26 @@ html, body {
         <p class="s4-sub">Meet the founder.</p>
         <h2 style="font-family:var(--font-display);font-size:52px;color:var(--white);line-height:1.1;margin-bottom:8px;">Dhruv Tewari</h2>
         <p style="font-size:14px;font-weight:700;letter-spacing:3px;color:var(--cyan);text-transform:uppercase;margin-bottom:28px;">Founder &amp; CEO, The Strategy Lab</p>
-        <p class="s4-head" style="margin-bottom:28px;">Built TSL to give brands access to <strong>senior-level strategy</strong> that actually moves the needle.</p>
+        <p class="s4-head" style="margin-bottom:20px;">Built TSL to give brands access to <strong>senior-level strategy</strong> that actually moves the needle.</p>
         <div class="cred-chips">
           <span class="cred-chip">D2C &amp; Luxury Specialist</span>
           <span class="cred-chip">Senior Strategists Only</span>
           <span class="cred-chip">Global Agency Background</span>
           <span class="cred-chip">13+ Brands Scaled</span>
+        </div>
+        <div class="s4-stat-row">
+          <div class="s4-stat-box">
+            <div class="s4-sn">13+ Brands Scaled</div>
+            <div class="s4-sl">Portfolio</div>
+          </div>
+          <div class="s4-stat-box">
+            <div class="s4-sn">₹7Cr+ Revenue</div>
+            <div class="s4-sl">Generated</div>
+          </div>
+          <div class="s4-stat-box">
+            <div class="s4-sn">3+ Years</div>
+            <div class="s4-sl">Building TSL</div>
+          </div>
         </div>
       </div>
     </div>
@@ -815,7 +1068,7 @@ html, body {
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     SLIDE 5 — Strategy + Data + Innovation  [FIX 4: Full redesign]
+     SLIDE 5 — Strategy + Data + Innovation
      ════════════════════════════════════════════════════════════ -->
 <div class="slide" data-slide="5" style="background:var(--brown-dark);">
   <div class="glow" style="width:800px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.16;"></div>
@@ -874,16 +1127,19 @@ html, body {
         <div class="fb-desc">Creative built to learn, iterate, and improve</div>
       </div>
     </div>
-    <!-- = SUCCESS -->
+    <!-- = GROWTH -->
     <div class="formula-result-row">
-      <div class="formula-eq-sign">= &nbsp;</div><span class="formula-result">SUCCESS</span>
-      <div class="formula-result-label">Measurable, Scalable, Repeatable Growth</div>
+      <div class="formula-eq-sign">= &nbsp;</div><span class="formula-result">GROWTH</span>
+      <div class="formula-result-sub">
+        <span>Measurable.</span>
+        <span>Scalable.</span>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     SLIDE 6 — Logo Wall  [FIX 8: Wire in 4 logos]
+     SLIDE 6 — Logo Wall
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="6">
   <div class="glow" style="width:500px;height:300px;top:0;left:50%;transform:translateX(-50%);opacity:0.1;"></div>
@@ -895,26 +1151,27 @@ html, body {
         <div class="label-title">Brands That Have Trusted The Strategy Lab</div>
       </div>
     </div>
+    <p class="logo-wall-label">Trusted by fashion, luxury, D2C and social impact brands.</p>
     <div class="logo-wall">
-      <div class="logo-cell"><img src="LOGOs/Shades_Of_India_Logo.jpeg" alt="Shades of India"><span class="brand-name">Shades of India</span></div>
-      <div class="logo-cell"><img src="LOGOs/LTL_Logo.jpeg" alt="Little Tags Luxury"><span class="brand-name">Little Tags Luxury</span></div>
-      <div class="logo-cell"><img src="LOGOs/PayalJain_logo.avif" alt="Payal Jain" style="max-height:28px;"><span class="brand-name">Payal Jain</span></div>
-      <div class="logo-cell"><img src="LOGOs/Payal_Pratap_Logo.jpeg" alt="Payal Pratap"><span class="brand-name">Payal Pratap</span></div>
-      <div class="logo-cell"><img src="LOGOs/mandira-wirk-logo-clean.png" alt="Mandira Wirk" style="mix-blend-mode:multiply;max-height:28px;"><span class="brand-name">Mandira Wirk</span></div>
-      <div class="logo-cell"><img src="LOGOs/Rajesh_Pratap_Logo.jpeg" alt="Rajesh Pratap Singh"><span class="brand-name">Rajesh Pratap Singh</span></div>
-      <div class="logo-cell"><img src="LOGOs/Tabeer_India_Logo_1.jpg" alt="Tabeer India"><span class="brand-name">Tabeer India</span></div>
-      <div class="logo-cell"><img src="LOGOs/Bumble_Bee_logo_clean.png" alt="The Bumblebee" style="mix-blend-mode:multiply;"><span class="brand-name">The Bumblebee</span></div>
-      <div class="logo-cell"><img src="LOGOs/OTOS_logo_clean.png" alt="One Teacher One Scientist" style="mix-blend-mode:multiply;"><span class="brand-name">OTOS</span></div>
-      <div class="logo-cell"><img src="LOGOs/Kewalson_logo_clean.png" alt="Kewalson" style="mix-blend-mode:multiply;"><span class="brand-name">Kewalson</span></div>
-      <div class="logo-cell"><img src="LOGOs/Influennz_Clinic_logo.png" alt="Influennz Clinic"><span class="brand-name">Influennz Clinic</span></div>
-      <div class="logo-cell"><img src="LOGOs/BTC_logo_clean.webp" alt="Be The Change by Aradhana" style="mix-blend-mode:multiply;"><span class="brand-name">Be The Change</span></div>
-      <div class="logo-cell"><img src="LOGOs/Upshop_Logo.jpg" alt="Upshop"><span class="brand-name">Upshop</span></div>
+      <div class="logo-cell"><img src="LOGOs/Shades_Of_India_Logo.jpeg" alt="Shades of India"></div>
+      <div class="logo-cell"><img src="LOGOs/LTL_Logo.jpeg" alt="Little Tags Luxury"></div>
+      <div class="logo-cell"><img src="LOGOs/PayalJain_logo.avif" alt="Payal Jain" style="max-height:32px;"></div>
+      <div class="logo-cell"><img src="LOGOs/Payal_Pratap_Logo.jpeg" alt="Payal Pratap"></div>
+      <div class="logo-cell"><img src="LOGOs/mandira-wirk-logo-clean.png" alt="Mandira Wirk" style="mix-blend-mode:multiply;max-height:32px;"></div>
+      <div class="logo-cell"><img src="LOGOs/Rajesh_Pratap_Logo.jpeg" alt="Rajesh Pratap Singh"></div>
+      <div class="logo-cell"><img src="LOGOs/Tabeer_India_Logo_1.jpg" alt="Tabeer India"></div>
+      <div class="logo-cell"><img src="LOGOs/Bumble_Bee_logo_clean.png" alt="The Bumblebee" style="mix-blend-mode:multiply;"></div>
+      <div class="logo-cell"><img src="LOGOs/OTOS_logo_clean.png" alt="One Teacher One Scientist" style="mix-blend-mode:multiply;"></div>
+      <div class="logo-cell"><img src="LOGOs/Kewalson_logo_clean.png" alt="Kewalson" style="mix-blend-mode:multiply;"></div>
+      <div class="logo-cell"><img src="LOGOs/Influennz_Clinic_logo.png" alt="Influennz Clinic"></div>
+      <div class="logo-cell"><img src="LOGOs/BTC_logo_clean.webp" alt="Be The Change by Aradhana" style="mix-blend-mode:multiply;"></div>
+      <div class="logo-cell"><img src="LOGOs/Upshop_Logo.jpg" alt="Upshop"></div>
     </div>
   </div>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     SLIDE 7 — Why Work With TSL  [FIX 6: Replace misleading stat]
+     SLIDE 7 — Why Work With TSL
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-split" data-slide="7">
   <div class="glow" style="width:400px;height:400px;top:-100px;right:-50px;opacity:0.12;"></div>
@@ -927,7 +1184,7 @@ html, body {
       </div>
     </div>
     <div class="why-stat-row">
-      <div class="why-stat-box">
+      <div class="why-stat-box highlight">
         <div class="stat">13+</div>
         <div class="stat-label">Brands Served</div>
       </div>
@@ -939,7 +1196,6 @@ html, body {
         <div class="stat">9x</div>
         <div class="stat-label">Peak ROAS Delivered</div>
       </div>
-      <!-- FIX: Replaced "40+ Yrs Combined Exp." with individual experience range -->
       <div class="why-stat-box">
         <div class="stat">100%</div>
         <div class="stat-label">Senior Strategists</div>
@@ -983,13 +1239,12 @@ html, body {
         </div>
       </div>
     </div>
+    <div class="why-inner-bottom-line"></div>
   </div>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 8 — Shades of India: The Challenge
-     [FIX 1: Redesigned UI — large visual left panel]
-     [FIX 8: Real logo in left panel]
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="8">
   <div class="inner" style="justify-content:flex-start;padding-top:40px;padding-bottom:40px;">
@@ -1030,7 +1285,6 @@ html, body {
 
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 9 — Shades of India: Strategy + Results
-     [FIX 1: Bigger stats, better visual weight]
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="9">
   <div class="inner" style="justify-content:flex-start;padding-top:40px;padding-bottom:32px;">
@@ -1067,7 +1321,7 @@ html, body {
           <div class="cs-achievement">₹2.5 Cr Year 1 + ₹1.7 Cr Year 2 = over ₹4 Cr total revenue</div>
           <div class="cs-achievement">BAU ROAS improved from 1.8x to 3.5x</div>
           <div class="cs-achievement">3x Instagram revenue. Stronger traffic quality across the board.</div>
-          <div class="cs-achievement" style="margin-top:auto;background:rgba(77,209,244,0.18);border-color:var(--cyan);font-weight:700;">Still running. 2+ year ongoing partnership.</div>
+          <div class="cs-achievement" style="margin-top:12px;background:rgba(77,209,244,0.18);border-color:var(--cyan);font-weight:700;">Still running. 2+ year ongoing partnership.</div>
         </div>
       </div>
     </div>
@@ -1076,8 +1330,6 @@ html, body {
 
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 10 — Little Tags Luxury: The Challenge
-     [FIX 1: Redesigned UI — large visual left panel]
-     [FIX 8: Real logo in left panel]
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="11">
   <div class="inner" style="justify-content:flex-start;padding-top:40px;padding-bottom:40px;">
@@ -1116,7 +1368,6 @@ html, body {
 
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 12 — Little Tags Luxury: Strategy + Results
-     [FIX 1: Bigger stats, better visual weight]
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="12">
   <div class="inner" style="justify-content:flex-start;padding-top:40px;padding-bottom:32px;">
@@ -1152,7 +1403,7 @@ html, body {
           <div class="cs-achievement">₹3–4 Cr total revenue on ₹50–60L total ad spend</div>
           <div class="cs-achievement">~5x ROAS maintained despite aggressive budget scaling</div>
           <div class="cs-achievement">Repeatable, scalable paid acquisition playbook established</div>
-          <div class="cs-achievement" style="margin-top:auto;background:rgba(77,209,244,0.18);border-color:var(--cyan);font-weight:700;">₹3–4 Cr in just 4 months. Proof that the system works fast.</div>
+          <div class="cs-achievement" style="margin-top:12px;background:rgba(77,209,244,0.18);border-color:var(--cyan);font-weight:700;">₹3–4 Cr in just 4 months. Proof that the system works fast.</div>
         </div>
       </div>
     </div>
@@ -1207,16 +1458,22 @@ html, body {
   <svg class="doodle" style="bottom:80px;left:120px;width:70px;opacity:0.1;" viewBox="0 0 70 25"><text x="0" y="20" font-family="'Montserrat',sans-serif" font-size="18" fill="var(--cyan)" font-style="italic">E = mc²</text></svg>
   <div class="inner" style="align-items:center;justify-content:center;">
     <div class="how-wrap">
-      <p class="how-h">But How Do We Do It?</p>
-      <p class="how-sub">Take a peek inside the lab</p>
+      <div class="how-left">
+        <p class="how-h">But How Do We Do It?</p>
+        <p class="how-sub">Take a peek inside the lab</p>
+      </div>
+      <div class="how-right">
+        <div class="how-service-item">Performance Marketing</div>
+        <div class="how-service-item">SEO</div>
+        <div class="how-service-item">Web Dev</div>
+        <div class="how-service-item">Strategic Consultancy</div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 14 — Lab's Core Experiments (Services)
-     [FIX 5: Branding subtler, for right audiences]
-     [FIX 7: Added Consultancy as a service]
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="14">
   <div class="inner" style="justify-content:flex-start;padding-top:44px;">
@@ -1282,15 +1539,15 @@ html, body {
       </div>
     </div>
     <div class="workflow">
-      <div class="wf-step">Discovery &amp;<br>Diagnosis</div>
+      <div class="wf-step"><span class="wf-num">01</span>Discovery &amp;<br>Diagnosis</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-step">Data-Backed<br>Hypothesis</div>
+      <div class="wf-step"><span class="wf-num">02</span>Data-Backed<br>Hypothesis</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-step">Custom<br>Strategy<br>Formulation</div>
+      <div class="wf-step"><span class="wf-num">03</span>Custom<br>Strategy<br>Formulation</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-step">Live<br>Experimentation</div>
+      <div class="wf-step"><span class="wf-num">04</span>Live<br>Experimentation</div>
       <div class="wf-arrow">→</div>
-      <div class="wf-step last">Results,<br>Analysis &amp;<br>Scalable<br>Execution</div>
+      <div class="wf-step last"><span class="wf-num">05</span>Results,<br>Analysis &amp;<br>Scalable<br>Execution</div>
     </div>
   </div>
 </div>
@@ -1306,6 +1563,17 @@ html, body {
     <div>
       <p class="fc-h">What Makes Our<br>Formula Click?</p>
       <p class="fc-sub">A framework built on five core principles</p>
+      <div class="fw-dot-row">
+        <div class="fw-dot">01</div>
+        <div class="fw-dot-line"></div>
+        <div class="fw-dot">02</div>
+        <div class="fw-dot-line"></div>
+        <div class="fw-dot">03</div>
+        <div class="fw-dot-line"></div>
+        <div class="fw-dot">04</div>
+        <div class="fw-dot-line"></div>
+        <div class="fw-dot">05</div>
+      </div>
     </div>
   </div>
 </div>
@@ -1315,12 +1583,12 @@ html, body {
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="17">
   <div class="inner" style="align-items:center;justify-content:center;">
-    <p class="fw-intro" style="text-align:center;">It is built on a <strong>Foundational Framework:</strong></p>
+    <p class="fw-intro" style="text-align:center;">Built on <strong>5 Principles</strong> that make every engagement compound.</p>
     <div class="fw-grid">
       <div class="fw-box">Measurable Growth</div>
-      <div class="fw-box">Innovation</div>
+      <div class="fw-box alt">Innovation</div>
       <div class="fw-box">Systematic Processes</div>
-      <div class="fw-box">Strategy</div>
+      <div class="fw-box alt">Strategy</div>
       <div class="fw-box full">Data-Driven</div>
     </div>
   </div>
@@ -1329,13 +1597,20 @@ html, body {
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 18 — CTA: We've Got the Lab
      ════════════════════════════════════════════════════════════ -->
-<div class="slide" data-slide="18" style="background:#1A1008;">
+<div class="slide" data-slide="18" style="background:linear-gradient(135deg, #1A1008 0%, #2C2219 100%);">
   <div class="glow" style="width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.22;"></div>
   <div class="inner" style="align-items:center;justify-content:center;">
     <div class="cta-wrap">
       <p class="cta-h">We've got the lab.<br>You bring the challenge.</p>
       <p class="cta-big">Let's create <em>strategies</em> that<br>drive <em>real growth.</em></p>
       <div class="cta-line"></div>
+      <div class="cta-proof-row">
+        <span>₹4Cr+ for Shades of India</span>
+        <span class="cta-proof-sep">·</span>
+        <span>₹3–4Cr for Little Tags</span>
+        <span class="cta-proof-sep">·</span>
+        <span>2+ Year Partnerships</span>
+      </div>
     </div>
   </div>
 </div>
@@ -1354,7 +1629,7 @@ html, body {
         </div>
       </div>
       <h2 class="contact-h">Let's Bond?</h2>
-      <p class="contact-sub">Ready to run your next experiment with us?</p>
+      <p class="contact-sub">One conversation could change your brand's trajectory.</p>
       <div class="contact-grid">
         <div class="contact-card">
           <div class="contact-icon">
