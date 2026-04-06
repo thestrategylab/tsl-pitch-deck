@@ -227,34 +227,84 @@ html, body {
   height:100%;
   position:relative;
 }
+.s1-danger-stripe {
+  position:absolute;
+  top:0; left:0; right:0;
+  height:6px;
+  background:repeating-linear-gradient(
+    90deg,
+    var(--cyan) 0px, var(--cyan) 40px,
+    transparent 40px, transparent 60px
+  );
+  opacity:0.6;
+}
+.s1-danger-stripe-bottom {
+  position:absolute;
+  bottom:0; left:0; right:0;
+  height:6px;
+  background:repeating-linear-gradient(
+    90deg,
+    var(--cyan) 0px, var(--cyan) 40px,
+    transparent 40px, transparent 60px
+  );
+  opacity:0.6;
+}
 .s1-cyan-bar {
   position:absolute;
-  left:0; top:20%;
-  width:8px;
-  height:60%;
+  left:0; top:0; bottom:0;
+  width:10px;
   background:var(--cyan);
-  border-radius:0 4px 4px 0;
-  box-shadow:0 0 20px rgba(77,209,244,0.5);
+  box-shadow:0 0 40px rgba(77,209,244,0.8), 0 0 80px rgba(77,209,244,0.3);
 }
 .s1-content {
-  padding-left:40px;
+  padding-left:60px;
+  position:relative;
+  z-index:2;
+}
+.s1-warning-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:rgba(77,209,244,0.1);
+  border:1px solid var(--cyan);
+  border-radius:4px;
+  padding:8px 18px;
+  margin-bottom:28px;
+}
+.s1-warning-badge .s1-badge-icon {
+  font-size:18px;
+  color:var(--cyan);
+  font-weight:900;
+  letter-spacing:0;
+}
+.s1-warning-badge .s1-badge-text {
+  font-size:11px;
+  font-weight:700;
+  color:var(--cyan);
+  letter-spacing:4px;
+  text-transform:uppercase;
 }
 .s1-h {
   font-family:var(--font-display);
   font-weight:400;
-  font-size:72px;
+  font-size:96px;
   color:var(--white);
-  line-height:1.05;
+  line-height:1.0;
   margin-bottom:0;
+  text-shadow:0 0 60px rgba(77,209,244,0.15);
+}
+.s1-h .s1-accent {
+  color:var(--cyan);
+  text-shadow:0 0 40px rgba(77,209,244,0.6);
 }
 .s1-divider {
-  width:40%;
-  height:1px;
-  background:var(--cyan);
-  opacity:0.5;
-  margin:22px 0;
+  width:60%;
+  height:2px;
+  background:linear-gradient(90deg, var(--cyan), transparent);
+  margin:28px 0;
 }
-.s1-p { font-size:24px; color:rgba(255,255,255,0.85); line-height:1.55; }
+.s1-p { font-size:22px; color:rgba(255,255,255,0.75); line-height:1.65; max-width:700px; }
+.s1-p strong { color:var(--cyan); font-weight:800; }
 
 /* ── S2: Philosophy ────────────────────────────────────────── */
 .s2-outer {
@@ -281,9 +331,34 @@ html, body {
   width:45%;
   text-align:center;
 }
-.s2-top { font-size:22px; font-style:italic; color:rgba(255,255,255,0.6); line-height:1.65; margin-bottom:28px; }
-.s2-mid { font-family:var(--font-display); font-size:36px; font-weight:800; color:var(--white); margin-bottom:48px; line-height:1.35; }
-.s2-bot { font-family:var(--font-display); font-size:52px; color:var(--cyan); letter-spacing:1px; }
+.s2-top { font-size:20px; font-style:italic; color:rgba(255,255,255,0.55); line-height:1.75; margin-bottom:32px; border-left:3px solid rgba(77,209,244,0.35); padding-left:20px; }
+.s2-mid { font-family:var(--font-display); font-size:38px; font-weight:400; color:var(--white); margin-bottom:48px; line-height:1.3; }
+.s2-bot {
+  font-family:var(--font-display);
+  font-size:64px;
+  color:var(--cyan);
+  letter-spacing:2px;
+  text-shadow:0 0 60px rgba(77,209,244,0.5), 0 0 120px rgba(77,209,244,0.2);
+  line-height:1;
+}
+.s2-lab-stamp {
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-top:28px;
+}
+.s2-lab-stamp-line {
+  width:48px; height:2px;
+  background:var(--cyan);
+  opacity:0.5;
+}
+.s2-lab-stamp-text {
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:4px;
+  color:rgba(77,209,244,0.6);
+  text-transform:uppercase;
+}
 
 /* ── S3: Hero Logo ─────────────────────────────────────────── */
 .s3-center {
@@ -445,43 +520,51 @@ html, body {
 }
 .logo-wall {
   display:flex;
-  flex-wrap:wrap;
-  gap:12px;
+  flex-direction:column;
+  gap:16px;
   margin-top:20px;
+  align-items:center;
+}
+.logo-row {
+  display:flex;
+  gap:20px;
   justify-content:center;
+  align-items:center;
 }
 .logo-cell {
-  width:200px;
-  height:100px;
+  width:120px;
+  height:120px;
   background:#fff;
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:12px;
+  border:2px solid rgba(255,255,255,0.15);
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:16px 20px;
+  padding:16px;
   overflow:hidden;
   transition:transform 0.2s, box-shadow 0.2s;
   cursor:default;
+  flex-shrink:0;
 }
 .logo-cell:hover {
-  transform:translateY(-2px);
-  box-shadow:0 6px 20px rgba(77,209,244,0.25);
+  transform:translateY(-3px) scale(1.04);
+  box-shadow:0 8px 24px rgba(77,209,244,0.30);
+  border-color:var(--cyan);
 }
 .logo-cell img {
-  max-width:90%; max-height:56px;
+  max-width:85%; max-height:72px;
   object-fit:contain; display:block;
   opacity:0.92;
 }
 .logo-text-only { justify-content:center; }
 .brand-name-large {
-  font-size:13px; font-weight:700;
+  font-size:11px; font-weight:700;
   color:var(--brown-main); letter-spacing:0.5px;
   text-align:center; line-height:1.3;
   font-family:var(--font);
 }
 .logo-cell .brand-name {
-  font-size:10px; font-weight:700;
+  font-size:9px; font-weight:700;
   font-style:italic;
   color:var(--brown-main);
   text-align:center; line-height:1.2;
@@ -687,89 +770,245 @@ html, body {
 .svc-card-b { grid-column:span 3; } /* 2 in bottom row */
 .svc-card {
   background:var(--card-bg); border:1px solid var(--card-border);
-  border-left:4px solid rgba(77,209,244,0.4);
+  border-left:4px solid var(--cyan);
   border-radius:14px; padding:28px;
+  transition:transform 0.2s, box-shadow 0.2s;
 }
-.svc-icon { width:46px; height:46px; background:var(--cyan-dim); border-radius:10px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
-.svc-icon svg { width:22px; height:22px; color:var(--cyan); }
-.svc-card h4 { font-weight:700; font-size:20px; color:var(--white); margin-bottom:10px; }
-.svc-card p { font-size:15px; color:rgba(255,255,255,0.72); line-height:1.65; }
-
-/* ── S15: Methodology ──────────────────────────────────────── */
-.workflow { display:flex; align-items:center; justify-content:center; gap:8px; margin-top:40px; flex-wrap:nowrap; }
-.wf-step {
-  flex:1; min-height:124px; max-width:190px;
-  background:transparent;
-  border:2px dashed rgba(255,255,255,0.25);
+.svc-card:hover {
+  transform:translateY(-3px);
+  box-shadow:0 8px 32px rgba(77,209,244,0.15);
+}
+.svc-icon {
+  width:52px; height:52px;
+  background:rgba(255,255,255,0.9);
   border-radius:12px;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  text-align:center; padding:16px;
-  color:rgba(255,255,255,0.7); font-weight:600; font-size:15px; line-height:1.4;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:18px;
+  overflow:hidden;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
 }
-.wf-step.last {
-  background:var(--cyan); border:2px solid var(--cyan);
-  color:var(--brown-deep); font-weight:800;
-  box-shadow:0 0 24px rgba(77,209,244,0.4);
-}
-.wf-num {
+.svc-icon img {
+  width:36px; height:36px;
+  object-fit:contain;
   display:block;
-  font-size:10px;
-  letter-spacing:2px;
-  color:rgba(255,255,255,0.35);
-  margin-bottom:6px;
+}
+.svc-icon svg { width:26px; height:26px; color:var(--brown-main); }
+.svc-card h4 { font-weight:700; font-size:19px; color:var(--white); margin-bottom:10px; }
+.svc-card p { font-size:14px; color:rgba(255,255,255,0.68); line-height:1.65; }
+
+/* ── S15: Methodology — Pipeline Journey ───────────────────── */
+.workflow {
+  display:flex;
+  align-items:stretch;
+  justify-content:center;
+  margin-top:48px;
+  position:relative;
+  padding-bottom:24px;
+}
+/* The horizontal dotted cyan spine running through all steps */
+.workflow::before {
+  content:'';
+  position:absolute;
+  top:50px; /* center of the node circles */
+  left:calc(5% + 26px);
+  right:calc(5% + 26px);
+  height:2px;
+  background:repeating-linear-gradient(
+    90deg,
+    var(--cyan) 0px, var(--cyan) 10px,
+    transparent 10px, transparent 18px
+  );
+  opacity:0.45;
+  z-index:0;
+}
+.wf-step {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:0 12px;
+  position:relative;
+  z-index:1;
+}
+.wf-node {
+  width:52px; height:52px;
+  border-radius:50%;
+  border:2px solid rgba(77,209,244,0.5);
+  background:var(--brown-dark);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:20px;
+  flex-shrink:0;
+  position:relative;
+}
+.wf-node-num {
+  font-size:13px;
+  font-weight:800;
+  color:var(--cyan);
+  letter-spacing:0;
+}
+.wf-step-body {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-top:3px solid rgba(77,209,244,0.4);
+  border-radius:12px;
+  padding:18px 14px;
+  flex:1;
+  width:100%;
+}
+.wf-step-label {
+  font-size:14px;
   font-weight:700;
+  color:var(--white);
+  line-height:1.35;
+  margin-bottom:6px;
 }
-.wf-step.last .wf-num {
-  color:rgba(30,22,18,0.6);
+.wf-step-desc {
+  font-size:12px;
+  color:rgba(255,255,255,0.45);
+  line-height:1.5;
 }
-.wf-arrow { color:rgba(255,255,255,0.25); font-size:22px; flex-shrink:0; }
+/* Last step = Results — glowing cyan destination */
+.wf-step.last .wf-node {
+  border-color:var(--cyan);
+  background:var(--cyan);
+  box-shadow:0 0 20px rgba(77,209,244,0.6), 0 0 40px rgba(77,209,244,0.25);
+}
+.wf-step.last .wf-node-num { color:var(--brown-deep); }
+.wf-step.last .wf-step-body {
+  background:rgba(77,209,244,0.12);
+  border-color:var(--cyan);
+  border-top-color:var(--cyan);
+}
+.wf-step.last .wf-step-label { color:var(--cyan); font-size:15px; }
+.wf-num { display:none; } /* legacy — hidden */
+.wf-arrow { display:none; } /* replaced by ::before spine */
 
 /* ── S16: Formula Click ────────────────────────────────────── */
 .fc-h { font-family:var(--font-display); font-size:62px; color:var(--white); text-align:center; margin-bottom:16px; }
 .fc-sub { font-size:22px; color:rgba(255,255,255,0.5); text-align:center; font-weight:300; }
+/* Journey dot-chain preview on this interstitial slide */
 .fw-dot-row {
   display:flex;
-  gap:8px;
   align-items:center;
   justify-content:center;
-  margin-top:36px;
+  margin-top:48px;
+  position:relative;
+  gap:0;
 }
 .fw-dot {
-  width:36px; height:36px;
+  width:44px; height:44px;
   border-radius:50%;
-  border:1.5px solid var(--cyan);
+  border:2px solid rgba(77,209,244,0.5);
+  background:var(--brown-dark);
   display:flex; align-items:center; justify-content:center;
-  font-size:10px;
+  font-size:11px;
   color:var(--cyan);
-  font-weight:700;
+  font-weight:800;
   flex-shrink:0;
+  position:relative;
+  z-index:1;
+}
+.fw-dot:last-child {
+  border-color:var(--cyan);
+  background:var(--cyan);
+  color:var(--brown-deep);
+  box-shadow:0 0 20px rgba(77,209,244,0.6);
+  width:54px; height:54px; font-size:13px;
 }
 .fw-dot-line {
-  width:24px; height:1px;
-  background:rgba(77,209,244,0.3);
+  width:60px; height:2px;
+  background:repeating-linear-gradient(
+    90deg,
+    var(--cyan) 0px, var(--cyan) 8px,
+    transparent 8px, transparent 14px
+  );
+  opacity:0.45;
+  flex-shrink:0;
 }
 
-/* ── S17: Framework ────────────────────────────────────────── */
-.fw-intro { font-size:26px; color:var(--white); margin-bottom:8px; font-weight:400; }
+/* ── S17: Framework / 5 Principles ────────────────────────── */
+.fw-intro { font-size:22px; color:rgba(255,255,255,0.7); margin-bottom:0; font-weight:400; text-align:center; }
 .fw-intro strong { color:var(--cyan); font-weight:700; }
-.fw-grid {
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:16px; max-width:640px; margin:32px auto 0;
+/* Horizontal pipeline of 5 principles leading to compound growth */
+.fw-pipeline {
+  display:flex;
+  align-items:stretch;
+  justify-content:center;
+  margin-top:40px;
+  position:relative;
+  gap:0;
 }
-.fw-box {
-  background:var(--cyan); color:var(--brown-deep);
-  border-radius:12px; padding:20px;
-  font-weight:700; font-size:17px;
+.fw-pipeline::before {
+  content:'';
+  position:absolute;
+  top:44px;
+  left:calc(5% + 22px);
+  right:calc(5% + 22px);
+  height:2px;
+  background:repeating-linear-gradient(
+    90deg,
+    var(--cyan) 0px, var(--cyan) 10px,
+    transparent 10px, transparent 18px
+  );
+  opacity:0.4;
+  z-index:0;
+}
+.fw-principle {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  padding:0 10px;
+  position:relative;
+  z-index:1;
+}
+.fw-p-node {
+  width:44px; height:44px;
+  border-radius:50%;
+  border:2px solid rgba(77,209,244,0.5);
+  background:var(--brown-dark);
   display:flex; align-items:center; justify-content:center;
-  text-align:center; height:110px; line-height:1.3;
+  margin-bottom:18px;
+  flex-shrink:0;
 }
-.fw-box.alt {
-  background:transparent;
-  border:2px solid var(--cyan);
-  color:var(--white);
+.fw-p-node-num {
+  font-size:12px; font-weight:800; color:var(--cyan);
 }
-.fw-box.full { grid-column:1 / -1; max-width:300px; margin:0 auto; width:100%; }
+.fw-p-body {
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-top:3px solid rgba(77,209,244,0.4);
+  border-radius:12px;
+  padding:16px 12px;
+  flex:1; width:100%;
+}
+.fw-p-name {
+  font-size:14px; font-weight:700; color:var(--white);
+  line-height:1.3; margin-bottom:8px;
+}
+.fw-p-desc {
+  font-size:12px; color:rgba(255,255,255,0.48); line-height:1.5;
+}
+/* Compound Growth = final glowing destination */
+.fw-principle.fw-result .fw-p-node {
+  border-color:var(--cyan);
+  background:var(--cyan);
+  box-shadow:0 0 24px rgba(77,209,244,0.7);
+  width:52px; height:52px;
+}
+.fw-principle.fw-result .fw-p-node-num { color:var(--brown-deep); font-size:8px; letter-spacing:0.5px; text-transform:uppercase; font-weight:900; line-height:1.2; text-align:center; }
+.fw-principle.fw-result .fw-p-body {
+  background:rgba(77,209,244,0.12);
+  border-color:var(--cyan);
+  border-top-color:var(--cyan);
+}
+.fw-principle.fw-result .fw-p-name { color:var(--cyan); font-size:16px; }
+
+/* Legacy fw-grid, fw-box kept for backward compat but hidden */
+.fw-grid { display:none; }
+.fw-box { display:none; }
 
 /* ── S18: CTA ──────────────────────────────────────────────── */
 .cta-wrap { text-align:center; max-width:780px; }
@@ -820,7 +1059,8 @@ html, body {
 .contact-icon svg { width:19px; height:19px; color:var(--cyan); }
 .contact-detail { text-align:left; }
 .contact-label { font-size:11px; font-weight:700; color:var(--cyan); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:3px; }
-.contact-text { font-size:14px; color:var(--white); font-weight:500; word-break:break-all; }
+.contact-text { font-size:13px; color:var(--white); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.contact-card { flex:1; min-width:0; }
 .contact-tagline { margin-top:auto; font-size:14px; color:rgba(255,255,255,0.25); letter-spacing:5px; text-transform:uppercase; font-weight:300; padding-top:36px; }
 
 /* ── Desktop: viewport-scale deck ────────────────────────────
@@ -891,10 +1131,11 @@ html, body {
   .fb-term { font-size:18px; }
   .formula-plus { font-size:28px; width:100%; text-align:center; }
   .formula-result { font-size:48px; letter-spacing:4px; }
-  .logo-wall { gap:8px; }
-  .logo-cell { width:calc(33.33% - 6px); min-width:0; height:80px; padding:8px; gap:5px; }
-  .logo-cell img { max-height:32px; }
-  .logo-cell .brand-name { font-size:9px; }
+  .logo-wall { gap:10px; }
+  .logo-row { gap:10px; }
+  .logo-cell { width:72px; height:72px; padding:10px; }
+  .logo-cell img { max-height:40px; }
+  .logo-cell .brand-name { font-size:8px; }
   .why-stat-row { flex-wrap:wrap; }
   .why-stat-box { flex:1 1 calc(50% - 8px); }
   .why-grid { grid-template-columns:1fr; gap:16px; }
@@ -911,12 +1152,19 @@ html, body {
   .twall-card { border-left:4px solid var(--cyan); border-top:none; border-radius:0 14px 14px 0; }
   .svc-grid-5 { grid-template-columns:1fr; }
   .svc-card-a, .svc-card-b { grid-column:span 1; }
-  .workflow { flex-wrap:wrap; justify-content:center; gap:8px; }
-  .wf-step { max-width:calc(50% - 4px); min-height:80px; font-size:13px; padding:12px; }
-  .wf-arrow { display:none; }
-  .fw-grid { max-width:100%; grid-template-columns:1fr 1fr; gap:12px; }
-  .fw-box { height:90px; font-size:15px; }
-  .fw-box.full { max-width:100%; }
+  .workflow { flex-wrap:nowrap; overflow-x:auto; gap:0; padding-bottom:8px; }
+  .workflow::before { display:none; }
+  .wf-step { min-width:140px; padding:0 8px; }
+  .wf-node { width:40px; height:40px; margin-bottom:12px; }
+  .wf-step-body { padding:12px 10px; }
+  .wf-step-label { font-size:12px; }
+  .wf-step-desc { display:none; }
+  .fw-pipeline { flex-wrap:wrap; gap:12px; }
+  .fw-pipeline::before { display:none; }
+  .fw-principle { flex:1 1 calc(50% - 6px); min-width:140px; }
+  .fw-p-node { margin-bottom:12px; }
+  .fw-grid { display:none; }
+  .fw-box { display:none; }
   .how-wrap { flex-direction:column; }
   .how-left { width:100%; }
   .how-right { width:100%; padding-left:0; border-left:none; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; margin-top:20px; }
@@ -955,14 +1203,24 @@ html, body {
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 1 — Proceed With Caution
      ════════════════════════════════════════════════════════════ -->
-<div class="slide active" data-slide="1" style="background:radial-gradient(ellipse at 100% 0%, rgba(77,209,244,0.08) 0%, #1A1008 55%);">
+<div class="slide active" data-slide="1" style="background:radial-gradient(ellipse at 80% 50%, rgba(77,209,244,0.07) 0%, #0D0905 60%), radial-gradient(ellipse at 20% 80%, rgba(84,69,62,0.3) 0%, transparent 50%);">
+  <div class="s1-danger-stripe"></div>
+  <div class="s1-danger-stripe-bottom"></div>
+  <!-- Background atom icon watermark -->
+  <div style="position:absolute;right:80px;top:50%;transform:translateY(-50%);opacity:0.04;pointer-events:none;">
+    <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 1.png" alt="" style="width:420px;height:420px;object-fit:contain;filter:invert(1);">
+  </div>
   <div class="inner" style="align-items:flex-start;justify-content:center;">
     <div class="s1-layout">
       <div class="s1-cyan-bar"></div>
       <div class="s1-content">
-        <h1 class="s1-h">Proceed With Caution.</h1>
+        <div class="s1-warning-badge">
+          <span class="s1-badge-icon">⚠</span>
+          <span class="s1-badge-text">Warning: Explosive Content Ahead</span>
+        </div>
+        <h1 class="s1-h">Proceed With<br><span class="s1-accent">Caution.</span></h1>
         <div class="s1-divider"></div>
-        <p class="s1-p">You're about to enter a lab responsible for<br><strong style="color:var(--cyan);">explosive growth</strong> and <strong style="color:var(--cyan);">dangerously innovative ideas.</strong></p>
+        <p class="s1-p">You're about to enter a lab responsible for<br><strong>explosive growth</strong> and <strong>dangerously innovative ideas.</strong></p>
       </div>
     </div>
   </div>
@@ -977,8 +1235,13 @@ html, body {
     <div class="s2-outer">
       <div class="s2-body">
         <p class="s2-top">We believe that brands deserve more than just<br>'social media management' or 'ad campaigns.'</p>
-        <p class="s2-mid">They need strategy. Realistic, smart, and actually flexible.</p>
-        <p class="s2-bot">SO, WE BUILT A LAB FOR IT.</p>
+        <p class="s2-mid">They need strategy.<br>Realistic, smart, and actually flexible.</p>
+        <p class="s2-bot">SO, WE BUILT<br>A LAB FOR IT.</p>
+        <div class="s2-lab-stamp">
+          <div class="s2-lab-stamp-line"></div>
+          <span class="s2-lab-stamp-text">The Strategy Lab · Est. 2022</span>
+          <div class="s2-lab-stamp-line"></div>
+        </div>
       </div>
       <div class="s2-decorative-quote">"</div>
     </div>
@@ -1153,19 +1416,27 @@ html, body {
     </div>
     <p class="logo-wall-label">Trusted by fashion, luxury, D2C and social impact brands.</p>
     <div class="logo-wall">
-      <div class="logo-cell"><img src="LOGOs/Shades_Of_India_Logo.jpeg" alt="Shades of India"></div>
-      <div class="logo-cell"><img src="LOGOs/LTL_Logo.jpeg" alt="Little Tags Luxury"></div>
-      <div class="logo-cell"><img src="LOGOs/PayalJain_logo.avif" alt="Payal Jain" style="max-height:32px;"></div>
-      <div class="logo-cell"><img src="LOGOs/Payal_Pratap_Logo.jpeg" alt="Payal Pratap"></div>
-      <div class="logo-cell"><img src="LOGOs/mandira-wirk-logo-clean.png" alt="Mandira Wirk" style="mix-blend-mode:multiply;max-height:32px;"></div>
-      <div class="logo-cell"><img src="LOGOs/Rajesh_Pratap_Logo.jpeg" alt="Rajesh Pratap Singh"></div>
-      <div class="logo-cell"><img src="LOGOs/Tabeer_India_Logo_1.jpg" alt="Tabeer India"></div>
-      <div class="logo-cell"><img src="LOGOs/Bumble_Bee_logo_clean.png" alt="The Bumblebee" style="mix-blend-mode:multiply;"></div>
-      <div class="logo-cell"><img src="LOGOs/OTOS_logo_clean.png" alt="One Teacher One Scientist" style="mix-blend-mode:multiply;"></div>
-      <div class="logo-cell"><img src="LOGOs/Kewalson_logo_clean.png" alt="Kewalson" style="mix-blend-mode:multiply;"></div>
-      <div class="logo-cell"><img src="LOGOs/Influennz_Clinic_logo.png" alt="Influennz Clinic"></div>
-      <div class="logo-cell"><img src="LOGOs/BTC_logo_clean.webp" alt="Be The Change by Aradhana" style="mix-blend-mode:multiply;"></div>
-      <div class="logo-cell"><img src="LOGOs/Upshop_Logo.jpg" alt="Upshop"></div>
+      <!-- Row 1: 4 logos -->
+      <div class="logo-row">
+        <div class="logo-cell"><img src="LOGOs/Shades_Of_India_Logo.jpeg" alt="Shades of India"></div>
+        <div class="logo-cell"><img src="LOGOs/LTL_Logo.jpeg" alt="Little Tags Luxury"></div>
+        <div class="logo-cell"><img src="LOGOs/PayalJain_logo.avif" alt="Payal Jain"></div>
+        <div class="logo-cell"><img src="LOGOs/Payal_Pratap_Logo.jpeg" alt="Payal Pratap"></div>
+      </div>
+      <!-- Row 2: 4 logos -->
+      <div class="logo-row">
+        <div class="logo-cell"><img src="LOGOs/mandira-wirk-logo-clean.png" alt="Mandira Wirk" style="mix-blend-mode:multiply;"></div>
+        <div class="logo-cell"><img src="LOGOs/Rajesh_Pratap_Logo.jpeg" alt="Rajesh Pratap Singh"></div>
+        <div class="logo-cell"><img src="LOGOs/Tabeer_India_Logo_1.jpg" alt="Tabeer India"></div>
+        <div class="logo-cell"><img src="LOGOs/Bumble_Bee_logo_clean.png" alt="The Bumblebee" style="mix-blend-mode:multiply;"></div>
+      </div>
+      <!-- Row 3: 4 logos -->
+      <div class="logo-row">
+        <div class="logo-cell"><img src="LOGOs/OTOS_logo_clean.png" alt="One Teacher One Scientist" style="mix-blend-mode:multiply;"></div>
+        <div class="logo-cell"><img src="LOGOs/Kewalson_logo_clean.png" alt="Kewalson" style="mix-blend-mode:multiply;"></div>
+        <div class="logo-cell"><img src="LOGOs/Influennz_Clinic_logo.png" alt="Influennz Clinic"></div>
+        <div class="logo-cell"><img src="LOGOs/BTC_logo_clean.webp" alt="Be The Change by Aradhana" style="mix-blend-mode:multiply;"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -1185,7 +1456,7 @@ html, body {
     </div>
     <div class="why-stat-row">
       <div class="why-stat-box highlight">
-        <div class="stat">13+</div>
+        <div class="stat">12+</div>
         <div class="stat-label">Brands Served</div>
       </div>
       <div class="why-stat-box">
@@ -1294,7 +1565,9 @@ html, body {
         <div class="label-sup">Case Study 01</div>
         <div class="label-title">Shades of India: Results</div>
       </div>
-      <img src="LOGOs/Shades_Of_India_Logo.jpeg" alt="Shades of India" style="height:48px;width:auto;object-fit:contain;background:rgba(255,255,255,0.9);border-radius:8px;padding:4px 10px;box-shadow:0 1px 8px rgba(0,0,0,0.3);">
+      <div style="background:#fff;border-radius:12px;padding:8px 16px;box-shadow:0 0 20px rgba(77,209,244,0.25),0 2px 12px rgba(0,0,0,0.3);border:2px solid rgba(77,209,244,0.3);display:flex;align-items:center;justify-content:center;height:64px;min-width:120px;">
+        <img src="LOGOs/Shades_Of_India_Logo.jpeg" alt="Shades of India" style="height:44px;width:auto;max-width:150px;object-fit:contain;display:block;">
+      </div>
     </div>
     <div class="cs-results-inner">
       <!-- Hero stats -->
@@ -1377,7 +1650,9 @@ html, body {
         <div class="label-sup">Case Study 02</div>
         <div class="label-title">Little Tags Luxury: Results</div>
       </div>
-      <img src="LOGOs/LTL_Logo.jpeg" alt="Little Tags Luxury" style="height:48px;width:auto;object-fit:contain;background:rgba(255,255,255,0.9);border-radius:8px;padding:4px 10px;box-shadow:0 1px 8px rgba(0,0,0,0.3);">
+      <div style="background:#fff;border-radius:12px;padding:8px 16px;box-shadow:0 0 20px rgba(77,209,244,0.25),0 2px 12px rgba(0,0,0,0.3);border:2px solid rgba(77,209,244,0.3);display:flex;align-items:center;justify-content:center;height:64px;min-width:120px;">
+        <img src="LOGOs/LTL_Logo.jpeg" alt="Little Tags Luxury" style="height:44px;width:auto;max-width:150px;object-fit:contain;display:block;">
+      </div>
     </div>
     <div class="cs-results-inner">
       <div class="stats-hero">
@@ -1451,22 +1726,32 @@ html, body {
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 14 — But How Do We Do It?
      ════════════════════════════════════════════════════════════ -->
-<div class="slide" data-slide="13" style="background:#1A1008;">
-  <div class="glow" style="width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.18;"></div>
-  <svg class="doodle" style="top:60px;left:80px;width:110px;" viewBox="0 0 110 25"><text x="0" y="20" font-family="'Montserrat',sans-serif" font-size="18" fill="var(--cyan)" font-style="italic">a²+b²=c²</text></svg>
-  <svg class="doodle" style="top:80px;right:80px;width:50px;opacity:0.1;" viewBox="0 0 50 90" fill="none" stroke="var(--cyan)" stroke-width="1"><path d="M10 0 Q34 14 10 28 Q34 42 10 56 Q34 70 10 84"/><path d="M40 0 Q16 14 40 28 Q16 42 40 56 Q16 70 40 84"/><line x1="14" y1="14" x2="36" y2="14"/><line x1="14" y1="42" x2="36" y2="42"/><line x1="14" y1="70" x2="36" y2="70"/></svg>
-  <svg class="doodle" style="bottom:80px;left:120px;width:70px;opacity:0.1;" viewBox="0 0 70 25"><text x="0" y="20" font-family="'Montserrat',sans-serif" font-size="18" fill="var(--cyan)" font-style="italic">E = mc²</text></svg>
-  <div class="inner" style="align-items:center;justify-content:center;">
+<div class="slide" data-slide="13" style="background:radial-gradient(ellipse at 30% 50%, rgba(77,209,244,0.07) 0%, #0D0905 55%), radial-gradient(ellipse at 70% 20%, rgba(84,69,62,0.25) 0%, transparent 50%);">
+  <!-- TSL atom watermark top right -->
+  <div style="position:absolute;right:60px;top:50%;transform:translateY(-50%);opacity:0.05;pointer-events:none;">
+    <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 1.png" alt="" style="width:400px;height:400px;object-fit:contain;filter:invert(77%) sepia(60%) saturate(400%) hue-rotate(160deg);">
+  </div>
+  <!-- Dashed top accent line -->
+  <div style="position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--cyan) 0,var(--cyan) 30px,transparent 30px,transparent 50px);opacity:0.5;"></div>
+  <div class="inner" style="align-items:flex-start;justify-content:center;padding-top:0;">
     <div class="how-wrap">
       <div class="how-left">
-        <p class="how-h">But How Do We Do It?</p>
-        <p class="how-sub">Take a peek inside the lab</p>
+        <div style="font-size:11px;font-weight:700;letter-spacing:4px;color:var(--cyan);text-transform:uppercase;margin-bottom:24px;opacity:0.8;">The Lab Method</div>
+        <p class="how-h">But How<br>Do We<br>Do It?</p>
+        <p class="how-sub" style="margin-top:16px;">Take a peek inside<br>the lab.</p>
+        <!-- Flasks icon from TSL brand -->
+        <div style="margin-top:32px;opacity:0.35;">
+          <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 3.png" alt="" style="width:56px;height:56px;object-fit:contain;filter:invert(77%) sepia(60%) saturate(400%) hue-rotate(160deg);">
+        </div>
       </div>
       <div class="how-right">
-        <div class="how-service-item">Performance Marketing</div>
-        <div class="how-service-item">SEO</div>
-        <div class="how-service-item">Web Dev</div>
-        <div class="how-service-item">Strategic Consultancy</div>
+        <div class="how-service-item" style="font-size:18px;font-weight:700;color:var(--white);">Performance Marketing</div>
+        <div class="how-service-item" style="font-size:18px;font-weight:700;color:var(--white);">SEO</div>
+        <div class="how-service-item" style="font-size:18px;font-weight:700;color:var(--white);">Web Development</div>
+        <div class="how-service-item" style="font-size:18px;font-weight:700;color:var(--white);">Strategic Consultancy</div>
+        <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
+          <span style="font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:2px;text-transform:uppercase;">All under one roof. Senior team only.</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1488,21 +1773,21 @@ html, body {
       <!-- Row 1: 3 cards -->
       <div class="svc-card svc-card-a">
         <div class="svc-icon">
-          <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 14l4-4 3 3 5-6"/><rect x="2" y="2" width="18" height="18" rx="2"/></svg>
+          <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 11.png" alt="Performance Marketing">
         </div>
         <h4>Performance Marketing</h4>
         <p>Data-driven paid campaigns across Meta, Google and beyond. Controlled experiments to maximise ROAS and scale what works, ruthlessly.</p>
       </div>
       <div class="svc-card svc-card-a">
         <div class="svc-icon">
-          <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M11 3 Q15 11 11 19"/><path d="M11 3 Q7 11 11 19"/><line x1="3" y1="11" x2="19" y2="11"/></svg>
+          <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 10.png" alt="SEO">
         </div>
         <h4>SEO (On-Page &amp; Off-Page)</h4>
         <p>Organic growth that compounds. Full technical and content SEO to ensure search engines and real humans find you first.</p>
       </div>
       <div class="svc-card svc-card-a">
         <div class="svc-icon">
-          <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="18" height="14" rx="2"/><line x1="8" y1="20" x2="14" y2="20"/><line x1="11" y1="18" x2="11" y2="20"/></svg>
+          <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 2.png" alt="Web Development">
         </div>
         <h4>Web Development</h4>
         <p>High-converting, high-performance websites built by senior engineers. Designed to grow with your brand from day one.</p>
@@ -1510,14 +1795,14 @@ html, body {
       <!-- Row 2: 2 cards centered -->
       <div class="svc-card svc-card-b">
         <div class="svc-icon">
-          <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="7" r="4"/><path d="M3 18c0-4 2.7-7 8-7s8 3 8 7"/><line x1="16" y1="3" x2="19" y2="6"/><line x1="19" y1="3" x2="16" y2="6"/></svg>
+          <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 4.png" alt="Strategic Positioning">
         </div>
         <h4>Strategic Positioning &amp; Identity</h4>
         <p>For brands ready to define their category, not just their aesthetic. Brand architecture, go-to-market positioning, and identity work where it makes strategic sense. A consultative process, not a social media package.</p>
       </div>
       <div class="svc-card svc-card-b">
         <div class="svc-icon">
-          <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 6v6c0 5 4 8 8 10 4-2 8-5 8-10V6l-8-4z"/><polyline points="8.5 11 10.5 13 14 9.5"/></svg>
+          <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 6.png" alt="Strategic Consultancy">
         </div>
         <h4>Strategic Consultancy</h4>
         <p>For leadership teams that need strategic clarity without a full retainer. Fractional CMO advisory, marketing audits, growth roadmap sessions and go-to-market planning, delivered by senior experts who've built and scaled brands.</p>
@@ -1539,15 +1824,41 @@ html, body {
       </div>
     </div>
     <div class="workflow">
-      <div class="wf-step"><span class="wf-num">01</span>Discovery &amp;<br>Diagnosis</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-step"><span class="wf-num">02</span>Data-Backed<br>Hypothesis</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-step"><span class="wf-num">03</span>Custom<br>Strategy<br>Formulation</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-step"><span class="wf-num">04</span>Live<br>Experimentation</div>
-      <div class="wf-arrow">→</div>
-      <div class="wf-step last"><span class="wf-num">05</span>Results,<br>Analysis &amp;<br>Scalable<br>Execution</div>
+      <div class="wf-step">
+        <div class="wf-node"><span class="wf-node-num">01</span></div>
+        <div class="wf-step-body">
+          <div class="wf-step-label">Discovery &amp;<br>Diagnosis</div>
+          <div class="wf-step-desc">Deep audit of brand, audience, and competitive landscape</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-node"><span class="wf-node-num">02</span></div>
+        <div class="wf-step-body">
+          <div class="wf-step-label">Data-Backed<br>Hypothesis</div>
+          <div class="wf-step-desc">Every strategy begins with a testable, measurable assumption</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-node"><span class="wf-node-num">03</span></div>
+        <div class="wf-step-body">
+          <div class="wf-step-label">Custom Strategy<br>Formulation</div>
+          <div class="wf-step-desc">Bespoke playbook built for your brand — no templates</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-node"><span class="wf-node-num">04</span></div>
+        <div class="wf-step-body">
+          <div class="wf-step-label">Live<br>Experimentation</div>
+          <div class="wf-step-desc">Controlled testing across channels. Kill what fails, scale what works</div>
+        </div>
+      </div>
+      <div class="wf-step last">
+        <div class="wf-node"><span class="wf-node-num">05</span></div>
+        <div class="wf-step-body">
+          <div class="wf-step-label">Results &amp;<br>Scalable Execution</div>
+          <div class="wf-step-desc">Repeatable systems built to compound and scale over time</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1582,14 +1893,59 @@ html, body {
      SLIDE 17 — Foundational Framework
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="17">
-  <div class="inner" style="align-items:center;justify-content:center;">
-    <p class="fw-intro" style="text-align:center;">Built on <strong>5 Principles</strong> that make every engagement compound.</p>
-    <div class="fw-grid">
-      <div class="fw-box">Measurable Growth</div>
-      <div class="fw-box alt">Innovation</div>
-      <div class="fw-box">Systematic Processes</div>
-      <div class="fw-box alt">Strategy</div>
-      <div class="fw-box full">Data-Driven</div>
+  <div class="glow" style="width:500px;height:500px;bottom:-100px;right:-100px;opacity:0.1;"></div>
+  <div class="inner" style="justify-content:center;padding-top:48px;padding-bottom:40px;">
+    <div class="label-block" style="margin-bottom:8px;">
+      <div class="label-bar"></div>
+      <div>
+        <div class="label-sup">Our Foundation</div>
+        <div class="label-title">5 Principles That Make It Compound</div>
+      </div>
+    </div>
+    <p class="fw-intro" style="margin-bottom:0;margin-left:18px;">Each principle feeds into the next. Together they produce one outcome.</p>
+    <div class="fw-pipeline">
+      <div class="fw-principle">
+        <div class="fw-p-node"><span class="fw-p-node-num">01</span></div>
+        <div class="fw-p-body">
+          <div class="fw-p-name">Strategy</div>
+          <div class="fw-p-desc">Positioning built on insight, not instinct</div>
+        </div>
+      </div>
+      <div class="fw-principle">
+        <div class="fw-p-node"><span class="fw-p-node-num">02</span></div>
+        <div class="fw-p-body">
+          <div class="fw-p-name">Data-Driven</div>
+          <div class="fw-p-desc">Every decision backed by numbers that matter</div>
+        </div>
+      </div>
+      <div class="fw-principle">
+        <div class="fw-p-node"><span class="fw-p-node-num">03</span></div>
+        <div class="fw-p-body">
+          <div class="fw-p-name">Innovation</div>
+          <div class="fw-p-desc">Creative built to test, learn and improve</div>
+        </div>
+      </div>
+      <div class="fw-principle">
+        <div class="fw-p-node"><span class="fw-p-node-num">04</span></div>
+        <div class="fw-p-body">
+          <div class="fw-p-name">Systematic Processes</div>
+          <div class="fw-p-desc">Repeatable systems that scale without breaking</div>
+        </div>
+      </div>
+      <div class="fw-principle">
+        <div class="fw-p-node"><span class="fw-p-node-num">05</span></div>
+        <div class="fw-p-body">
+          <div class="fw-p-name">Measurable Growth</div>
+          <div class="fw-p-desc">Outcomes you can track, report and build on</div>
+        </div>
+      </div>
+      <div class="fw-principle fw-result">
+        <div class="fw-p-node"><span class="fw-p-node-num" style="font-size:7px;letter-spacing:0.3px;text-transform:uppercase;font-weight:900;line-height:1.3;">COM-<br>POUND</span></div>
+        <div class="fw-p-body">
+          <div class="fw-p-name">Compound Growth</div>
+          <div class="fw-p-desc">The inevitable outcome when all five are firing</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1604,12 +1960,12 @@ html, body {
       <p class="cta-h">We've got the lab.<br>You bring the challenge.</p>
       <p class="cta-big">Let's create <em>strategies</em> that<br>drive <em>real growth.</em></p>
       <div class="cta-line"></div>
-      <div class="cta-proof-row">
-        <span>₹4Cr+ for Shades of India</span>
-        <span class="cta-proof-sep">·</span>
-        <span>₹3–4Cr for Little Tags</span>
-        <span class="cta-proof-sep">·</span>
-        <span>2+ Year Partnerships</span>
+      <div style="margin-top:32px;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;">
+        <span style="font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,0.3);text-transform:uppercase;">Experiment</span>
+        <span style="color:rgba(77,209,244,0.4);font-size:16px;">·</span>
+        <span style="font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,0.3);text-transform:uppercase;">Evolve</span>
+        <span style="color:rgba(77,209,244,0.4);font-size:16px;">·</span>
+        <span style="font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(255,255,255,0.3);text-transform:uppercase;">Expand</span>
       </div>
     </div>
   </div>
@@ -1630,32 +1986,32 @@ html, body {
       </div>
       <h2 class="contact-h">Let's Bond?</h2>
       <p class="contact-sub">One conversation could change your brand's trajectory.</p>
-      <div class="contact-grid">
-        <div class="contact-card">
+      <div class="contact-grid" style="max-width:920px;width:100%;">
+        <div class="contact-card" style="flex:0 0 auto;min-width:200px;">
           <div class="contact-icon">
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 3h3l2 5-2 2a12 12 0 005 5l2-2 5 2v3a2 2 0 01-2 2C9 20 1 12 1 5a2 2 0 012-2"/></svg>
           </div>
-          <div class="contact-detail">
+          <div class="contact-detail" style="min-width:0;">
             <div class="contact-label">Call / WhatsApp</div>
-            <div class="contact-text">+91 98188 46104</div>
+            <div class="contact-text" style="font-size:14px;white-space:nowrap;">+91 98188 46104</div>
           </div>
         </div>
-        <div class="contact-card">
-          <div class="contact-icon">
+        <div class="contact-card" style="flex:1 1 auto;min-width:0;">
+          <div class="contact-icon" style="flex-shrink:0;">
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="16" height="12" rx="1.5"/><path d="M2 5l8 6 8-6"/></svg>
           </div>
-          <div class="contact-detail">
+          <div class="contact-detail" style="min-width:0;overflow:hidden;">
             <div class="contact-label">Email</div>
-            <div class="contact-text">dhruv@thestrategylab.in</div>
+            <div class="contact-text" style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">dhruv@thestrategylab.in</div>
           </div>
         </div>
-        <div class="contact-card">
+        <div class="contact-card" style="flex:0 0 auto;min-width:180px;">
           <div class="contact-icon">
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="10" r="8"/><line x1="2" y1="10" x2="18" y2="10"/><ellipse cx="10" cy="10" rx="4" ry="8"/></svg>
           </div>
-          <div class="contact-detail">
+          <div class="contact-detail" style="min-width:0;">
             <div class="contact-label">Website</div>
-            <div class="contact-text">thestrategylab.in</div>
+            <div class="contact-text" style="font-size:14px;white-space:nowrap;">thestrategylab.in</div>
           </div>
         </div>
       </div>
