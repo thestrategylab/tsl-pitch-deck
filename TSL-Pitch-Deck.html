@@ -521,40 +521,40 @@ html, body {
 .logo-wall {
   display:flex;
   flex-direction:column;
-  gap:16px;
-  margin-top:20px;
+  gap:20px;
+  margin-top:16px;
   align-items:center;
 }
 .logo-row {
   display:flex;
-  gap:20px;
+  gap:24px;
   justify-content:center;
   align-items:center;
 }
 .logo-cell {
-  width:120px;
-  height:120px;
+  width:140px;
+  height:140px;
   background:#fff;
   border:2px solid rgba(255,255,255,0.15);
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:16px;
+  padding:12px;
   overflow:hidden;
   transition:transform 0.2s, box-shadow 0.2s;
   cursor:default;
   flex-shrink:0;
 }
 .logo-cell:hover {
-  transform:translateY(-3px) scale(1.04);
-  box-shadow:0 8px 24px rgba(77,209,244,0.30);
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 8px 28px rgba(77,209,244,0.35);
   border-color:var(--cyan);
 }
 .logo-cell img {
-  max-width:85%; max-height:72px;
+  width:95%; height:95%;
   object-fit:contain; display:block;
-  opacity:0.92;
+  opacity:0.95;
 }
 .logo-text-only { justify-content:center; }
 .brand-name-large {
@@ -1131,10 +1131,10 @@ html, body {
   .fb-term { font-size:18px; }
   .formula-plus { font-size:28px; width:100%; text-align:center; }
   .formula-result { font-size:48px; letter-spacing:4px; }
-  .logo-wall { gap:10px; }
-  .logo-row { gap:10px; }
-  .logo-cell { width:72px; height:72px; padding:10px; }
-  .logo-cell img { max-height:40px; }
+  .logo-wall { gap:12px; }
+  .logo-row { gap:12px; }
+  .logo-cell { width:80px; height:80px; padding:10px; }
+  .logo-cell img { width:90%; height:90%; }
   .logo-cell .brand-name { font-size:8px; }
   .why-stat-row { flex-wrap:wrap; }
   .why-stat-box { flex:1 1 calc(50% - 8px); }
@@ -1203,7 +1203,7 @@ html, body {
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 1 — Proceed With Caution
      ════════════════════════════════════════════════════════════ -->
-<div class="slide active" data-slide="1" style="background:radial-gradient(ellipse at 80% 50%, rgba(77,209,244,0.07) 0%, #0D0905 60%), radial-gradient(ellipse at 20% 80%, rgba(84,69,62,0.3) 0%, transparent 50%);">
+<div class="slide active" data-slide="1" style="background:radial-gradient(ellipse at 80% 50%, rgba(77,209,244,0.07) 0%, #1E1612 60%), radial-gradient(ellipse at 20% 80%, rgba(84,69,62,0.35) 0%, transparent 50%);">
   <div class="s1-danger-stripe"></div>
   <div class="s1-danger-stripe-bottom"></div>
   <!-- Background atom icon watermark -->
@@ -1227,48 +1227,15 @@ html, body {
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     SLIDE 2 — Philosophy
+     SLIDE 2 — Hero Logo
      ════════════════════════════════════════════════════════════ -->
-<div class="slide bg-gradient" data-slide="2" style="border-top:3px solid var(--cyan);">
-  <div class="glow" style="width:600px;height:600px;top:-200px;left:-200px;opacity:0.08;"></div>
-  <div class="inner" style="align-items:center;justify-content:center;">
-    <div class="s2-outer">
-      <div class="s2-body">
-        <p class="s2-top">We believe that brands deserve more than just<br>'social media management' or 'ad campaigns.'</p>
-        <p class="s2-mid">They need strategy.<br>Realistic, smart, and actually flexible.</p>
-        <p class="s2-bot">SO, WE BUILT<br>A LAB FOR IT.</p>
-        <div class="s2-lab-stamp">
-          <div class="s2-lab-stamp-line"></div>
-          <span class="s2-lab-stamp-text">The Strategy Lab · Est. 2022</span>
-          <div class="s2-lab-stamp-line"></div>
-        </div>
-      </div>
-      <div class="s2-decorative-quote">"</div>
-    </div>
-  </div>
-  <svg class="doodle" style="top:80px;left:60px;width:55px;" viewBox="0 0 55 55" fill="none" stroke="var(--cyan)" stroke-width="1.2">
-    <rect x="14" y="14" width="27" height="27" rx="3"/>
-    <line x1="14" y1="22" x2="6" y2="22"/><line x1="14" y1="33" x2="6" y2="33"/>
-    <line x1="41" y1="22" x2="49" y2="22"/><line x1="41" y1="33" x2="49" y2="33"/>
-    <line x1="22" y1="14" x2="22" y2="6"/><line x1="33" y1="14" x2="33" y2="6"/>
-    <line x1="22" y1="41" x2="22" y2="49"/><line x1="33" y1="41" x2="33" y2="49"/>
-  </svg>
-  <svg class="doodle" style="bottom:80px;right:80px;width:65px;" viewBox="0 0 65 55" fill="none" stroke="var(--cyan)" stroke-width="1.2">
-    <circle cx="22" cy="24" r="16"/><circle cx="43" cy="24" r="16"/><circle cx="32" cy="38" r="16"/>
-  </svg>
-</div>
-
-<!-- ════════════════════════════════════════════════════════════
-     SLIDE 3 — Hero Logo
-     ════════════════════════════════════════════════════════════ -->
-<div class="slide" data-slide="3" style="background:linear-gradient(180deg,#1E1612 0%,#2C2219 60%,#1E1612 100%);">
+<div class="slide" data-slide="2" style="background:linear-gradient(180deg,#1E1612 0%,#2C2219 60%,#1E1612 100%);">
   <div class="glow" style="width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.15;"></div>
   <div class="inner" style="align-items:center;justify-content:center;">
     <div class="s3-center">
       <p class="s3-eyebrow">THE STRATEGY LAB</p>
       <div class="s3-tile">
         <img src="LOGOs/TSL_Logo.png" alt="The Strategy Lab" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <!-- Fallback if image not found -->
         <div style="display:none;flex-direction:column;align-items:center;justify-content:center;">
           <span style="font-size:10px;color:var(--gray);margin-bottom:4px;">1.618</span>
           <div style="font-family:var(--font);font-weight:700;font-size:32px;color:var(--brown-main);line-height:1.2;">The<br>Strategy<br>Lab</div>
@@ -1276,7 +1243,7 @@ html, body {
       </div>
       <p class="s3-tagline">Experiment. Evolve. Expand.</p>
       <div class="s3-chips">
-        <span class="s3-chip">13+ Brands</span>
+        <span class="s3-chip">12+ Brands</span>
         <span class="s3-chip">₹7Cr+ Revenue</span>
         <span class="s3-chip">9x Peak ROAS</span>
       </div>
@@ -1285,9 +1252,9 @@ html, body {
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     SLIDE 4 — Founder
+     SLIDE 3 — Founder + Philosophy combined
      ════════════════════════════════════════════════════════════ -->
-<div class="slide bg-gradient" data-slide="4">
+<div class="slide bg-gradient" data-slide="3">
   <div class="glow" style="width:400px;height:400px;top:50%;left:18%;transform:translateY(-50%);opacity:0.2;"></div>
   <svg class="doodle" style="top:50px;left:46%;width:130px;" viewBox="0 0 130 28"><text x="0" y="22" font-family="'Montserrat',sans-serif" font-size="20" fill="var(--cyan)" font-style="italic" font-weight="300">y = mx + b</text></svg>
   <svg class="doodle" style="bottom:90px;right:110px;width:65px;" viewBox="0 0 65 65" fill="none" stroke="var(--cyan)" stroke-width="1"><circle cx="32" cy="32" r="26"/><ellipse cx="32" cy="32" rx="13" ry="26"/><line x1="6" y1="32" x2="58" y2="32"/><path d="M10 18 Q32 14 54 18" fill="none"/><path d="M10 46 Q32 50 54 46" fill="none"/></svg>
@@ -1296,24 +1263,29 @@ html, body {
       <!-- Left: Large hero photo -->
       <div style="flex-shrink:0;text-align:center;">
         <div class="s4-photo-card">
-          <img src="Dhruv Images/Dhruv_2.jpeg" alt="Dhruv Tewari">
+          <img src="Dhruv Images/Dhruv_4.JPG" alt="Dhruv Tewari">
         </div>
       </div>
-      <!-- Right: Name + headline + chips -->
+      <!-- Right: Philosophy + Name + headline + chips -->
       <div class="s4-right">
+        <!-- Philosophy pull-quote -->
+        <div style="border-left:3px solid rgba(77,209,244,0.4);padding:10px 16px;margin-bottom:22px;background:rgba(77,209,244,0.05);border-radius:0 8px 8px 0;">
+          <p style="font-size:13px;font-style:italic;color:rgba(255,255,255,0.55);line-height:1.6;margin:0;">Brands deserve more than social media management.<br>They need <span style="color:var(--cyan);font-weight:700;">strategy — so we built a lab for it.</span></p>
+          <p style="font-size:10px;color:rgba(77,209,244,0.5);letter-spacing:3px;font-weight:700;text-transform:uppercase;margin:8px 0 0;">The Strategy Lab · Est. 2024</p>
+        </div>
         <p class="s4-sub">Meet the founder.</p>
-        <h2 style="font-family:var(--font-display);font-size:52px;color:var(--white);line-height:1.1;margin-bottom:8px;">Dhruv Tewari</h2>
-        <p style="font-size:14px;font-weight:700;letter-spacing:3px;color:var(--cyan);text-transform:uppercase;margin-bottom:28px;">Founder &amp; CEO, The Strategy Lab</p>
-        <p class="s4-head" style="margin-bottom:20px;">Built TSL to give brands access to <strong>senior-level strategy</strong> that actually moves the needle.</p>
+        <h2 style="font-family:var(--font-display);font-size:48px;color:var(--white);line-height:1.1;margin-bottom:6px;">Dhruv Tewari</h2>
+        <p style="font-size:13px;font-weight:700;letter-spacing:3px;color:var(--cyan);text-transform:uppercase;margin-bottom:20px;">Founder &amp; CEO, The Strategy Lab</p>
+        <p class="s4-head" style="margin-bottom:18px;">Built TSL to give brands access to <strong>senior-level strategy</strong> that actually moves the needle.</p>
         <div class="cred-chips">
           <span class="cred-chip">D2C &amp; Luxury Specialist</span>
           <span class="cred-chip">Senior Strategists Only</span>
           <span class="cred-chip">Global Agency Background</span>
-          <span class="cred-chip">13+ Brands Scaled</span>
+          <span class="cred-chip">12+ Brands Scaled</span>
         </div>
         <div class="s4-stat-row">
           <div class="s4-stat-box">
-            <div class="s4-sn">13+ Brands Scaled</div>
+            <div class="s4-sn">12+ Brands Scaled</div>
             <div class="s4-sl">Portfolio</div>
           </div>
           <div class="s4-stat-box">
@@ -1726,7 +1698,7 @@ html, body {
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 14 — But How Do We Do It?
      ════════════════════════════════════════════════════════════ -->
-<div class="slide" data-slide="13" style="background:radial-gradient(ellipse at 30% 50%, rgba(77,209,244,0.07) 0%, #0D0905 55%), radial-gradient(ellipse at 70% 20%, rgba(84,69,62,0.25) 0%, transparent 50%);">
+<div class="slide" data-slide="13" style="background:radial-gradient(ellipse at 30% 50%, rgba(77,209,244,0.06) 0%, #2C2219 55%), radial-gradient(ellipse at 70% 20%, rgba(84,69,62,0.4) 0%, transparent 50%);">
   <!-- TSL atom watermark top right -->
   <div style="position:absolute;right:60px;top:50%;transform:translateY(-50%);opacity:0.05;pointer-events:none;">
     <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 1.png" alt="" style="width:400px;height:400px;object-fit:contain;filter:invert(77%) sepia(60%) saturate(400%) hue-rotate(160deg);">
@@ -1812,148 +1784,121 @@ html, body {
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
-     SLIDE 15 — Methodology
+     SLIDE 15 — How We Work + Our Foundation (combined)
      ════════════════════════════════════════════════════════════ -->
-<div class="slide bg-split" data-slide="15">
-  <div class="inner">
-    <div class="label-block">
-      <div class="label-bar"></div>
+<div class="slide bg-gradient" data-slide="15">
+  <div class="glow" style="width:500px;height:500px;top:-100px;right:-100px;opacity:0.08;"></div>
+  <div class="inner" style="justify-content:flex-start;padding-top:36px;padding-bottom:28px;">
+
+    <!-- Top: Methodology pipeline -->
+    <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:10px;">
+      <div class="label-bar" style="min-height:40px;"></div>
       <div>
         <div class="label-sup">How We Work</div>
-        <div class="label-title">The Lab Methodology</div>
+        <div class="label-title" style="font-size:32px;">The Lab Methodology</div>
       </div>
     </div>
-    <div class="workflow">
+    <div class="workflow" style="margin-top:16px;">
       <div class="wf-step">
         <div class="wf-node"><span class="wf-node-num">01</span></div>
         <div class="wf-step-body">
-          <div class="wf-step-label">Discovery &amp;<br>Diagnosis</div>
-          <div class="wf-step-desc">Deep audit of brand, audience, and competitive landscape</div>
+          <div class="wf-step-label">Discovery &amp; Diagnosis</div>
+          <div class="wf-step-desc">Deep audit of brand, audience, and landscape</div>
         </div>
       </div>
       <div class="wf-step">
         <div class="wf-node"><span class="wf-node-num">02</span></div>
         <div class="wf-step-body">
-          <div class="wf-step-label">Data-Backed<br>Hypothesis</div>
-          <div class="wf-step-desc">Every strategy begins with a testable, measurable assumption</div>
+          <div class="wf-step-label">Data-Backed Hypothesis</div>
+          <div class="wf-step-desc">Every strategy starts with a testable assumption</div>
         </div>
       </div>
       <div class="wf-step">
         <div class="wf-node"><span class="wf-node-num">03</span></div>
         <div class="wf-step-body">
-          <div class="wf-step-label">Custom Strategy<br>Formulation</div>
-          <div class="wf-step-desc">Bespoke playbook built for your brand — no templates</div>
+          <div class="wf-step-label">Custom Strategy</div>
+          <div class="wf-step-desc">Bespoke playbook — no templates</div>
         </div>
       </div>
       <div class="wf-step">
         <div class="wf-node"><span class="wf-node-num">04</span></div>
         <div class="wf-step-body">
-          <div class="wf-step-label">Live<br>Experimentation</div>
-          <div class="wf-step-desc">Controlled testing across channels. Kill what fails, scale what works</div>
+          <div class="wf-step-label">Live Experimentation</div>
+          <div class="wf-step-desc">Kill what fails, scale what works</div>
         </div>
       </div>
       <div class="wf-step last">
         <div class="wf-node"><span class="wf-node-num">05</span></div>
         <div class="wf-step-body">
-          <div class="wf-step-label">Results &amp;<br>Scalable Execution</div>
-          <div class="wf-step-desc">Repeatable systems built to compound and scale over time</div>
+          <div class="wf-step-label">Results &amp; Scale</div>
+          <div class="wf-step-desc">Repeatable systems that compound over time</div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<!-- ════════════════════════════════════════════════════════════
-     SLIDE 16 — What Makes Our Formula Click?
-     ════════════════════════════════════════════════════════════ -->
-<div class="slide" data-slide="16" style="background:#1A1008;">
-  <div class="glow" style="width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.2;"></div>
-  <svg class="doodle" style="top:80px;left:90px;width:100px;" viewBox="0 0 100 25"><text x="0" y="20" font-family="'Montserrat',sans-serif" font-size="17" fill="var(--cyan)" font-style="italic">y = mx + b</text></svg>
-  <svg class="doodle" style="bottom:90px;right:80px;width:55px;opacity:0.1;" viewBox="0 0 55 55" fill="none" stroke="var(--cyan)" stroke-width="1"><circle cx="27" cy="27" r="22"/><ellipse cx="27" cy="27" rx="10" ry="22"/><line x1="5" y1="27" x2="49" y2="27"/></svg>
-  <div class="inner" style="align-items:center;justify-content:center;">
-    <div>
-      <p class="fc-h">What Makes Our<br>Formula Click?</p>
-      <p class="fc-sub">A framework built on five core principles</p>
-      <div class="fw-dot-row">
-        <div class="fw-dot">01</div>
-        <div class="fw-dot-line"></div>
-        <div class="fw-dot">02</div>
-        <div class="fw-dot-line"></div>
-        <div class="fw-dot">03</div>
-        <div class="fw-dot-line"></div>
-        <div class="fw-dot">04</div>
-        <div class="fw-dot-line"></div>
-        <div class="fw-dot">05</div>
-      </div>
-    </div>
-  </div>
-</div>
+    <!-- Divider -->
+    <div style="width:100%;height:1px;background:rgba(77,209,244,0.15);margin:20px 0 16px;"></div>
 
-<!-- ════════════════════════════════════════════════════════════
-     SLIDE 17 — Foundational Framework
-     ════════════════════════════════════════════════════════════ -->
-<div class="slide bg-gradient" data-slide="17">
-  <div class="glow" style="width:500px;height:500px;bottom:-100px;right:-100px;opacity:0.1;"></div>
-  <div class="inner" style="justify-content:center;padding-top:48px;padding-bottom:40px;">
-    <div class="label-block" style="margin-bottom:8px;">
-      <div class="label-bar"></div>
+    <!-- Bottom: 5 Principles -->
+    <div style="display:flex;align-items:flex-start;gap:14px;margin-bottom:10px;">
+      <div class="label-bar" style="min-height:36px;"></div>
       <div>
         <div class="label-sup">Our Foundation</div>
-        <div class="label-title">5 Principles That Make It Compound</div>
+        <div class="label-title" style="font-size:32px;">5 Principles That Make It Compound</div>
       </div>
     </div>
-    <p class="fw-intro" style="margin-bottom:0;margin-left:18px;">Each principle feeds into the next. Together they produce one outcome.</p>
-    <div class="fw-pipeline">
+    <div class="fw-pipeline" style="margin-top:16px;">
       <div class="fw-principle">
         <div class="fw-p-node"><span class="fw-p-node-num">01</span></div>
         <div class="fw-p-body">
           <div class="fw-p-name">Strategy</div>
-          <div class="fw-p-desc">Positioning built on insight, not instinct</div>
+          <div class="fw-p-desc">Built on insight, not instinct</div>
         </div>
       </div>
       <div class="fw-principle">
         <div class="fw-p-node"><span class="fw-p-node-num">02</span></div>
         <div class="fw-p-body">
           <div class="fw-p-name">Data-Driven</div>
-          <div class="fw-p-desc">Every decision backed by numbers that matter</div>
+          <div class="fw-p-desc">Every decision backed by numbers</div>
         </div>
       </div>
       <div class="fw-principle">
         <div class="fw-p-node"><span class="fw-p-node-num">03</span></div>
         <div class="fw-p-body">
           <div class="fw-p-name">Innovation</div>
-          <div class="fw-p-desc">Creative built to test, learn and improve</div>
+          <div class="fw-p-desc">Creative built to test and improve</div>
         </div>
       </div>
       <div class="fw-principle">
         <div class="fw-p-node"><span class="fw-p-node-num">04</span></div>
         <div class="fw-p-body">
-          <div class="fw-p-name">Systematic Processes</div>
-          <div class="fw-p-desc">Repeatable systems that scale without breaking</div>
+          <div class="fw-p-name">Systematic</div>
+          <div class="fw-p-desc">Repeatable systems that scale</div>
         </div>
       </div>
       <div class="fw-principle">
         <div class="fw-p-node"><span class="fw-p-node-num">05</span></div>
         <div class="fw-p-body">
-          <div class="fw-p-name">Measurable Growth</div>
-          <div class="fw-p-desc">Outcomes you can track, report and build on</div>
+          <div class="fw-p-name">Measurable</div>
+          <div class="fw-p-desc">Outcomes you can track and build on</div>
         </div>
       </div>
       <div class="fw-principle fw-result">
-        <div class="fw-p-node"><span class="fw-p-node-num" style="font-size:7px;letter-spacing:0.3px;text-transform:uppercase;font-weight:900;line-height:1.3;">COM-<br>POUND</span></div>
+        <div class="fw-p-node"><span class="fw-p-node-num" style="font-size:7px;text-transform:uppercase;font-weight:900;line-height:1.3;letter-spacing:0.3px;">COM-<br>POUND</span></div>
         <div class="fw-p-body">
           <div class="fw-p-name">Compound Growth</div>
-          <div class="fw-p-desc">The inevitable outcome when all five are firing</div>
+          <div class="fw-p-desc">The only outcome when all five fire</div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 18 — CTA: We've Got the Lab
      ════════════════════════════════════════════════════════════ -->
-<div class="slide" data-slide="18" style="background:linear-gradient(135deg, #1A1008 0%, #2C2219 100%);">
+<div class="slide" data-slide="18" style="background:linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-mid) 100%);">
   <div class="glow" style="width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.22;"></div>
   <div class="inner" style="align-items:center;justify-content:center;">
     <div class="cta-wrap">
@@ -1986,32 +1931,32 @@ html, body {
       </div>
       <h2 class="contact-h">Let's Bond?</h2>
       <p class="contact-sub">One conversation could change your brand's trajectory.</p>
-      <div class="contact-grid" style="max-width:920px;width:100%;">
-        <div class="contact-card" style="flex:0 0 auto;min-width:200px;">
-          <div class="contact-icon">
+      <div class="contact-grid" style="max-width:760px;width:100%;gap:14px;">
+        <div class="contact-card" style="flex:1 1 0;min-width:0;">
+          <div class="contact-icon" style="flex-shrink:0;">
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 3h3l2 5-2 2a12 12 0 005 5l2-2 5 2v3a2 2 0 01-2 2C9 20 1 12 1 5a2 2 0 012-2"/></svg>
           </div>
-          <div class="contact-detail" style="min-width:0;">
+          <div class="contact-detail" style="min-width:0;overflow:hidden;">
             <div class="contact-label">Call / WhatsApp</div>
-            <div class="contact-text" style="font-size:14px;white-space:nowrap;">+91 98188 46104</div>
+            <div class="contact-text" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">+91 98188 46104</div>
           </div>
         </div>
-        <div class="contact-card" style="flex:1 1 auto;min-width:0;">
+        <div class="contact-card" style="flex:1 1 0;min-width:0;">
           <div class="contact-icon" style="flex-shrink:0;">
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="16" height="12" rx="1.5"/><path d="M2 5l8 6 8-6"/></svg>
           </div>
           <div class="contact-detail" style="min-width:0;overflow:hidden;">
             <div class="contact-label">Email</div>
-            <div class="contact-text" style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">dhruv@thestrategylab.in</div>
+            <div class="contact-text" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">dhruv@thestrategylab.in</div>
           </div>
         </div>
-        <div class="contact-card" style="flex:0 0 auto;min-width:180px;">
-          <div class="contact-icon">
+        <div class="contact-card" style="flex:1 1 0;min-width:0;">
+          <div class="contact-icon" style="flex-shrink:0;">
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="10" r="8"/><line x1="2" y1="10" x2="18" y2="10"/><ellipse cx="10" cy="10" rx="4" ry="8"/></svg>
           </div>
-          <div class="contact-detail" style="min-width:0;">
+          <div class="contact-detail" style="min-width:0;overflow:hidden;">
             <div class="contact-label">Website</div>
-            <div class="contact-text" style="font-size:14px;white-space:nowrap;">thestrategylab.in</div>
+            <div class="contact-text" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">thestrategylab.in</div>
           </div>
         </div>
       </div>
