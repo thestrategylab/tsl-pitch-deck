@@ -576,6 +576,7 @@ html, body {
 .why-stat-box { flex:1; background:var(--card-bg); border:1px solid var(--card-border); border-radius:10px; padding:20px; text-align:center; }
 .why-stat-box.highlight { background:var(--cyan); border-color:var(--cyan); }
 .why-stat-box.highlight .stat { color:var(--brown-deep); }
+.why-stat-box.highlight .stat-counter { color:var(--brown-deep); }
 .why-stat-box.highlight .stat-label { color:rgba(28,22,18,0.7); }
 .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
 .why-point { display:flex; align-items:flex-start; gap:14px; }
@@ -1059,7 +1060,7 @@ html, body {
 .contact-icon svg { width:19px; height:19px; color:var(--cyan); }
 .contact-detail { text-align:left; }
 .contact-label { font-size:11px; font-weight:700; color:var(--cyan); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:3px; }
-.contact-text { font-size:13px; color:var(--white); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.contact-text { font-size:13px; color:var(--white); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; word-break:break-all; }
 .contact-card { flex:1; min-width:0; }
 .contact-tagline { margin-top:auto; font-size:14px; color:rgba(255,255,255,0.25); letter-spacing:5px; text-transform:uppercase; font-weight:300; padding-top:36px; }
 
@@ -2057,7 +2058,7 @@ html, body {
       </div>
       <h2 class="contact-h">Let's Bond?</h2>
       <p class="contact-sub">One conversation could change your brand's trajectory.</p>
-      <div class="contact-grid" style="max-width:760px;width:100%;gap:14px;">
+      <div class="contact-grid" style="max-width:900px;width:100%;gap:14px;">
         <div class="contact-card" style="flex:1 1 0;min-width:0;">
           <div class="contact-icon" style="flex-shrink:0;">
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 3h3l2 5-2 2a12 12 0 005 5l2-2 5 2v3a2 2 0 01-2 2C9 20 1 12 1 5a2 2 0 012-2"/></svg>
