@@ -1185,6 +1185,67 @@ html, body {
   .doodle, .glow { display:none; }
 }
 
+/* ══ CHANGE 1: Animated counters ══ */
+.stat-counter { color:var(--cyan); font-weight:800; font-size:3.2rem; line-height:1; }
+/* Why icon tiles */
+.why-icon-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.why-icon-tile { display:flex; align-items:center; gap:16px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-left:3px solid var(--cyan); border-radius:12px; padding:18px 20px; }
+.why-icon-tile img { width:44px; height:44px; object-fit:contain; background:rgba(255,255,255,0.9); border-radius:10px; padding:6px; flex-shrink:0; }
+.why-icon-tile-text h5 { font-size:16px; font-weight:700; color:var(--white); margin:0 0 3px; }
+.why-icon-tile-text p { font-size:13px; color:rgba(255,255,255,0.55); margin:0; line-height:1.4; }
+@media(max-width:768px){ .why-icon-grid { grid-template-columns:1fr; } }
+
+/* ══ CHANGE 2: Radial / hub-and-spoke ══ */
+.radial-wrap { position:relative; width:100%; height:400px; display:flex; align-items:center; justify-content:center; }
+.radial-hub { position:absolute; width:100px; height:100px; border-radius:50%; background:#fff; border:3px solid var(--cyan); box-shadow:0 0 30px rgba(77,209,244,0.4); display:flex; align-items:center; justify-content:center; z-index:2; }
+.radial-hub img { width:64px; height:64px; object-fit:contain; }
+.radial-spoke-canvas { position:absolute; inset:0; pointer-events:none; }
+.radial-node { position:absolute; display:flex; flex-direction:column; align-items:center; gap:8px; transform:translate(-50%,-50%); z-index:2; }
+.radial-node-circle { width:76px; height:76px; border-radius:50%; background:#fff; border:2px solid rgba(77,209,244,0.5); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(0,0,0,0.3); transition:transform 0.2s, box-shadow 0.2s; }
+.radial-node-circle:hover { transform:scale(1.08); box-shadow:0 6px 24px rgba(77,209,244,0.4); }
+.radial-node-circle img { width:48px; height:48px; object-fit:contain; }
+.radial-node-label { font-size:12px; font-weight:700; color:var(--white); text-align:center; max-width:100px; line-height:1.3; }
+@media(max-width:768px){ .radial-wrap { height:auto; } .radial-spoke-canvas { display:none; } .radial-hub { position:static; margin:0 auto 20px; } .radial-node { position:static; transform:none; } }
+
+/* ══ CHANGE 3: Animated charts ══ */
+.cs-visual-split { display:flex; gap:24px; flex:1; min-height:0; margin-top:16px; }
+.cs-chart-panel { flex:0 0 58%; min-width:0; }
+.cs-achieve-panel { flex:1; display:flex; flex-direction:column; gap:12px; justify-content:center; }
+.cs-chart-svg { width:100%; height:220px; }
+.chart-line { fill:none; stroke:var(--cyan); stroke-width:2.5; stroke-linecap:round; stroke-dasharray:600; stroke-dashoffset:600; transition:stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1); }
+.chart-area { fill:rgba(77,209,244,0.08); opacity:0; transition:opacity 1s ease 0.5s; }
+.slide.active .chart-line { stroke-dashoffset:0; }
+.slide.active .chart-area { opacity:1; }
+.cs-achieve-card { background:rgba(77,209,244,0.1); border-left:3px solid var(--cyan); border-radius:0 10px 10px 0; padding:14px 16px; }
+.cs-achieve-card .ach-num { font-size:26px; font-weight:800; color:var(--cyan); line-height:1; }
+.cs-achieve-card .ach-label { font-size:13px; color:rgba(255,255,255,0.7); margin-top:3px; }
+.chart-axis-label { font-size:10px; fill:rgba(255,255,255,0.35); font-family:'Montserrat',sans-serif; }
+.chart-dot { fill:var(--cyan); }
+.chart-point-label { font-size:11px; fill:var(--cyan); font-weight:700; font-family:'Montserrat',sans-serif; }
+@media(max-width:768px){ .cs-visual-split { flex-direction:column; } .cs-chart-panel { flex:none; } }
+
+/* ══ CHANGE 4: Venn diagram ══ */
+.venn-wrap { width:100%; max-width:860px; margin:0 auto; }
+.venn-svg { width:100%; height:auto; }
+.venn-circle-label { font-size:22px; font-weight:800; fill:var(--white); font-family:'Lilita One',cursive; }
+.venn-circle-desc { font-size:13px; fill:rgba(255,255,255,0.55); font-family:'Montserrat',sans-serif; }
+.venn-center-label { font-size:32px; font-weight:900; fill:var(--cyan); font-family:'Lilita One',cursive; filter:drop-shadow(0 0 12px rgba(77,209,244,0.7)); }
+
+/* ══ CHANGE 5: Founder inline stats ══ */
+.founder-inline-stats { display:flex; align-items:center; gap:0; margin-top:20px; }
+.founder-stat-item { text-align:center; padding:0 20px; }
+.founder-stat-item:first-child { padding-left:0; }
+.founder-stat-item .fsi-num { font-family:var(--font-display); font-size:32px; color:var(--cyan); line-height:1; }
+.founder-stat-item .fsi-label { font-size:12px; color:rgba(255,255,255,0.55); font-weight:600; letter-spacing:0.5px; margin-top:4px; text-transform:uppercase; }
+.founder-stat-divider { width:1px; height:44px; background:rgba(255,255,255,0.15); flex-shrink:0; }
+
+/* ══ CHANGE 5: How service tiles ══ */
+.how-svc-tile { display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.07); }
+.how-svc-tile:last-child { border-bottom:none; }
+.how-svc-icon { width:52px; height:52px; background:rgba(255,255,255,0.9); border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.how-svc-icon img { width:36px; height:36px; object-fit:contain; }
+.how-svc-name { font-size:20px; font-weight:700; color:var(--white); }
+
 /* Print / PDF ── */
 @media print {
   html, body { overflow:visible; height:auto; }
@@ -1313,62 +1374,35 @@ html, body {
   <svg class="doodle" style="top:60px;right:80px;width:70px;opacity:0.09;" viewBox="0 0 70 25"><text x="0" y="20" font-family="'Montserrat',sans-serif" font-size="18" fill="var(--cyan)" font-style="italic">E = mc²</text></svg>
   <div class="inner" style="align-items:center;justify-content:center;">
     <div class="formula-label">The Strategy Lab Formula</div>
-    <!-- Three boxes + plus signs -->
-    <div class="formula-row">
-      <div class="formula-box">
-        <!-- Strategy icon: crosshair -->
-        <div class="fb-icon">
-          <svg viewBox="0 0 52 52" fill="none" stroke="var(--cyan)" stroke-width="2">
-            <circle cx="26" cy="26" r="20"/>
-            <circle cx="26" cy="26" r="8"/>
-            <line x1="26" y1="2" x2="26" y2="18"/>
-            <line x1="26" y1="34" x2="26" y2="50"/>
-            <line x1="2" y1="26" x2="18" y2="26"/>
-            <line x1="34" y1="26" x2="50" y2="26"/>
-          </svg>
-        </div>
-        <div class="fb-term">Strategy</div>
-        <div class="fb-desc">Built on positioning that's tested, not guessed</div>
-      </div>
-      <div class="formula-plus">+</div>
-      <div class="formula-box">
-        <!-- Data icon: bar chart -->
-        <div class="fb-icon">
-          <svg viewBox="0 0 52 52" fill="none" stroke="var(--cyan)" stroke-width="2">
-            <rect x="4" y="32" width="10" height="14" rx="1"/>
-            <rect x="21" y="20" width="10" height="26" rx="1"/>
-            <rect x="38" y="8" width="10" height="38" rx="1"/>
-            <polyline points="9,30 26,18 43,6" stroke-width="2.5"/>
-            <path d="M37 6 L43 6 L43 12" stroke-width="2.5"/>
-          </svg>
-        </div>
-        <div class="fb-term">Data</div>
-        <div class="fb-desc">Numbers that actually tell you something</div>
-      </div>
-      <div class="formula-plus">+</div>
-      <div class="formula-box">
-        <!-- Innovation icon: lightbulb -->
-        <div class="fb-icon">
-          <svg viewBox="0 0 52 52" fill="none" stroke="var(--cyan)" stroke-width="2">
-            <path d="M20 44h12M22 44v-6a11 11 0 00-6-9 13 13 0 1122 0 11 11 0 00-6 9v6"/>
-            <line x1="26" y1="2" x2="26" y2="7"/>
-            <line x1="44" y1="8" x2="41" y2="11"/>
-            <line x1="48" y1="26" x2="43" y2="26"/>
-            <line x1="8" y1="8" x2="11" y2="11"/>
-            <line x1="4" y1="26" x2="9" y2="26"/>
-          </svg>
-        </div>
-        <div class="fb-term">Innovation</div>
-        <div class="fb-desc">Creative built to learn, iterate, and improve</div>
-      </div>
-    </div>
-    <!-- = GROWTH -->
-    <div class="formula-result-row">
-      <div class="formula-eq-sign">= &nbsp;</div><span class="formula-result">GROWTH</span>
-      <div class="formula-result-sub">
-        <span>Measurable.</span>
-        <span>Scalable.</span>
-      </div>
+    <div class="venn-wrap">
+      <svg class="venn-svg" viewBox="0 0 860 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- Three overlapping circles -->
+        <circle cx="310" cy="170" r="148" fill="rgba(84,69,62,0.55)" stroke="rgba(77,209,244,0.6)" stroke-width="1.5"/>
+        <circle cx="550" cy="170" r="148" fill="rgba(84,69,62,0.55)" stroke="rgba(77,209,244,0.6)" stroke-width="1.5"/>
+        <circle cx="430" cy="290" r="148" fill="rgba(84,69,62,0.55)" stroke="rgba(77,209,244,0.6)" stroke-width="1.5"/>
+        <!-- Intersection highlights (subtle) -->
+        <ellipse cx="430" cy="175" rx="90" ry="55" fill="rgba(77,209,244,0.06)" stroke="none"/>
+        <!-- GROWTH label at centre intersection -->
+        <text x="430" y="220" text-anchor="middle" font-family="'Lilita One',cursive" font-size="28" fill="#4DD1F4" filter="url(#glow-filter)" letter-spacing="3">GROWTH</text>
+        <text x="430" y="238" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="10" fill="rgba(77,209,244,0.55)" letter-spacing="2">MEASURABLE · SCALABLE</text>
+        <!-- Glow filter -->
+        <defs>
+          <filter id="glow-filter" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Circle labels -->
+        <text class="venn-circle-label" x="200" y="130" text-anchor="middle">Strategy</text>
+        <text class="venn-circle-desc" x="200" y="150" text-anchor="middle">Tested positioning</text>
+        <image href="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 4.png" x="168" y="154" width="64" height="64" opacity="0.7"/>
+        <text class="venn-circle-label" x="660" y="130" text-anchor="middle">Innovation</text>
+        <text class="venn-circle-desc" x="660" y="150" text-anchor="middle">Creative that learns</text>
+        <image href="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 13.png" x="628" y="154" width="64" height="64" opacity="0.7"/>
+        <text class="venn-circle-label" x="430" y="368" text-anchor="middle">Data</text>
+        <text class="venn-circle-desc" x="430" y="348" text-anchor="middle">Numbers that matter</text>
+        <image href="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 11.png" x="398" y="306" width="64" height="64" opacity="0.7"/>
+      </svg>
     </div>
   </div>
 </div>
@@ -1428,57 +1462,49 @@ html, body {
     </div>
     <div class="why-stat-row">
       <div class="why-stat-box highlight">
-        <div class="stat">12+</div>
+        <div class="stat-counter" data-target="12" data-suffix="+">0+</div>
         <div class="stat-label">Brands Served</div>
       </div>
       <div class="why-stat-box">
-        <div class="stat">₹7Cr+</div>
+        <div class="stat-counter" data-target="7" data-prefix="₹" data-suffix="Cr+">₹0Cr+</div>
         <div class="stat-label">Revenue Generated</div>
       </div>
       <div class="why-stat-box">
-        <div class="stat">9x</div>
+        <div class="stat-counter" data-target="9" data-suffix="x">0x</div>
         <div class="stat-label">Peak ROAS Delivered</div>
       </div>
       <div class="why-stat-box">
-        <div class="stat">100%</div>
+        <div class="stat-counter" data-target="100" data-suffix="%">0%</div>
         <div class="stat-label">Senior Strategists</div>
       </div>
     </div>
-    <div class="why-grid">
-      <div class="why-point">
-        <div class="why-point-icon">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="5" r="3"/><path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
-        </div>
-        <div class="why-point-text">
-          <h5>Senior Team, Every Account</h5>
-          <p>No juniors. Every account is handled directly by senior strategists with deep real-world experience at top global agencies.</p>
+    <div class="why-icon-grid">
+      <div class="why-icon-tile">
+        <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 6.png" alt="Senior Team">
+        <div class="why-icon-tile-text">
+          <h5>Senior Team Only</h5>
+          <p>No juniors — every account run by senior strategists</p>
         </div>
       </div>
-      <div class="why-point">
-        <div class="why-point-icon">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l4-4 3 3 5-6"/></svg>
-        </div>
-        <div class="why-point-text">
+      <div class="why-icon-tile">
+        <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 4.png" alt="D2C Specialists">
+        <div class="why-icon-tile-text">
           <h5>D2C &amp; Luxury Specialists</h5>
-          <p>Deep expertise scaling D2C and luxury brands — fixing funnels, improving CAC, strengthening retention, and unlocking new acquisition channels.</p>
+          <p>Deep expertise scaling premium D2C brands</p>
         </div>
       </div>
-      <div class="why-point">
-        <div class="why-point-icon">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M6 9h6M9 6v6"/></svg>
-        </div>
-        <div class="why-point-text">
+      <div class="why-icon-tile">
+        <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 13.png" alt="Full Service">
+        <div class="why-icon-tile-text">
           <h5>Full-Service, One Roof</h5>
-          <p>Performance marketing, SEO, web development, and strategic advisory. Everything under one strategy. No juggling multiple agencies.</p>
+          <p>Performance, SEO, web &amp; strategy — no agency juggling</p>
         </div>
       </div>
-      <div class="why-point">
-        <div class="why-point-icon">
-          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2l2 5h5l-4 3 1.5 5L9 12l-4.5 3L6 10 2 7h5z"/></svg>
-        </div>
-        <div class="why-point-text">
-          <h5>True Partnership Model</h5>
-          <p>We treat every brand as our own. Strategy isn't a deliverable. It's an ongoing conversation that evolves with your business.</p>
+      <div class="why-icon-tile">
+        <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 1.png" alt="Strategy First">
+        <div class="why-icon-tile-text">
+          <h5>Strategy-First Always</h5>
+          <p>Every decision grounded in data and tested thinking</p>
         </div>
       </div>
     </div>
@@ -1549,24 +1575,61 @@ html, body {
         <div class="sh-col"><div class="sh-n">2+ Yrs</div><div class="sh-l">Ongoing Partnership</div></div>
         <div class="sh-col"><div class="sh-n">₹60–70L</div><div class="sh-l">Total Ad Spend Managed</div></div>
       </div>
-      <div class="cs-narrative">
-        <div class="cs-narrative-col">
-          <div class="cs-row-label">What we found</div>
-          <div class="cs-finding">Good traffic, but zero funnel structure to convert it at scale</div>
-          <div class="cs-finding">Previous agency maxed out bottom-funnel with no fresh acquisition</div>
-          <div class="cs-finding">10x ROAS proven at ₹2.6L spend — nobody had tried to scale it</div>
-          <div class="cs-row-label" style="margin-top:8px;">What we did</div>
-          <div class="cs-finding">Full-funnel creative layering: brand films, USPs, dynamic retargeting</div>
-          <div class="cs-finding">Doubled ad spend over 3 months while continuously optimising</div>
-          <div class="cs-finding">Rebuilt campaigns from ground up + unlocked Instagram as a channel</div>
+      <div class="cs-visual-split">
+        <!-- Left: SVG line chart -->
+        <div class="cs-chart-panel">
+          <svg class="cs-chart-svg" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Axes -->
+            <line x1="50" y1="180" x2="470" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <line x1="50" y1="20" x2="50" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <!-- Y-axis labels -->
+            <text class="chart-axis-label" x="44" y="184" text-anchor="end">0x</text>
+            <text class="chart-axis-label" x="44" y="144" text-anchor="end">2x</text>
+            <text class="chart-axis-label" x="44" y="104" text-anchor="end">5x</text>
+            <text class="chart-axis-label" x="44" y="64" text-anchor="end">7x</text>
+            <text class="chart-axis-label" x="44" y="28" text-anchor="end">10x</text>
+            <!-- Horizontal guide lines -->
+            <line x1="50" y1="144" x2="470" y2="144" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="50" y1="104" x2="470" y2="104" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="50" y1="64" x2="470" y2="64" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+            <!-- X-axis labels -->
+            <text class="chart-axis-label" x="50" y="196" text-anchor="middle">Month 0</text>
+            <text class="chart-axis-label" x="155" y="196" text-anchor="middle">Month 3</text>
+            <text class="chart-axis-label" x="260" y="196" text-anchor="middle">Month 6</text>
+            <text class="chart-axis-label" x="420" y="196" text-anchor="middle">Month 12+</text>
+            <!-- Area fill (closes at y=180) -->
+            <path class="chart-area" d="M50,155 L155,130 L260,90 L420,25 L420,180 L50,180 Z"/>
+            <!-- Line -->
+            <polyline class="chart-line" points="50,155 155,130 260,90 420,25"/>
+            <!-- Data dots -->
+            <circle class="chart-dot" cx="50" cy="155" r="5"/>
+            <circle class="chart-dot" cx="155" cy="130" r="5"/>
+            <circle class="chart-dot" cx="260" cy="90" r="5"/>
+            <circle class="chart-dot" cx="420" cy="25" r="5"/>
+            <!-- Data labels -->
+            <text class="chart-point-label" x="50" y="148" text-anchor="middle">1.8x</text>
+            <text class="chart-point-label" x="155" y="123" text-anchor="middle">3.5x</text>
+            <text class="chart-point-label" x="260" y="83" text-anchor="middle">6x</text>
+            <text class="chart-point-label" x="420" y="18" text-anchor="middle">9x+</text>
+            <!-- Start/end callouts -->
+            <text x="52" y="170" font-size="9" fill="rgba(255,255,255,0.4)" font-family="Montserrat,sans-serif">Started 1.8x</text>
+            <text x="360" y="20" font-size="9" fill="rgba(77,209,244,0.7)" font-family="Montserrat,sans-serif">Sustained 9x+</text>
+          </svg>
         </div>
-        <div class="cs-narrative-col">
-          <div class="cs-row-label">What happened</div>
-          <div class="cs-achievement">Sustained 9x+ ROAS at 2x the original ad spend</div>
-          <div class="cs-achievement">₹2.5 Cr Year 1 + ₹1.7 Cr Year 2 = over ₹4 Cr total revenue</div>
-          <div class="cs-achievement">BAU ROAS improved from 1.8x to 3.5x</div>
-          <div class="cs-achievement">3x Instagram revenue. Stronger traffic quality across the board.</div>
-          <div class="cs-achievement" style="margin-top:12px;background:rgba(77,209,244,0.18);border-color:var(--cyan);font-weight:700;">Still running. 2+ year ongoing partnership.</div>
+        <!-- Right: Achievement cards -->
+        <div class="cs-achieve-panel">
+          <div class="cs-achieve-card">
+            <div class="ach-num">9x+</div>
+            <div class="ach-label">Peak ROAS — sustained at 2x original spend</div>
+          </div>
+          <div class="cs-achieve-card">
+            <div class="ach-num">₹4Cr+</div>
+            <div class="ach-label">Total revenue across 2-year partnership</div>
+          </div>
+          <div class="cs-achieve-card">
+            <div class="ach-num">3x</div>
+            <div class="ach-label">Instagram revenue growth. Still running.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1633,24 +1696,61 @@ html, body {
         <div class="sh-col"><div class="sh-n">₹70L</div><div class="sh-l">Revenue Per Month</div></div>
         <div class="sh-col"><div class="sh-n">₹50–60L</div><div class="sh-l">Total Ad Spend Managed</div></div>
       </div>
-      <div class="cs-narrative">
-        <div class="cs-narrative-col">
-          <div class="cs-row-label">What we found</div>
-          <div class="cs-finding">Wrong audiences targeted — luxury buyer segments hadn't been built</div>
-          <div class="cs-finding">Campaigns underperforming with ROAS below the brand's true potential</div>
-          <div class="cs-finding">No full-funnel structure to handle ₹10–15L/month spend profitably</div>
-          <div class="cs-row-label" style="margin-top:8px;">What we did</div>
-          <div class="cs-finding">Built separate acquisition + retargeting funnels for luxury segments</div>
-          <div class="cs-finding">Aspirational creative matched to high-intent audiences on Meta &amp; Google</div>
-          <div class="cs-finding">Continuous optimisation to maintain efficiency at aggressive spend levels</div>
+      <div class="cs-visual-split">
+        <!-- Left: SVG line chart -->
+        <div class="cs-chart-panel">
+          <svg class="cs-chart-svg" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Axes -->
+            <line x1="50" y1="180" x2="470" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <line x1="50" y1="20" x2="50" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <!-- Y-axis labels -->
+            <text class="chart-axis-label" x="44" y="184" text-anchor="end">0x</text>
+            <text class="chart-axis-label" x="44" y="144" text-anchor="end">2x</text>
+            <text class="chart-axis-label" x="44" y="104" text-anchor="end">3x</text>
+            <text class="chart-axis-label" x="44" y="64" text-anchor="end">4x</text>
+            <text class="chart-axis-label" x="44" y="28" text-anchor="end">5x</text>
+            <!-- Horizontal guide lines -->
+            <line x1="50" y1="144" x2="470" y2="144" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="50" y1="104" x2="470" y2="104" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="50" y1="64" x2="470" y2="64" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="4,4"/>
+            <!-- X-axis labels -->
+            <text class="chart-axis-label" x="50" y="196" text-anchor="middle">Month 0</text>
+            <text class="chart-axis-label" x="155" y="196" text-anchor="middle">Month 1</text>
+            <text class="chart-axis-label" x="260" y="196" text-anchor="middle">Month 2</text>
+            <text class="chart-axis-label" x="420" y="196" text-anchor="middle">Month 4</text>
+            <!-- Area fill -->
+            <path class="chart-area" d="M50,155 L155,120 L260,85 L420,60 L420,180 L50,180 Z"/>
+            <!-- Line -->
+            <polyline class="chart-line" points="50,155 155,120 260,85 420,60"/>
+            <!-- Data dots -->
+            <circle class="chart-dot" cx="50" cy="155" r="5"/>
+            <circle class="chart-dot" cx="155" cy="120" r="5"/>
+            <circle class="chart-dot" cx="260" cy="85" r="5"/>
+            <circle class="chart-dot" cx="420" cy="60" r="5"/>
+            <!-- Data labels -->
+            <text class="chart-point-label" x="50" y="148" text-anchor="middle">2x</text>
+            <text class="chart-point-label" x="155" y="113" text-anchor="middle">3.5x</text>
+            <text class="chart-point-label" x="260" y="78" text-anchor="middle">4.5x</text>
+            <text class="chart-point-label" x="420" y="53" text-anchor="middle">5x</text>
+            <!-- Start/end callouts -->
+            <text x="52" y="170" font-size="9" fill="rgba(255,255,255,0.4)" font-family="Montserrat,sans-serif">Started at 2x ROAS</text>
+            <text x="360" y="55" font-size="9" fill="rgba(77,209,244,0.7)" font-family="Montserrat,sans-serif">Sustained 5x</text>
+          </svg>
         </div>
-        <div class="cs-narrative-col">
-          <div class="cs-row-label">What happened</div>
-          <div class="cs-achievement">~₹70L/month in revenue, sustained across all 4 months</div>
-          <div class="cs-achievement">₹3–4 Cr total revenue on ₹50–60L total ad spend</div>
-          <div class="cs-achievement">~5x ROAS maintained despite aggressive budget scaling</div>
-          <div class="cs-achievement">Repeatable, scalable paid acquisition playbook established</div>
-          <div class="cs-achievement" style="margin-top:12px;background:rgba(77,209,244,0.18);border-color:var(--cyan);font-weight:700;">₹3–4 Cr in just 4 months. Proof that the system works fast.</div>
+        <!-- Right: Achievement cards -->
+        <div class="cs-achieve-panel">
+          <div class="cs-achieve-card">
+            <div class="ach-num">~5x</div>
+            <div class="ach-label">Avg. ROAS — maintained at aggressive spend</div>
+          </div>
+          <div class="cs-achieve-card">
+            <div class="ach-num">₹3–4Cr</div>
+            <div class="ach-label">Revenue in just 4 months</div>
+          </div>
+          <div class="cs-achieve-card">
+            <div class="ach-num">₹70L</div>
+            <div class="ach-label">Revenue per month — sustained all 4 months</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1717,12 +1817,21 @@ html, body {
         </div>
       </div>
       <div class="how-right">
-        <div class="how-service-item" style="font-size:18px;font-weight:700;color:var(--white);">Performance Marketing</div>
-        <div class="how-service-item" style="font-size:18px;font-weight:700;color:var(--white);">SEO</div>
-        <div class="how-service-item" style="font-size:18px;font-weight:700;color:var(--white);">Web Development</div>
-        <div class="how-service-item" style="font-size:18px;font-weight:700;color:var(--white);">Strategic Consultancy</div>
-        <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1);">
-          <span style="font-size:12px;color:rgba(255,255,255,0.35);letter-spacing:2px;text-transform:uppercase;">All under one roof. Senior team only.</span>
+        <div class="how-svc-tile">
+          <div class="how-svc-icon"><img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 11.png" alt="Performance Marketing"></div>
+          <span class="how-svc-name">Performance Marketing</span>
+        </div>
+        <div class="how-svc-tile">
+          <div class="how-svc-icon"><img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 10.png" alt="SEO"></div>
+          <span class="how-svc-name">SEO</span>
+        </div>
+        <div class="how-svc-tile">
+          <div class="how-svc-icon"><img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 2.png" alt="Web Development"></div>
+          <span class="how-svc-name">Web Development</span>
+        </div>
+        <div class="how-svc-tile">
+          <div class="how-svc-icon"><img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 6.png" alt="Strategic Consultancy"></div>
+          <span class="how-svc-name">Strategic Consultancy</span>
         </div>
       </div>
     </div>
@@ -1741,43 +1850,60 @@ html, body {
         <div class="label-title">Lab's Core Experiments</div>
       </div>
     </div>
-    <div class="svc-grid-5">
-      <!-- Row 1: 3 cards -->
-      <div class="svc-card svc-card-a">
-        <div class="svc-icon">
+    <!-- Hub-and-spoke radial diagram -->
+    <div class="radial-wrap" id="radial-svc">
+      <!-- SVG spoke lines -->
+      <svg class="radial-spoke-canvas" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Centre = 50%,50% → node positions as % coords -->
+        <!-- Performance Marketing: 50%,2% -->
+        <line x1="50" y1="50" x2="50" y2="10" stroke="rgba(77,209,244,0.45)" stroke-width="0.5" stroke-dasharray="2,2"/>
+        <!-- SEO: 88%,22% -->
+        <line x1="50" y1="50" x2="88" y2="26" stroke="rgba(77,209,244,0.45)" stroke-width="0.5" stroke-dasharray="2,2"/>
+        <!-- Web Dev: 78%,80% -->
+        <line x1="50" y1="50" x2="78" y2="76" stroke="rgba(77,209,244,0.45)" stroke-width="0.5" stroke-dasharray="2,2"/>
+        <!-- Strategic Positioning: 22%,80% -->
+        <line x1="50" y1="50" x2="22" y2="76" stroke="rgba(77,209,244,0.45)" stroke-width="0.5" stroke-dasharray="2,2"/>
+        <!-- Strategic Consultancy: 12%,22% -->
+        <line x1="50" y1="50" x2="12" y2="26" stroke="rgba(77,209,244,0.45)" stroke-width="0.5" stroke-dasharray="2,2"/>
+      </svg>
+      <!-- Centre hub -->
+      <div class="radial-hub">
+        <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 1.png" alt="TSL">
+      </div>
+      <!-- Node: Performance Marketing (top centre) -->
+      <div class="radial-node" style="left:50%;top:2%;">
+        <div class="radial-node-circle">
           <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 11.png" alt="Performance Marketing">
         </div>
-        <h4>Performance Marketing</h4>
-        <p>Data-driven paid campaigns across Meta, Google and beyond. Controlled experiments to maximise ROAS and scale what works, ruthlessly.</p>
+        <div class="radial-node-label">Performance<br>Marketing</div>
       </div>
-      <div class="svc-card svc-card-a">
-        <div class="svc-icon">
+      <!-- Node: SEO (top right) -->
+      <div class="radial-node" style="left:88%;top:22%;">
+        <div class="radial-node-circle">
           <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 10.png" alt="SEO">
         </div>
-        <h4>SEO (On-Page &amp; Off-Page)</h4>
-        <p>Organic growth that compounds. Full technical and content SEO to ensure search engines and real humans find you first.</p>
+        <div class="radial-node-label">SEO</div>
       </div>
-      <div class="svc-card svc-card-a">
-        <div class="svc-icon">
-          <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 2.png" alt="Web Development">
+      <!-- Node: Web Dev (bottom right) -->
+      <div class="radial-node" style="left:78%;top:80%;">
+        <div class="radial-node-circle">
+          <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 2.png" alt="Web Dev">
         </div>
-        <h4>Web Development</h4>
-        <p>High-converting, high-performance websites built by senior engineers. Designed to grow with your brand from day one.</p>
+        <div class="radial-node-label">Web<br>Development</div>
       </div>
-      <!-- Row 2: 2 cards centered -->
-      <div class="svc-card svc-card-b">
-        <div class="svc-icon">
+      <!-- Node: Strategic Positioning (bottom left) -->
+      <div class="radial-node" style="left:22%;top:80%;">
+        <div class="radial-node-circle">
           <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 4.png" alt="Strategic Positioning">
         </div>
-        <h4>Strategic Positioning &amp; Identity</h4>
-        <p>For brands ready to define their category, not just their aesthetic. Brand architecture, go-to-market positioning, and identity work where it makes strategic sense. A consultative process, not a social media package.</p>
+        <div class="radial-node-label">Strategic<br>Positioning</div>
       </div>
-      <div class="svc-card svc-card-b">
-        <div class="svc-icon">
+      <!-- Node: Strategic Consultancy (top left) -->
+      <div class="radial-node" style="left:12%;top:22%;">
+        <div class="radial-node-circle">
           <img src="../Complete Brand Kit &amp; Deliverables/ICON/Artboard 6.png" alt="Strategic Consultancy">
         </div>
-        <h4>Strategic Consultancy</h4>
-        <p>For leadership teams that need strategic clarity without a full retainer. Fractional CMO advisory, marketing audits, growth roadmap sessions and go-to-market planning, delivered by senior experts who've built and scaled brands.</p>
+        <div class="radial-node-label">Strategic<br>Consultancy</div>
       </div>
     </div>
   </div>
@@ -2014,15 +2140,35 @@ html, body {
   window.addEventListener('resize', layout);
   layout();
 
+  /* ── Counter animation ─────────────────────────── */
+  function animateCounter(el){
+    if(el.dataset.animated) return;
+    el.dataset.animated = '1';
+    const target  = parseFloat(el.dataset.target);
+    const prefix  = el.dataset.prefix  || '';
+    const suffix  = el.dataset.suffix  || '';
+    const dur     = 1200;
+    const start   = performance.now();
+    function tick(now){
+      const p   = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      const val  = Math.round(target * ease);
+      el.textContent = prefix + val + suffix;
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
   /* ── Show slide ────────────────────────────────── */
   function show(n){
     if(n < 1 || n > total) return;
-    // Always maintain .active for desktop opacity transitions
     slides.forEach(s => s.classList.remove('active'));
     slides[n-1].classList.add('active');
     cur = n;
     ctr.textContent = cur + ' / ' + total;
     prog.style.width = (cur / total * 100) + '%';
+    // Trigger counters on active slide
+    slides[n-1].querySelectorAll('[data-target]').forEach(animateCounter);
     // Mobile: smooth scroll to slide
     if(isMobile()){
       slides[n-1].scrollIntoView({ behavior: 'smooth', block: 'start' });
