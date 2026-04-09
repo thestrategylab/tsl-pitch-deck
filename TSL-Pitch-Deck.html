@@ -1073,117 +1073,108 @@ html, body {
    Each slide becomes a full-height section; user scrolls.
    ──────────────────────────────────────────────────────────── */
 @media (max-width:768px) {
-  /* Mobile: long-scroll page, no fixed height, no snap */
+  /* ── Base layout ── */
   html, body { height:auto; overflow:auto; }
-  .deck {
-    position:static !important;
-    width:100% !important;
-    height:auto !important;
-    transform:none !important;
-    overflow:visible !important;
-  }
-  .slide {
-    position:relative !important;
-    opacity:1 !important;
-    pointer-events:auto !important;
-    width:100% !important;
-    height:auto !important;
-    min-height:0 !important;
-    display:block !important;
-    border-bottom:1px solid rgba(255,255,255,0.06);
-    scroll-margin-top:52px;
-  }
-  .inner {
-    width:100% !important;
-    height:auto !important;
-    max-width:100% !important;
-    max-height:none !important;
-    padding:48px 20px 56px !important;
-    position:static !important;
-    display:flex !important;
-    flex-direction:column !important;
-    justify-content:flex-start !important;
-    box-sizing:border-box !important;
-  }
-  /* Nav: fixed top bar for jumping */
-  .nav { opacity:1 !important; height:52px; position:fixed; top:0; z-index:999; }
-  .nav button { padding:6px 12px; font-size:12px; }
-  .progress { display:none; }
+  .deck { position:static !important; width:100% !important; height:auto !important; transform:none !important; overflow:visible !important; }
+  .slide { position:relative !important; opacity:1 !important; pointer-events:auto !important; width:100% !important; height:auto !important; min-height:100svh !important; display:flex !important; flex-direction:column !important; justify-content:center !important; border-bottom:1px solid rgba(255,255,255,0.06); scroll-margin-top:52px; overflow:hidden !important; }
+  .inner { width:100% !important; height:auto !important; max-width:100% !important; max-height:none !important; padding:72px 24px 56px !important; position:static !important; display:flex !important; flex-direction:column !important; justify-content:center !important; box-sizing:border-box !important; }
 
-  /* ── Content reflows ── */
-  .s1-h { font-size:38px; }
-  .s1-p { font-size:17px; }
-  .s2-top { font-size:18px; }
-  .s2-mid { font-size:22px; }
-  .s2-bot { font-size:30px; }
-  .s2-decorative-quote { display:none; }
-  .s2-body { width:100%; }
-  .s3-tagline { font-size:18px; letter-spacing:2px; }
-  .s3-chips { flex-wrap:wrap; gap:10px; }
+  /* ── Nav ── */
+  .nav { opacity:1 !important; height:52px; position:fixed; top:0; bottom:auto; z-index:999; background:rgba(28,18,12,0.97); }
+  .nav button { padding:6px 10px; font-size:11px; }
+  .progress { display:none; }
+  .doodle, .glow { display:none; }
+
+  /* ── Slide 1 ── */
+  .s1-h { font-size:42px; line-height:1.05; }
+  .s1-p { font-size:16px; line-height:1.6; }
+  /* Hide decorative right panel */
+  [data-slide="1"] > div[style*="width:50%"] { display:none !important; }
+
+  /* ── Slide 2: Hero logo ── */
+  .s3-tagline { font-size:16px; letter-spacing:2px; }
+  .s3-chips { flex-wrap:wrap; gap:10px; justify-content:center; }
+  .s3-chip { font-size:12px; padding:6px 14px; }
+
+  /* ── Slide 3: Founder ── */
   .s4-wrap { flex-direction:column; gap:20px; align-items:center; }
-  .s4-photo-card { width:220px; height:280px; }
+  .s4-photo-card { width:180px; height:230px; }
   .s4-right { text-align:center; }
-  .s4-head { font-size:22px; }
-  .cred-chips { justify-content:center; }
-  .s4-stat-row { flex-direction:column; gap:8px; }
-  .formula-label { font-size:11px; }
-  .formula-row { flex-wrap:wrap; justify-content:center; gap:10px; }
-  .formula-box { max-width:calc(50% - 5px); padding:18px 12px; }
-  .fb-term { font-size:18px; }
-  .formula-plus { font-size:28px; width:100%; text-align:center; }
-  .formula-result { font-size:48px; letter-spacing:4px; }
-  .logo-wall { gap:12px; }
-  .logo-row { gap:12px; }
+  .s4-head { font-size:20px; }
+  .cred-chips { justify-content:center; flex-wrap:wrap; }
+  .s4-stat-row { flex-direction:row; flex-wrap:wrap; gap:8px; }
+  .s4-stat-box { flex:1 1 calc(50% - 4px); min-width:0; }
+  .founder-quote-block { text-align:left; }
+
+  /* ── Slide 5: Venn ── */
+  .venn-wrap { max-width:100% !important; overflow:hidden; }
+  .venn-svg { width:100% !important; height:auto !important; }
+
+  /* ── Slide 6: Logo wall ── */
+  .logo-wall { gap:14px; }
+  .logo-row { gap:14px; flex-wrap:wrap; justify-content:center; }
   .logo-cell { width:80px; height:80px; padding:10px; }
-  .logo-cell img { width:90%; height:90%; }
-  .logo-cell .brand-name { font-size:8px; }
-  .why-stat-row { flex-wrap:wrap; }
-  .why-stat-box { flex:1 1 calc(50% - 8px); }
-  .why-grid { grid-template-columns:1fr; gap:16px; }
-  .label-title { font-size:28px; }
+
+  /* ── Slide 7: Why TSL ── */
+  .why-stat-row { flex-wrap:wrap; gap:10px; }
+  .why-stat-box { flex:1 1 calc(50% - 5px); min-width:0; }
+  .stat-counter { font-size:2rem !important; }
+  .why-icon-grid { grid-template-columns:1fr !important; gap:12px; }
+
+  /* ── Labels ── */
+  .label-title { font-size:26px !important; }
+  .label-sup { font-size:11px; }
+
+  /* ── Case study: Challenge ── */
   .cs-layout { flex-direction:column; }
-  .cs-left-panel { width:100%; border-right:none; border-bottom:3px solid var(--cyan); padding:20px; min-height:auto; flex-direction:row; gap:16px; align-items:center; text-align:left; }
-  .cs-brand-logo-wrap { margin:0; width:80px; height:60px; flex-shrink:0; }
-  .cs-narrative { flex-direction:column; }
+  .cs-left-panel { width:100%; border-right:none; border-bottom:3px solid var(--cyan); padding:16px; min-height:auto; flex-direction:row; gap:14px; align-items:center; text-align:left; }
+  .cs-brand-logo-wrap { margin:0; width:70px; height:55px; flex-shrink:0; }
+
+  /* ── Case study: Results ── */
   .stats-hero { grid-template-columns:repeat(2,1fr); }
   .sh-col:nth-child(2) { border-right:none; }
-  .sh-n { font-size:1.8rem; }
-  .sr-cards { flex-direction:column; gap:14px; }
+  .sh-n { font-size:1.5rem; }
+  .cs-visual-split { flex-direction:column !important; gap:16px; }
+  .cs-chart-panel { flex:none !important; width:100% !important; }
+  .cs-chart-svg { height:180px !important; flex:none !important; }
+  .cs-achieve-panel { flex:none !important; }
+  .cs-achieve-card { flex:none !important; }
+
+  /* ── Testimonials ── */
   .twall-cards { flex-direction:column; gap:16px; }
   .twall-card { border-left:4px solid var(--cyan); border-top:none; border-radius:0 14px 14px 0; }
-  .svc-grid-5 { grid-template-columns:1fr; }
-  .svc-card-a, .svc-card-b { grid-column:span 1; }
-  .workflow { flex-wrap:nowrap; overflow-x:auto; gap:0; padding-bottom:8px; }
+  .twall-text { font-size:14px; line-height:1.7; }
+
+  /* ── Services grid: single column on mobile ── */
+  [data-slide="14"] [style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+
+  /* ── Methodology: vertical stack ── */
+  .workflow { flex-direction:column !important; overflow:visible !important; gap:12px !important; padding-bottom:0; }
   .workflow::before { display:none; }
-  .wf-step { min-width:140px; padding:0 8px; }
-  .wf-node { width:40px; height:40px; margin-bottom:12px; }
-  .wf-step-body { padding:12px 10px; }
-  .wf-step-label { font-size:12px; }
-  .wf-step-desc { display:none; }
-  .fw-pipeline { flex-wrap:wrap; gap:12px; }
+  .wf-step { min-width:0 !important; padding:0 !important; flex-direction:row !important; align-items:flex-start; gap:14px; }
+  .wf-node { width:38px; height:38px; flex-shrink:0; margin-bottom:0 !important; }
+  .wf-step-body { padding:8px 0 8px 14px !important; border-top:none !important; border-left:2px solid rgba(77,209,244,0.2); }
+  .wf-step-label { font-size:14px; }
+  .wf-step-desc { display:block !important; font-size:12px; opacity:0.7; }
+
+  /* ── 5 Principles ── */
+  .fw-pipeline { flex-wrap:wrap !important; gap:10px !important; }
   .fw-pipeline::before { display:none; }
-  .fw-principle { flex:1 1 calc(50% - 6px); min-width:140px; }
-  .fw-p-node { margin-bottom:12px; }
-  .fw-grid { display:none; }
-  .fw-box { display:none; }
-  .how-wrap { flex-direction:column; }
-  .how-left { width:100%; }
-  .how-right { width:100%; padding-left:0; border-left:none; border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; margin-top:20px; }
-  .how-h { font-size:42px; }
-  .how-sub { font-size:18px; }
-  .fc-h { font-size:36px; }
-  .fc-sub { font-size:17px; }
-  .fw-dot-row { flex-wrap:wrap; }
-  .fw-intro { font-size:20px; text-align:center; }
-  .cta-h { font-size:22px; }
-  .cta-big { font-size:26px; }
-  .contact-h { font-size:52px; }
-  .contact-sub { font-size:16px; margin-bottom:32px; }
-  .contact-grid { flex-direction:column; align-items:center; }
-  .contact-card { min-width:0; width:100%; max-width:360px; }
-  .contact-text { font-size:15px; }
-  /* Doodles hidden on mobile (too small to matter) */
-  .doodle, .glow { display:none; }
+  .fw-principle { flex:1 1 calc(50% - 5px) !important; min-width:130px; }
+  .fw-p-node { width:36px; height:36px; margin-bottom:10px; }
+  .fw-p-name { font-size:13px; }
+  .fw-p-desc { font-size:11px; }
+
+  /* ── CTA ── */
+  .cta-h { font-size:20px; line-height:1.4; }
+  .cta-big { font-size:24px; }
+
+  /* ── Contact ── */
+  .contact-h { font-size:42px; }
+  .contact-sub { font-size:15px; margin-bottom:24px; }
+  .contact-grid { flex-direction:column !important; align-items:stretch !important; width:100% !important; max-width:100% !important; gap:12px !important; }
+  .contact-card { width:100% !important; max-width:100% !important; flex:none !important; }
+  .contact-text { font-size:14px; white-space:normal !important; overflow:visible !important; text-overflow:unset !important; }
 }
 
 /* ══ CHANGE 1: Animated counters ══ */
@@ -1808,84 +1799,35 @@ html, body {
      SLIDE 14 — Lab's Core Experiments (Services)
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="14">
-  <div class="glow" style="width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.1;"></div>
-  <div class="inner" style="align-items:center;justify-content:center;">
-    <div style="text-align:center;margin-bottom:28px;">
-      <div style="font-size:13px;font-weight:700;letter-spacing:3px;color:var(--cyan);text-transform:uppercase;margin-bottom:8px;">What We Do</div>
-      <div style="font-family:var(--font-display);font-size:44px;color:var(--white);line-height:1.1;">Lab's Core Experiments</div>
+  <div class="inner" style="justify-content:flex-start;padding-top:44px;padding-bottom:44px;">
+    <div class="label-block" style="margin-bottom:28px;">
+      <div class="label-bar"></div>
+      <div>
+        <div class="label-sup">What We Do</div>
+        <div class="label-title">Lab's Core Experiments</div>
+      </div>
     </div>
-    <!-- Equation row -->
-    <div style="display:flex;align-items:center;justify-content:center;gap:0;width:100%;flex-wrap:nowrap;">
-      <!-- Service 1 -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;min-width:0;">
-        <div style="width:90px;height:90px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(77,209,244,0.2);">
-          <img src="ICON/Artboard 11.png" style="width:58px;height:58px;object-fit:contain;">
-        </div>
-        <div style="text-align:center;">
-          <div style="font-size:15px;font-weight:800;color:var(--white);line-height:1.3;">Performance<br>Marketing</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:5px;line-height:1.4;">Meta · Google · Programmatic</div>
-        </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;">
+      <div style="display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:22px 24px;">
+        <div style="width:60px;height:60px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 11.png" style="width:40px;height:40px;object-fit:contain;"></div>
+        <div><div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:5px;">Performance Marketing</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Meta, Google & programmatic — built to scale profitably</div></div>
       </div>
-      <!-- Plus -->
-      <div style="font-size:36px;font-weight:200;color:var(--cyan);opacity:0.6;padding:0 8px;flex-shrink:0;">+</div>
-      <!-- Service 2 -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;min-width:0;">
-        <div style="width:90px;height:90px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(77,209,244,0.2);">
-          <img src="ICON/Artboard 10.png" style="width:58px;height:58px;object-fit:contain;">
-        </div>
-        <div style="text-align:center;">
-          <div style="font-size:15px;font-weight:800;color:var(--white);line-height:1.3;">SEO</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:5px;line-height:1.4;">Technical · Content · Authority</div>
-        </div>
+      <div style="display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:22px 24px;">
+        <div style="width:60px;height:60px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 10.png" style="width:40px;height:40px;object-fit:contain;"></div>
+        <div><div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:5px;">SEO</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Organic growth through technical and content strategy</div></div>
       </div>
-      <!-- Plus -->
-      <div style="font-size:36px;font-weight:200;color:var(--cyan);opacity:0.6;padding:0 8px;flex-shrink:0;">+</div>
-      <!-- Service 3 -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;min-width:0;">
-        <div style="width:90px;height:90px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(77,209,244,0.2);">
-          <img src="ICON/Artboard 2.png" style="width:58px;height:58px;object-fit:contain;">
-        </div>
-        <div style="text-align:center;">
-          <div style="font-size:15px;font-weight:800;color:var(--white);line-height:1.3;">Web<br>Development</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:5px;line-height:1.4;">D2C · Conversion · Speed</div>
-        </div>
+      <div style="display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:22px 24px;">
+        <div style="width:60px;height:60px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 2.png" style="width:40px;height:40px;object-fit:contain;"></div>
+        <div><div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:5px;">Web Development</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Conversion-optimised sites and storefronts built for D2C</div></div>
       </div>
-      <!-- Plus -->
-      <div style="font-size:36px;font-weight:200;color:var(--cyan);opacity:0.6;padding:0 8px;flex-shrink:0;">+</div>
-      <!-- Service 4 -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;min-width:0;">
-        <div style="width:90px;height:90px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(77,209,244,0.2);">
-          <img src="ICON/Artboard 6.png" style="width:58px;height:58px;object-fit:contain;">
-        </div>
-        <div style="text-align:center;">
-          <div style="font-size:15px;font-weight:800;color:var(--white);line-height:1.3;">Strategic<br>Consultancy</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:5px;line-height:1.4;">Positioning · GTM · Roadmaps</div>
-        </div>
+      <div style="display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:22px 24px;">
+        <div style="width:60px;height:60px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 6.png" style="width:40px;height:40px;object-fit:contain;"></div>
+        <div><div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:5px;">Strategic Consultancy</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Brand positioning, go-to-market and growth roadmaps</div></div>
       </div>
-      <!-- Plus -->
-      <div style="font-size:36px;font-weight:200;color:var(--cyan);opacity:0.6;padding:0 8px;flex-shrink:0;">+</div>
-      <!-- Service 5 -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;min-width:0;">
-        <div style="width:90px;height:90px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 24px rgba(77,209,244,0.2);">
-          <img src="ICON/Artboard 4.png" style="width:58px;height:58px;object-fit:contain;">
-        </div>
-        <div style="text-align:center;">
-          <div style="font-size:15px;font-weight:800;color:var(--white);line-height:1.3;">Strategic<br>Positioning</div>
-          <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-top:5px;line-height:1.4;">Brand · Market · Identity</div>
-        </div>
-      </div>
-      <!-- Equals -->
-      <div style="font-size:36px;font-weight:200;color:var(--cyan);opacity:0.6;padding:0 8px;flex-shrink:0;">=</div>
-      <!-- Result -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;min-width:0;">
-        <div style="width:110px;height:110px;background:var(--cyan);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(77,209,244,0.5);">
-          <img src="ICON/Artboard 1.png" style="width:70px;height:70px;object-fit:contain;filter:invert(1);">
-        </div>
-        <div style="text-align:center;">
-          <div style="font-family:var(--font-display);font-size:22px;color:var(--cyan);line-height:1.2;text-shadow:0 0 30px rgba(77,209,244,0.5);">GROWTH</div>
-          <div style="font-size:11px;color:rgba(77,209,244,0.55);margin-top:4px;letter-spacing:2px;">MEASURABLE · SCALABLE</div>
-        </div>
-      </div>
+    </div>
+    <div style="margin-top:16px;display:flex;align-items:center;gap:18px;background:rgba(77,209,244,0.08);border:1px solid rgba(77,209,244,0.3);border-left:4px solid var(--cyan);border-radius:14px;padding:22px 24px;width:100%;">
+      <div style="width:60px;height:60px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 4.png" style="width:40px;height:40px;object-fit:contain;"></div>
+      <div><div style="font-size:18px;font-weight:800;color:var(--cyan);margin-bottom:5px;">Strategic Positioning</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Defining how your brand wins in a competitive market — the foundation everything else is built on</div></div>
     </div>
   </div>
 </div>
