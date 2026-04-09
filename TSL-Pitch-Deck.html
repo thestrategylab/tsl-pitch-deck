@@ -1210,20 +1210,20 @@ html, body {
 
 /* ══ CHANGE 3: Animated charts ══ */
 .cs-visual-split { display:flex; gap:24px; flex:1; min-height:0; margin-top:16px; }
-.cs-chart-panel { flex:0 0 58%; min-width:0; }
-.cs-achieve-panel { flex:1; display:flex; flex-direction:column; gap:12px; justify-content:center; }
-.cs-chart-svg { width:100%; height:220px; }
+.cs-chart-panel { flex:0 0 58%; min-width:0; display:flex; flex-direction:column; }
+.cs-achieve-panel { flex:1; display:flex; flex-direction:column; gap:12px; justify-content:stretch; }
+.cs-chart-svg { width:100%; flex:1; min-height:0; }
 .chart-line { fill:none; stroke:var(--cyan); stroke-width:2.5; stroke-linecap:round; stroke-dasharray:600; stroke-dashoffset:600; transition:stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1); }
 .chart-area { fill:rgba(77,209,244,0.08); opacity:0; transition:opacity 1s ease 0.5s; }
 .slide.active .chart-line { stroke-dashoffset:0; }
 .slide.active .chart-area { opacity:1; }
-.cs-achieve-card { background:rgba(77,209,244,0.1); border-left:3px solid var(--cyan); border-radius:0 10px 10px 0; padding:14px 16px; }
-.cs-achieve-card .ach-num { font-size:26px; font-weight:800; color:var(--cyan); line-height:1; }
-.cs-achieve-card .ach-label { font-size:13px; color:rgba(255,255,255,0.7); margin-top:3px; }
+.cs-achieve-card { background:rgba(77,209,244,0.1); border-left:3px solid var(--cyan); border-radius:0 10px 10px 0; padding:18px 20px; flex:1; display:flex; flex-direction:column; justify-content:center; }
+.cs-achieve-card .ach-num { font-size:30px; font-weight:800; color:var(--cyan); line-height:1; }
+.cs-achieve-card .ach-label { font-size:14px; color:rgba(255,255,255,0.7); margin-top:6px; }
 .chart-axis-label { font-size:10px; fill:rgba(255,255,255,0.35); font-family:'Montserrat',sans-serif; }
 .chart-dot { fill:var(--cyan); }
 .chart-point-label { font-size:11px; fill:var(--cyan); font-weight:700; font-family:'Montserrat',sans-serif; }
-@media(max-width:768px){ .cs-visual-split { flex-direction:column; } .cs-chart-panel { flex:none; } }
+@media(max-width:768px){ .cs-visual-split { flex-direction:column; } .cs-chart-panel { flex:none; } .cs-chart-svg { height:200px; flex:none; } }
 
 /* ══ CHANGE 4: Venn diagram ══ */
 .venn-wrap { width:100%; max-width:860px; margin:0 auto; }
@@ -1843,68 +1843,65 @@ html, body {
      SLIDE 14 — Lab's Core Experiments (Services)
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="14">
-  <div class="inner" style="justify-content:flex-start;padding-top:44px;">
-    <div class="label-block" style="margin-bottom:20px;">
+  <div class="inner" style="justify-content:flex-start;padding-top:44px;padding-bottom:44px;">
+    <div class="label-block" style="margin-bottom:32px;">
       <div class="label-bar"></div>
       <div>
         <div class="label-sup">What We Do</div>
         <div class="label-title">Lab's Core Experiments</div>
       </div>
     </div>
-    <!-- Hub-and-spoke radial diagram -->
-    <div class="radial-wrap" id="radial-svc">
-      <!-- SVG spoke lines -->
-      <svg class="radial-spoke-canvas" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Centre = 50%,50% → node positions as % coords -->
-        <!-- Performance Marketing: 50%,2% -->
-        <line x1="50" y1="50" x2="50" y2="10" stroke="rgba(77,209,244,0.45)" stroke-width="0.5" stroke-dasharray="2,2"/>
-        <!-- SEO: 88%,22% -->
-        <line x1="50" y1="50" x2="88" y2="26" stroke="rgba(77,209,244,0.45)" stroke-width="0.5" stroke-dasharray="2,2"/>
-        <!-- Web Dev: 78%,80% -->
-        <line x1="50" y1="50" x2="78" y2="76" stroke="rgba(77,209,244,0.45)" stroke-width="0.5" stroke-dasharray="2,2"/>
-        <!-- Strategic Positioning: 22%,80% -->
-        <line x1="50" y1="50" x2="22" y2="76" stroke="rgba(77,209,244,0.45)" stroke-width="0.5" stroke-dasharray="2,2"/>
-        <!-- Strategic Consultancy: 12%,22% -->
-        <line x1="50" y1="50" x2="12" y2="26" stroke="rgba(77,209,244,0.45)" stroke-width="0.5" stroke-dasharray="2,2"/>
-      </svg>
-      <!-- Centre hub -->
-      <div class="radial-hub">
-        <img src="ICON/Artboard 1.png" alt="TSL">
-      </div>
-      <!-- Node: Performance Marketing (top centre) -->
-      <div class="radial-node" style="left:50%;top:2%;">
-        <div class="radial-node-circle">
-          <img src="ICON/Artboard 11.png" alt="Performance Marketing">
+    <!-- 2×2 + 1 centered service card grid -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;">
+      <!-- Performance Marketing -->
+      <div style="display:flex;align-items:center;gap:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:24px 28px;">
+        <div style="width:64px;height:64px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <img src="ICON/Artboard 11.png" style="width:44px;height:44px;object-fit:contain;">
         </div>
-        <div class="radial-node-label">Performance<br>Marketing</div>
-      </div>
-      <!-- Node: SEO (top right) -->
-      <div class="radial-node" style="left:88%;top:22%;">
-        <div class="radial-node-circle">
-          <img src="ICON/Artboard 10.png" alt="SEO">
+        <div>
+          <div style="font-size:20px;font-weight:800;color:var(--white);margin-bottom:6px;">Performance Marketing</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.5;">Meta, Google & programmatic — built to scale profitably</div>
         </div>
-        <div class="radial-node-label">SEO</div>
       </div>
-      <!-- Node: Web Dev (bottom right) -->
-      <div class="radial-node" style="left:78%;top:80%;">
-        <div class="radial-node-circle">
-          <img src="ICON/Artboard 2.png" alt="Web Dev">
+      <!-- SEO -->
+      <div style="display:flex;align-items:center;gap:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:24px 28px;">
+        <div style="width:64px;height:64px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <img src="ICON/Artboard 10.png" style="width:44px;height:44px;object-fit:contain;">
         </div>
-        <div class="radial-node-label">Web<br>Development</div>
+        <div>
+          <div style="font-size:20px;font-weight:800;color:var(--white);margin-bottom:6px;">SEO</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.5;">Organic growth through technical and content strategy</div>
+        </div>
       </div>
-      <!-- Node: Strategic Positioning (bottom left) -->
-      <div class="radial-node" style="left:22%;top:80%;">
-        <div class="radial-node-circle">
-          <img src="ICON/Artboard 4.png" alt="Strategic Positioning">
+      <!-- Web Development -->
+      <div style="display:flex;align-items:center;gap:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:24px 28px;">
+        <div style="width:64px;height:64px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <img src="ICON/Artboard 2.png" style="width:44px;height:44px;object-fit:contain;">
         </div>
-        <div class="radial-node-label">Strategic<br>Positioning</div>
+        <div>
+          <div style="font-size:20px;font-weight:800;color:var(--white);margin-bottom:6px;">Web Development</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.5;">Conversion-optimised sites and storefronts built for D2C</div>
+        </div>
       </div>
-      <!-- Node: Strategic Consultancy (top left) -->
-      <div class="radial-node" style="left:12%;top:22%;">
-        <div class="radial-node-circle">
-          <img src="ICON/Artboard 6.png" alt="Strategic Consultancy">
+      <!-- Strategic Consultancy -->
+      <div style="display:flex;align-items:center;gap:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:24px 28px;">
+        <div style="width:64px;height:64px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <img src="ICON/Artboard 6.png" style="width:44px;height:44px;object-fit:contain;">
         </div>
-        <div class="radial-node-label">Strategic<br>Consultancy</div>
+        <div>
+          <div style="font-size:20px;font-weight:800;color:var(--white);margin-bottom:6px;">Strategic Consultancy</div>
+          <div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.5;">Brand positioning, go-to-market planning and growth roadmaps</div>
+        </div>
+      </div>
+    </div>
+    <!-- 5th card: Strategic Positioning — centred below -->
+    <div style="margin-top:20px;display:flex;align-items:center;gap:20px;background:rgba(77,209,244,0.08);border:1px solid rgba(77,209,244,0.3);border-left:4px solid var(--cyan);border-radius:14px;padding:24px 28px;max-width:600px;align-self:center;width:100%;">
+      <div style="width:64px;height:64px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <img src="ICON/Artboard 4.png" style="width:44px;height:44px;object-fit:contain;">
+      </div>
+      <div>
+        <div style="font-size:20px;font-weight:800;color:var(--cyan);margin-bottom:6px;">Strategic Positioning</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.5;">Defining how your brand wins in a competitive market</div>
       </div>
     </div>
   </div>
