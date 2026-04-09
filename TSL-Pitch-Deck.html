@@ -1265,12 +1265,35 @@ html, body {
 <!-- ════════════════════════════════════════════════════════════
      SLIDE 1 — Proceed With Caution
      ════════════════════════════════════════════════════════════ -->
-<div class="slide active" data-slide="1" style="background:radial-gradient(ellipse at 80% 50%, rgba(77,209,244,0.07) 0%, #1E1612 60%), radial-gradient(ellipse at 20% 80%, rgba(84,69,62,0.35) 0%, transparent 50%);">
+<div class="slide active" data-slide="1" style="background:radial-gradient(ellipse at 75% 50%, rgba(77,209,244,0.12) 0%, #1E1612 55%), radial-gradient(ellipse at 20% 80%, rgba(84,69,62,0.4) 0%, transparent 50%);">
   <div class="s1-danger-stripe"></div>
   <div class="s1-danger-stripe-bottom"></div>
-  <!-- Background atom icon watermark -->
-  <div style="position:absolute;right:80px;top:50%;transform:translateY(-50%);opacity:0.04;pointer-events:none;">
-    <img src="ICON/Artboard 1.png" alt="" style="width:420px;height:420px;object-fit:contain;filter:invert(1);">
+  <!-- Right side: large glowing atom + decorative grid lines -->
+  <div style="position:absolute;right:0;top:0;bottom:0;width:50%;pointer-events:none;overflow:hidden;">
+    <!-- Grid lines -->
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.04;" viewBox="0 0 400 300" preserveAspectRatio="none">
+      <line x1="0" y1="50" x2="400" y2="50" stroke="#4DD1F4" stroke-width="0.5"/>
+      <line x1="0" y1="100" x2="400" y2="100" stroke="#4DD1F4" stroke-width="0.5"/>
+      <line x1="0" y1="150" x2="400" y2="150" stroke="#4DD1F4" stroke-width="0.5"/>
+      <line x1="0" y1="200" x2="400" y2="200" stroke="#4DD1F4" stroke-width="0.5"/>
+      <line x1="0" y1="250" x2="400" y2="250" stroke="#4DD1F4" stroke-width="0.5"/>
+      <line x1="80" y1="0" x2="80" y2="300" stroke="#4DD1F4" stroke-width="0.5"/>
+      <line x1="160" y1="0" x2="160" y2="300" stroke="#4DD1F4" stroke-width="0.5"/>
+      <line x1="240" y1="0" x2="240" y2="300" stroke="#4DD1F4" stroke-width="0.5"/>
+      <line x1="320" y1="0" x2="320" y2="300" stroke="#4DD1F4" stroke-width="0.5"/>
+    </svg>
+    <!-- Cyan glow blob -->
+    <div style="position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:500px;height:500px;border-radius:50%;background:radial-gradient(circle, rgba(77,209,244,0.18) 0%, transparent 65%);"></div>
+    <!-- Atom icon -->
+    <img src="ICON/Artboard 1.png" alt="" style="position:absolute;right:40px;top:50%;transform:translateY(-50%);width:380px;height:380px;object-fit:contain;opacity:0.18;filter:invert(77%) sepia(60%) saturate(400%) hue-rotate(160deg);">
+    <!-- Data points decorative -->
+    <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:0.25;" viewBox="0 0 400 300">
+      <circle cx="80" cy="200" r="4" fill="#4DD1F4"/>
+      <circle cx="160" cy="150" r="4" fill="#4DD1F4"/>
+      <circle cx="240" cy="90" r="4" fill="#4DD1F4"/>
+      <circle cx="320" cy="50" r="6" fill="#4DD1F4"/>
+      <polyline points="80,200 160,150 240,90 320,50" fill="none" stroke="#4DD1F4" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+    </svg>
   </div>
   <div class="inner" style="align-items:flex-start;justify-content:center;">
     <div class="s1-layout">
@@ -1373,10 +1396,10 @@ html, body {
   <svg class="doodle" style="top:48px;left:72px;width:100px;" viewBox="0 0 100 25"><text x="0" y="20" font-family="'Montserrat',sans-serif" font-size="17" fill="var(--cyan)" font-style="italic">y = mx + b</text></svg>
   <svg class="doodle" style="bottom:56px;right:80px;width:55px;opacity:0.1;" viewBox="0 0 55 55" fill="none" stroke="var(--cyan)" stroke-width="1"><circle cx="27" cy="27" r="22"/><ellipse cx="27" cy="27" rx="10" ry="22"/><line x1="5" y1="27" x2="49" y2="27"/></svg>
   <svg class="doodle" style="top:60px;right:80px;width:70px;opacity:0.09;" viewBox="0 0 70 25"><text x="0" y="20" font-family="'Montserrat',sans-serif" font-size="18" fill="var(--cyan)" font-style="italic">E = mc²</text></svg>
-  <div class="inner" style="align-items:center;justify-content:center;">
-    <div class="formula-label">The Strategy Lab Formula</div>
-    <div class="venn-wrap">
-      <svg class="venn-svg" viewBox="0 0 860 380" xmlns="http://www.w3.org/2000/svg">
+  <div class="inner" style="align-items:center;justify-content:center;padding-top:40px;padding-bottom:40px;">
+    <div class="formula-label" style="margin-bottom:16px;">The Strategy Lab Formula</div>
+    <div class="venn-wrap" style="max-width:960px;">
+      <svg class="venn-svg" viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg">
         <!-- Three overlapping circles -->
         <circle cx="310" cy="170" r="148" fill="rgba(84,69,62,0.55)" stroke="rgba(77,209,244,0.6)" stroke-width="1.5"/>
         <circle cx="550" cy="170" r="148" fill="rgba(84,69,62,0.55)" stroke="rgba(77,209,244,0.6)" stroke-width="1.5"/>
@@ -1965,7 +1988,7 @@ html, body {
         </div>
       </div>
       <div class="fw-principle fw-result">
-        <div class="fw-p-node"><span class="fw-p-node-num" style="font-size:7px;text-transform:uppercase;font-weight:900;line-height:1.3;letter-spacing:0.3px;">COM-<br>POUND</span></div>
+        <div class="fw-p-node"><span class="fw-p-node-num" style="font-size:8px;letter-spacing:0;">✦</span></div>
         <div class="fw-p-body">
           <div class="fw-p-name">Compound Growth</div>
           <div class="fw-p-desc">The only outcome when all five fire</div>
