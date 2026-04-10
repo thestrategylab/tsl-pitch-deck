@@ -104,6 +104,44 @@ html, body {
 }
 .nav button:hover { background:var(--cyan); border-color:var(--cyan); color:var(--brown-deep); }
 .nav-counter { color:var(--cyan); font-size:12px; font-weight:700; min-width:52px; text-align:center; }
+.nav-print { background:rgba(77,209,244,0.12) !important; border-color:rgba(77,209,244,0.4) !important; color:var(--cyan) !important; }
+.nav-print:hover { background:var(--cyan) !important; color:var(--brown-deep) !important; }
+
+/* ── Print / PDF export ────────────────────────────────────── */
+@media print {
+  @page { size:1440px 810px; margin:0; }
+  html, body { width:1440px; height:auto; overflow:visible; background:#000; }
+  .nav, .progress { display:none !important; }
+  .deck {
+    position:static !important;
+    width:1440px !important;
+    height:auto !important;
+    transform:none !important;
+    overflow:visible !important;
+  }
+  .slide {
+    position:relative !important;
+    opacity:1 !important;
+    pointer-events:none !important;
+    width:1440px !important;
+    height:810px !important;
+    display:flex !important;
+    overflow:hidden !important;
+    page-break-after:always;
+    break-after:page;
+  }
+  .slide:last-child { page-break-after:avoid; break-after:avoid; }
+  .inner {
+    width:100% !important;
+    height:100% !important;
+    max-width:1440px !important;
+    max-height:810px !important;
+    padding:60px 88px !important;
+    position:relative !important;
+  }
+  /* Ensure backgrounds print */
+  * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+}
 
 /* ── Reusable: Section Label ──────────────────────────────── */
 .label-block {
@@ -2023,6 +2061,7 @@ html, body {
   <span class="nav-counter" id="ctr">1 / 19</span>
   <button onclick="next()" title="Next (→)">Next ▶</button>
   <button onclick="go(total)" title="Last">⏭</button>
+  <button class="nav-print" onclick="window.print()" title="Export PDF">⬇ PDF</button>
 </div>
 
 <script>
