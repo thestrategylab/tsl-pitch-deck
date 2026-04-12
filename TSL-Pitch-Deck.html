@@ -1186,8 +1186,11 @@ html, body {
   .twall-card { border-left:4px solid var(--cyan); border-top:none; border-radius:0 14px 14px 0; }
   .twall-text { font-size:14px; line-height:1.7; }
 
-  /* ── Services grid: single column on mobile ── */
-  [data-slide="14"] [style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+  /* ── Services slide: stack on mobile ── */
+  [data-slide="14"] .inner > div { flex-direction:column !important; }
+  [data-slide="14"] [style*="width:380px"] { width:100% !important; }
+  [data-slide="14"] [style*="width:380px"] .label-title { font-size:1.6rem !important; }
+  [data-slide="14"] [style*="font-size:36px;color:rgba(77,209,244,0.2)"] { display:none !important; }
 
   /* ── Methodology: vertical stack ── */
   .workflow { flex-direction:column !important; overflow:visible !important; gap:12px !important; padding-bottom:0; }
@@ -1244,7 +1247,7 @@ html, body {
 .cs-visual-split { display:flex; gap:24px; flex:1; min-height:0; margin-top:16px; }
 .cs-chart-panel { flex:0 0 58%; min-width:0; display:flex; flex-direction:column; }
 .cs-achieve-panel { flex:1; display:flex; flex-direction:column; gap:12px; justify-content:stretch; }
-.cs-chart-svg { width:100%; height:200px; flex:none; }
+.cs-chart-svg { width:100%; flex:1; min-height:0; height:0; }
 .chart-line { fill:none; stroke:var(--cyan); stroke-width:2.5; stroke-linecap:round; stroke-dasharray:600; stroke-dashoffset:600; transition:stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1); }
 .chart-area { fill:rgba(77,209,244,0.08); opacity:0; transition:opacity 1s ease 0.5s; }
 .slide.active .chart-line { stroke-dashoffset:0; }
@@ -1860,36 +1863,74 @@ html, body {
      SLIDE 14 — Lab's Core Experiments (Services)
      ════════════════════════════════════════════════════════════ -->
 <div class="slide bg-gradient" data-slide="14">
-  <div class="inner" style="justify-content:flex-start;padding-top:44px;padding-bottom:44px;">
-    <div class="label-block" style="margin-bottom:24px;">
-      <div class="label-bar"></div>
-      <div>
-        <div class="label-sup">What We Do</div>
-        <div class="label-title">Lab's Core Experiments</div>
+  <div class="inner" style="justify-content:flex-start;padding-top:48px;padding-bottom:48px;">
+    <!-- Two-column layout: left = heading + featured card, right = 4 service rows -->
+    <div style="display:flex;gap:40px;width:100%;flex:1;min-height:0;">
+      <!-- LEFT: heading + Strategic Positioning featured -->
+      <div style="display:flex;flex-direction:column;width:380px;flex-shrink:0;">
+        <div class="label-block" style="margin-bottom:32px;">
+          <div class="label-bar"></div>
+          <div>
+            <div class="label-sup">What We Do</div>
+            <div class="label-title">Lab's Core<br>Experiments</div>
+          </div>
+        </div>
+        <!-- Featured Strategic Positioning card -->
+        <div style="flex:1;background:linear-gradient(135deg,rgba(77,209,244,0.15) 0%,rgba(77,209,244,0.05) 100%);border:1px solid rgba(77,209,244,0.4);border-radius:20px;padding:32px 28px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(77,209,244,0.12) 0%,transparent 70%);"></div>
+          <div>
+            <div style="width:52px;height:52px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;"><img src="ICON/Artboard 4.png" style="width:34px;height:34px;object-fit:contain;"></div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:3px;color:var(--cyan);text-transform:uppercase;margin-bottom:10px;">Foundation Service</div>
+            <div style="font-size:26px;font-weight:800;color:var(--white);line-height:1.2;margin-bottom:14px;">Strategic<br>Positioning</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.6);line-height:1.7;">Defining exactly how your brand wins in a competitive market — the foundation everything else is built on.</div>
+          </div>
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(77,209,244,0.2);">
+            <div style="font-size:12px;color:rgba(77,209,244,0.7);font-weight:600;letter-spacing:1px;">BRAND · GTM · GROWTH ROADMAP</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div style="flex:1;display:flex;flex-direction:column;gap:14px;width:100%;min-height:0;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1;min-height:0;">
-        <div style="display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:22px 24px;">
-          <div style="width:60px;height:60px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 11.png" style="width:40px;height:40px;object-fit:contain;"></div>
-          <div><div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:5px;">Performance Marketing</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Meta, Google & programmatic — built to scale profitably</div></div>
+      <!-- RIGHT: 4 services as numbered rows -->
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:0;">
+        <!-- Service row 1 -->
+        <div style="display:flex;align-items:center;gap:24px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,0.07);">
+          <div style="font-family:var(--font-display);font-size:36px;color:rgba(77,209,244,0.2);line-height:1;width:40px;flex-shrink:0;text-align:right;">01</div>
+          <div style="width:48px;height:48px;background:rgba(255,255,255,0.9);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 11.png" style="width:30px;height:30px;object-fit:contain;"></div>
+          <div style="flex:1;">
+            <div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:4px;">Performance Marketing</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.5;">Meta, Google &amp; programmatic — built to scale profitably</div>
+          </div>
+          <div style="font-size:11px;color:rgba(77,209,244,0.5);font-weight:600;letter-spacing:1px;flex-shrink:0;">PAID MEDIA</div>
         </div>
-        <div style="display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:22px 24px;">
-          <div style="width:60px;height:60px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 10.png" style="width:40px;height:40px;object-fit:contain;"></div>
-          <div><div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:5px;">SEO</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Organic growth through technical and content strategy</div></div>
+        <!-- Service row 2 -->
+        <div style="display:flex;align-items:center;gap:24px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,0.07);">
+          <div style="font-family:var(--font-display);font-size:36px;color:rgba(77,209,244,0.2);line-height:1;width:40px;flex-shrink:0;text-align:right;">02</div>
+          <div style="width:48px;height:48px;background:rgba(255,255,255,0.9);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 10.png" style="width:30px;height:30px;object-fit:contain;"></div>
+          <div style="flex:1;">
+            <div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:4px;">SEO</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.5;">Organic growth through technical and content strategy</div>
+          </div>
+          <div style="font-size:11px;color:rgba(77,209,244,0.5);font-weight:600;letter-spacing:1px;flex-shrink:0;">ORGANIC</div>
         </div>
-        <div style="display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:22px 24px;">
-          <div style="width:60px;height:60px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 2.png" style="width:40px;height:40px;object-fit:contain;"></div>
-          <div><div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:5px;">Web Development</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Conversion-optimised sites and storefronts built for D2C</div></div>
+        <!-- Service row 3 -->
+        <div style="display:flex;align-items:center;gap:24px;padding:22px 0;border-bottom:1px solid rgba(255,255,255,0.07);">
+          <div style="font-family:var(--font-display);font-size:36px;color:rgba(77,209,244,0.2);line-height:1;width:40px;flex-shrink:0;text-align:right;">03</div>
+          <div style="width:48px;height:48px;background:rgba(255,255,255,0.9);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 2.png" style="width:30px;height:30px;object-fit:contain;"></div>
+          <div style="flex:1;">
+            <div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:4px;">Web Development</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.5;">Conversion-optimised sites and storefronts built for D2C</div>
+          </div>
+          <div style="font-size:11px;color:rgba(77,209,244,0.5);font-weight:600;letter-spacing:1px;flex-shrink:0;">WEB &amp; CRO</div>
         </div>
-        <div style="display:flex;align-items:center;gap:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-left:4px solid var(--cyan);border-radius:14px;padding:22px 24px;">
-          <div style="width:60px;height:60px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 6.png" style="width:40px;height:40px;object-fit:contain;"></div>
-          <div><div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:5px;">Strategic Consultancy</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Brand positioning, go-to-market and growth roadmaps</div></div>
+        <!-- Service row 4 -->
+        <div style="display:flex;align-items:center;gap:24px;padding:22px 0;">
+          <div style="font-family:var(--font-display);font-size:36px;color:rgba(77,209,244,0.2);line-height:1;width:40px;flex-shrink:0;text-align:right;">04</div>
+          <div style="width:48px;height:48px;background:rgba(255,255,255,0.9);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 6.png" style="width:30px;height:30px;object-fit:contain;"></div>
+          <div style="flex:1;">
+            <div style="font-size:18px;font-weight:800;color:var(--white);margin-bottom:4px;">Strategic Consultancy</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.45);line-height:1.5;">Brand positioning, go-to-market and growth roadmaps</div>
+          </div>
+          <div style="font-size:11px;color:rgba(77,209,244,0.5);font-weight:600;letter-spacing:1px;flex-shrink:0;">STRATEGY</div>
         </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:18px;background:rgba(77,209,244,0.08);border:1px solid rgba(77,209,244,0.3);border-left:4px solid var(--cyan);border-radius:14px;padding:22px 24px;width:100%;">
-        <div style="width:60px;height:60px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><img src="ICON/Artboard 4.png" style="width:40px;height:40px;object-fit:contain;"></div>
-        <div><div style="font-size:18px;font-weight:800;color:var(--cyan);margin-bottom:5px;">Strategic Positioning</div><div style="font-size:13px;color:rgba(255,255,255,0.5);line-height:1.5;">Defining how your brand wins in a competitive market — the foundation everything else is built on</div></div>
       </div>
     </div>
   </div>
