@@ -1420,32 +1420,50 @@ html, body {
   <div class="glow" style="width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.18;"></div>
   <svg class="doodle" style="top:48px;left:72px;width:100px;" viewBox="0 0 100 25"><text x="0" y="20" font-family="'Montserrat',sans-serif" font-size="17" fill="var(--cyan)" font-style="italic">y = mx + b</text></svg>
   <div class="inner" style="align-items:center;justify-content:center;padding-top:24px;padding-bottom:24px;">
-    <div class="formula-label" style="margin-bottom:12px;">The Strategy Lab Formula</div>
-    <div class="venn-wrap" style="max-width:900px;width:100%;">
-      <svg class="venn-svg" viewBox="0 0 860 460" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
-        <defs>
-          <filter id="glow-filter" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="4" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-        <!-- Three overlapping circles — shifted down so bottom circle fits -->
-        <circle cx="310" cy="185" r="155" fill="rgba(84,69,62,0.5)" stroke="rgba(77,209,244,0.65)" stroke-width="1.5"/>
-        <circle cx="550" cy="185" r="155" fill="rgba(84,69,62,0.5)" stroke="rgba(77,209,244,0.65)" stroke-width="1.5"/>
-        <circle cx="430" cy="310" r="155" fill="rgba(84,69,62,0.5)" stroke="rgba(77,209,244,0.65)" stroke-width="1.5"/>
-        <!-- Centre glow -->
-        <ellipse cx="430" cy="220" rx="85" ry="52" fill="rgba(77,209,244,0.08)" stroke="none"/>
-        <!-- GROWTH -->
-        <text x="430" y="232" text-anchor="middle" font-family="'Lilita One',cursive" font-size="32" fill="#4DD1F4" filter="url(#glow-filter)" letter-spacing="3">GROWTH</text>
-        <text x="430" y="252" text-anchor="middle" font-family="'Montserrat',sans-serif" font-size="10" fill="rgba(77,209,244,0.55)" letter-spacing="2">MEASURABLE · SCALABLE</text>
-        <!-- Labels -->
-        <text class="venn-circle-label" x="195" y="130" text-anchor="middle">Strategy</text>
-        <text class="venn-circle-desc" x="195" y="152" text-anchor="middle">Tested positioning</text>
-        <text class="venn-circle-label" x="665" y="130" text-anchor="middle">Innovation</text>
-        <text class="venn-circle-desc" x="665" y="152" text-anchor="middle">Creative that learns</text>
-        <text class="venn-circle-label" x="430" y="440" text-anchor="middle">Data</text>
-        <text class="venn-circle-desc" x="430" y="418" text-anchor="middle">Numbers that matter</text>
-      </svg>
+    <div class="formula-label">The Strategy Lab Formula</div>
+    <div class="formula-row">
+      <div class="formula-box">
+        <div class="fb-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="52" rx="10" fill="rgba(77,209,244,0.1)"/>
+            <path d="M14 26 L26 14 L38 26 L26 38 Z" stroke="#4DD1F4" stroke-width="2" fill="none"/>
+            <circle cx="26" cy="26" r="4" fill="#4DD1F4"/>
+          </svg>
+        </div>
+        <div class="fb-term">Strategy</div>
+        <div class="fb-desc">Tested positioning &amp; brand thinking that creates real competitive edge</div>
+      </div>
+      <div class="formula-plus">+</div>
+      <div class="formula-box">
+        <div class="fb-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="52" rx="10" fill="rgba(77,209,244,0.1)"/>
+            <polyline points="12,36 22,24 30,30 40,16" stroke="#4DD1F4" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="40" cy="16" r="3" fill="#4DD1F4"/>
+          </svg>
+        </div>
+        <div class="fb-term">Data</div>
+        <div class="fb-desc">Numbers that matter — every decision backed by performance signals</div>
+      </div>
+      <div class="formula-plus">+</div>
+      <div class="formula-box">
+        <div class="fb-icon">
+          <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="52" height="52" rx="10" fill="rgba(77,209,244,0.1)"/>
+            <circle cx="26" cy="22" r="8" stroke="#4DD1F4" stroke-width="2"/>
+            <line x1="26" y1="30" x2="26" y2="38" stroke="#4DD1F4" stroke-width="2"/>
+            <line x1="20" y1="38" x2="32" y2="38" stroke="#4DD1F4" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="fb-term">Innovation</div>
+        <div class="fb-desc">Creative that learns — campaigns that evolve with what works</div>
+      </div>
+    </div>
+    <div class="formula-result-row">
+      <div class="formula-eq-sign">= </div><span class="formula-result">GROWTH</span>
+      <div class="formula-result-sub">
+        <span>Measurable · Scalable · Sustained</span>
+      </div>
     </div>
   </div>
 </div>
