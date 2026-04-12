@@ -141,6 +141,9 @@ html, body {
   }
   /* Ensure backgrounds print */
   * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  /* Force chart animations to final state */
+  .chart-line { stroke-dashoffset:0 !important; }
+  .chart-area { opacity:1 !important; }
 }
 
 /* ── Reusable: Section Label ──────────────────────────────── */
